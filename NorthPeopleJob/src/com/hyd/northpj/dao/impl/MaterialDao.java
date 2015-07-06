@@ -28,16 +28,14 @@ public class MaterialDao implements MaterialDaoInterface {
 	@Override
 	public int addNewMaterial(Material materialInfo) throws Exception {
 		// TODO Auto-generated method stub
-		myQuery = mySession.createQuery("from Material where questionId="
-				+ materialInfo.getSn() + " and username="
-				+ materialInfo.getName());
+		myQuery = mySession.createQuery("from Material as p where p.name=?");
+		myQuery.setString(0, materialInfo.getName());
 		@SuppressWarnings("unchecked")
 		List<Material> list = myQuery.list();
 		for (Material Answer : list) {
 			mySession.delete(Answer);
 		}
 
-		// TODO Auto-generated method stub
 		mySession.save(materialInfo);
 		tx.commit();
 		mySession.close();

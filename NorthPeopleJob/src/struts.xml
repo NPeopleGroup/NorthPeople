@@ -6,6 +6,7 @@
 <struts>
 	<include file="struts_adminuser.xml"></include>
 	<include file="struts_user.xml"></include>
+	<include file="struts_material.xml"></include>
 	<package name="actions" extends="struts-default,json-default" namespace="/">
 		<action name="RegisterAction" class="com.hyd.northpj.action.RegisterAction">
 			<result name="success">home.jsp

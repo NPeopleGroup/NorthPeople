@@ -168,7 +168,7 @@ public class ValidateUtil {
 			throws SecurityException, ClassNotFoundException,
 			IllegalArgumentException, IllegalAccessException {
 
-		Field[] fds = Class.forName("com.hyd.northpj.entity.User")
+		Field[] fds = Class.forName("com.hyd.northpj.entity.Material")
 				.getDeclaredFields();
 
 		for (int i = 0; i < fds.length; i++) {

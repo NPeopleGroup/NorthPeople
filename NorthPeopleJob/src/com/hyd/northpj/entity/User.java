@@ -1,6 +1,5 @@
 package com.hyd.northpj.entity;
 
-import java.lang.reflect.Field;
 
 public class User {
 

@@ -6,32 +6,16 @@ package com.hyd.northpj.entity;
  * TMaterial entity. @author MyEclipse Persistence Tools
  */
 
-public class Material  implements java.io.Serializable {
+public class Material {
 
 
     // Fields    
 
-     private Integer sn;
+     private int sn;
      private String name;
      private String image;
      private String description;
 
-
-    // Constructors
-
-    /** default constructor */
-    public Material() {
-    }
-
-    
-    /** full constructor */
-    public Material(String name, String image, String description) {
-        this.name = name;
-        this.image = image;
-        this.description = description;
-    }
-
-   
     // Property accessors
 
     public Integer getSn() {
@@ -65,13 +49,11 @@ public class Material  implements java.io.Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
-   
 
 
-
-
-
-
-
-
+	@Override
+	public String toString() {
+		return "Material [sn=" + sn + ", name=" + name + ", image=" + image
+				+ ", description=" + description + "]";
+	}
 }

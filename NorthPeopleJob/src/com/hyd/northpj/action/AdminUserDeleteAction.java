@@ -1,6 +1,5 @@
 package com.hyd.northpj.action;
 
-import com.hyd.northpj.entity.AdminUser;
 import com.hyd.northpj.service.impl.AdminUserService;
 import com.hyd.northpj.util.CommonUtil;
 import com.opensymphony.xwork2.ActionSupport;
