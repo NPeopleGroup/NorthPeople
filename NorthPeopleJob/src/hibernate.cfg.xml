@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+          "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+          "classpath://org/hibernate/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="connection.username">root</property>
+		<property name="connection.url">
+			jdbc:mysql://localhost/northpeoplejob?characterEncoding=UTF8
+		</property>
+		<property name="dialect">
+			org.hibernate.dialect.MySQLDialect
+		</property>
+		<property name="show_sql">true</property>
+		<property name="connection.password">hadoop</property>
+		<property name="connection.driver_class">
+			com.mysql.jdbc.Driver
+		</property>
+		 <mapping resource="com\hyd\northpj\entity\User.hbm.xml" />
+		 <mapping resource="com\hyd\northpj\entity\Question.hbm.xml" />
+		 <mapping resource="com\hyd\northpj\entity\AdminUser.hbm.xml" />
+		 <mapping resource="com\hyd\northpj\entity\Answer.hbm.xml" />
+		 <mapping resource="com\hyd\northpj\entity\Material.hbm.xml" />
+		
+	</session-factory>
+ 
+</hibernate-configuration>

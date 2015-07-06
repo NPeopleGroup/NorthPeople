@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<include file="struts_adminuser.xml"></include>
+	<include file="struts_user.xml"></include>
+	<package name="actions" extends="struts-default,json-default" namespace="/">
+		<action name="RegisterAction" class="com.hyd.northpj.action.RegisterAction">
+			<result name="success">home.jsp
+			</result>
+			<result name="input">home.jsp
+			</result>
+		</action>
+		<action name="LoginAction" class="com.hyd.northpj.action.LoginAction">
+			<result name="success">home.jsp
+			</result>
+			<result name="input">home.jsp
+			</result>
+		</action>
+		<!-- 此处需要修改 -->
+		<action name="AdminLoginAction" class="com.hyd.northpj.action.AdminLoginAction">
+			<result name="success">/WEB-INF/admin/admin_index.jsp
+			</result>
+			<result name="input">/WEB-INF/admin/admin_login.jsp
+			</result>
+		</action>
+		<action name="adminManager">
+			<result name="success">/WEB-INF/admin/admin_index.jsp</result>
+		</action>
+		<!-- <action name="admin_view_*"> <result name="success">/WEB-INF/admin/admin_view_{1}.jsp</result> 
+			</action> -->
+		<action name="admin">
+			<result name="success">/WEB-INF/admin/admin_login.jsp</result>
+		</action>
+		<action name="viewQuestions" class="com.hyd.northpj.action.ViewQuestionListAction">
+			<result name="success">/WEB-INF/admin/view_question_list.jsp</result>
+		</action>
+		<action name="admin_view_users" class="com.hyd.northpj.action.ViewUserListAction">
+			<result name="success">/WEB-INF/admin/admin_view_users.jsp</result>
+		</action>
+
+		<!-- 问题编辑页面的一系列Action -->
+		<action name="adminQuestionListPage">
+			<result name="success">/WEB-INF/admin/admin_question_list.jsp</result>
+		</action>
+		<action name="adminQuestionListAction" class="com.hyd.northpj.action.AdminQuestionListAction">
+			<result type="json">
+			</result>
+		</action>
+		<action name="adminQuestionAddPage"
+			class="com.hyd.northpj.action.AdminQuestionAddPageAction">
+			<result name="success">/WEB-INF/admin/admin_question_add.jsp</result>
+		</action>
+		<action name="adminQuestionAddAction" class="com.hyd.northpj.action.AdminQuestionAddAction">
+			<result name="success" type="redirect">adminQuestionListPage</result>
+		</action>
+		<action name="adminQuestionEditPage"
+			class="com.hyd.northpj.action.AdminQuestionEditPageAction">
+			<result name="success">/WEB-INF/admin/admin_question_edit.jsp</result>
+		</action>
+		<action name="adminQuestionEditAction" class="com.hyd.northpj.action.AdminQuestionEditAction">
+			<result name="success" type="redirect">adminQuestionListPage</result>
+		</action>
+		<action name="adminQuestionDeleteAction" class="com.hyd.northpj.action.AdminQuestionDeleteAction">
+			<result name="success" type="redirect">adminQuestionListPage</result>
+		</action>
+
+		<!-- 答题页面的一系列Action -->
+		<action name="answerQuestionPage" class="com.hyd.northpj.action.AnswerQuestionPageAction">
+			<result name="success">answerQuestionPage.jsp?id=001</result>
+		</action>
+		<action name="answerQuestionPageSubmit"
+			class="com.hyd.northpj.action.AnswerQuestionPageSubmitAction">
+			<result name="success" type="redirect">answerQuestionPage?id=${nextId}
+			</result>
+			<result name="end" type="redirect">checkScorePage
+			</result>
+			<result name="overtime" type="redirect">/
+			</result>
+		</action>
+		<action name="checkScorePage" class="com.hyd.northpj.action.CheckScorePageAction">
+			<result name="success">checkScorePage.jsp</result>
+			<result name="overtime" type="redirect">/
+			</result>
+		</action>
+		<action name="checkFilePage" class="com.hyd.northpj.action.CheckFilePageAction">
+			<result name="success">checkFilePage.jsp</result>
+			<result name="overtime" type="redirect">/
+			</result>
+		</action>
+		<action name="checkStatusPage" class="com.hyd.northpj.action.CheckStatusPageAction">
+			<result name="success">checkStatusPage.jsp</result>
+			<result name="overtime" type="redirect">/
+			</result>
+		</action>
+
+		<action name="userInfoUpdate" class="com.hyd.northpj.action.EditUserAction" method="userInfoUpdate">
+			<!-- <interceptor-ref name="defaultStack">
+				<param name="modelDriven.refreshModelBeforeResult">true</param>
+			</interceptor-ref> -->
+			<result name="success">/WEB-INF/admin/admin_edit_users.jsp</result>
+		</action>
+			<action name="userInfoView" class="com.hyd.northpj.action.EditUserAction" method="userInfoView">
+			<!-- <interceptor-ref name="defaultStack">.nor
+				<param name="modelDriven.refreshModelBeforeResult">true</param>
+			</interceptor-ref> -->
+			<result name="success">/userInfoUpdate.jsp</result>
+		</action>
+	</package>
+</struts>
