@@ -10,7 +10,7 @@
 		<!--所有material用户的显示 -->
 		<action name="materialList">
 			<result name="success">
-				/WEB-INF/admin/material_list.jsp
+				/WEB-INF/admin/admin_material_list.jsp
 			</result>
 		</action>
 		<action name="allMaterialList" class="com.hyd.northpj.action.MaterialListAction">
@@ -24,6 +24,9 @@
 			</result>
 		</action>
 		<action name="addMaterial" class="com.hyd.northpj.action.MaterialAddAction">
+			<result name="success">
+				/result.jsp
+			</result>	
 					</action>
 		<action name="materialDelete" class="com.hyd.northpj.action.MaterialDeleteAction">
 		</action>

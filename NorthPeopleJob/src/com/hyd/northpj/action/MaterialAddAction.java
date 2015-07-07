@@ -22,6 +22,8 @@ public class MaterialAddAction extends ActionSupport{
 	private String imageContentType;
 	private String imageFileName;
 	private File image;
+	private String result;
+	private String url;
 	
 	@Override
 	public String execute() throws Exception {
@@ -46,17 +48,19 @@ public class MaterialAddAction extends ActionSupport{
 			myMaterial.setName(name);
 			myMaterial.setDescription(description);
 			myMaterial.setImage(newFileName);
-			System.out.println(myMaterial.toString());
 			if (0 == materialService.addMaterial(myMaterial)) {
 
-				return SUCCESS;
+				result="增加材料成功,2s以后将会跳转到材料列表页面！";
+				url="allMaterialList";
 
 			}
 		} catch (Exception e) {
+			result="增加材料失败,2s以后将会跳转到新增材料页面！";
+			url="materialAdd";
 			e.printStackTrace();
 		}
 
-		return INPUT;
+		return SUCCESS;
 	}
 
 	public String getName() {
@@ -98,6 +102,22 @@ public class MaterialAddAction extends ActionSupport{
 
 	public void setImageContentType(String imageContentType) {
 		this.imageContentType = imageContentType;
+	}
+
+	public String getResult() {
+		return result;
+	}
+
+	public void setResult(String result) {
+		this.result = result;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 }
