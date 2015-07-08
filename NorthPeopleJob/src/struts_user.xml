@@ -5,34 +5,45 @@
 
 <struts>
 	<package name="userAction" extends="struts-default,json-default"
-		namespace="/">
+		namespace="/admin">
 
-		<!--所有user用户的显示 -->
+		<!--返回用户浏览页面 -->
 		<action name="userList">
-			<result name="success">
-				/WEB-INF/admin/user_list.jsp
-			</result>
-		</action>
-		<action name="allUserList" class="com.hyd.northpj.action.UserListAction">
-		</action>
-		<action name="userAdd">
-			<result name="success">
-				/WEB-INF/admin/user_add.jsp
-			</result>
-		</action>
-		<action name="addUser" class="com.hyd.northpj.action.UserAddAction">
-					</action>
-		<action name="userDelete" class="com.hyd.northpj.action.UserDeleteAction">
-		</action>
-		<action name="userUpdate" class="com.hyd.northpj.action.UserUpdateAction">
-		</action>
-		<!--显示单个用户信息 -->
-		<action name="showUserInfo" class="com.hyd.northpj.action.ViewUserInfoAction">
-			<result name="success">/WEB-INF/admin/user_info.jsp</result>
+			<result name="success">/WEB-INF/admin/admin_normal_user_list.jsp</result>
 		</action>
 
+		<!--返回用户编辑页面-->
 		<action name="userEdit">
-			<result name="success">/WEB-INF/admin/user_edit.jsp</result>
+			<result name="success">/WEB-INF/admin/admin_normal_user_edit.jsp</result>
 		</action>
+
+		<!--返回增加用户页面-->
+		<action name="userAdd">
+			<result name="success">/WEB-INF/admin/admin_normal_user_add.jsp</result>
+		</action>
+
+		<!--返回所有用户Json数据Action -->
+		<action name="allUserList" class="com.hyd.northpj.action.UserListAction"></action>
+
+		<!--用户信息增加Action -->
+		<action name="addUser" class="com.hyd.northpj.action.UserAddAction">
+			<result name="success">
+				/WEB-INF/admin/admin_normal_user_list.jsp	
+			</result>
+		</action>
+
+		<!--用户信息删除Action -->
+		<action name="userDelete" class="com.hyd.northpj.action.UserDeleteAction"></action>
+		
+
+		<action name="userInfoUpdate" class="com.hyd.northpj.action.UserInfoUpdateAction">
+			<result name="success">/WEB-INF/admin/admin_normal.jsp</result>
+		</action>
+
+		<!--显示单个用户信息Action-->
+		<action name="showUserInfo" class="com.hyd.northpj.action.UserInfoViewAction">
+			<result name="success">/WEB-INF/admin/admin_normal_user_info.jsp</result>
+		</action>
+		
 	</package>
 </struts>

@@ -19,6 +19,7 @@ public class MaterialAddAction extends ActionSupport{
 	
 	private String name;
 	private String description;
+	private String department;
 	private String imageContentType;
 	private String imageFileName;
 	private File image;
@@ -47,16 +48,17 @@ public class MaterialAddAction extends ActionSupport{
 			Material myMaterial=new Material();
 			myMaterial.setName(name);
 			myMaterial.setDescription(description);
+			myMaterial.setDepartment(department);
 			myMaterial.setImage(newFileName);
 			if (0 == materialService.addMaterial(myMaterial)) {
 
 				result="增加材料成功,2s以后将会跳转到材料列表页面！";
-				url="allMaterialList";
+				url="admin/materialList";
 
 			}
 		} catch (Exception e) {
 			result="增加材料失败,2s以后将会跳转到新增材料页面！";
-			url="materialAdd";
+			url="admin/materialAdd";
 			e.printStackTrace();
 		}
 
@@ -118,6 +120,14 @@ public class MaterialAddAction extends ActionSupport{
 
 	public void setUrl(String url) {
 		this.url = url;
+	}
+
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
 	}
 
 }

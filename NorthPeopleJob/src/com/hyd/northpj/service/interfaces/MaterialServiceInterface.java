@@ -30,5 +30,8 @@ public interface MaterialServiceInterface {
 	 * @throws Exception
 	 */
 	public List<Material> getMaterialList() throws Exception;
+	
+	
+	public Material getMaterialInfo(int materialId) throws Exception;
 
 }

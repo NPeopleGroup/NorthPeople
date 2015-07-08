@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="commonAction" extends="struts-default,json-default"
+		namespace="/">
+
+		<!--返回管理员用户登陆jsp页面-->
+		<action name="admin">
+			<result name="success">/WEB-INF/admin/admin_login.jsp</result>
+		</action>
+
+
+
+		<!--用户注册Action-->
+		<action name="RegisterAction" class="com.hyd.northpj.action.RegisterAction">
+			<result name="success">home.jsp</result>
+			<result name="input">home.jsp</result>
+		</action>
+
+		<!--用户登陆Action-->
+		<action name="LoginAction" class="com.hyd.northpj.action.LoginAction">
+			<result name="success">home.jsp</result>
+			<result name="input">home.jsp</result>
+		</action>
+
+		<!-- 管理员用户登陆Action -->
+		<action name="AdminLoginAction" class="com.hyd.northpj.action.AdminLoginAction">
+			<result name="success">/WEB-INF/admin/admin_index.jsp</result>
+			<result name="input">/WEB-INF/admin/admin_login.jsp</result>
+		</action>
+
+	</package>
+</struts>

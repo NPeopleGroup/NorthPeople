@@ -27,4 +27,12 @@ public interface MaterialDaoInterface {
 	 * @return
 	 */
 	public List<Material> getMaterialList();
+	
+	/**
+	 * 获取指定标识的材料信息
+	 * @param materialId
+	 * @return
+	 * @throws Exception
+	 */
+	public Material getMaterialInfo( int materialId) throws Exception;
 }

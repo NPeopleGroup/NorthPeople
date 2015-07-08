@@ -15,9 +15,6 @@ import com.hyd.northpj.util.ValidateUtil;
 public class MaterialService implements MaterialServiceInterface {
 
 	private MaterialDao myMaterialDao=new MaterialDao();
-	private Session session = HibernateSessionFactory.getSession();
-	private Transaction tx = session.beginTransaction();
-	private Query query;
 	
 	@Override
 	public int addMaterial(Material materialInfo) throws Exception {
@@ -33,21 +30,19 @@ public class MaterialService implements MaterialServiceInterface {
 	@Override
 	public int deleteMaterial(int materialId) throws Exception {
 		// TODO Auto-generated method stub
-		String deleteStatement="delete from Material as p where p.sn=?";
-		query=session.createQuery(deleteStatement);
-		query.setInteger(0, materialId);
-		query.executeUpdate();
-		tx.commit();
-		return 0;
+		return myMaterialDao.deleteMaterial(materialId);
 	}
 
 	@Override
 	public List<Material> getMaterialList() throws Exception {
 		// TODO Auto-generated method stub
-		String sqlStatement="from Material";
-		query=session.createQuery(sqlStatement);
-		List<Material> myMaterialList=query.list();
-		return myMaterialList;
+		return myMaterialDao.getMaterialList();
+	}
+
+	@Override
+	public Material getMaterialInfo(int materialId) throws Exception {
+		// TODO Auto-generated method stub
+		return myMaterialDao.getMaterialInfo(materialId);
 	}
 
 }

@@ -7,7 +7,7 @@ import com.hyd.northpj.entity.User;
 import com.hyd.northpj.service.impl.UserService;
 import com.hyd.northpj.util.Relations;
 
-public class EditUserAction extends ModelAction<User>{
+public class CopyOfUserEditAction extends ModelAction<User>{
 
 	/**
 	 * 
@@ -25,28 +25,10 @@ public class EditUserAction extends ModelAction<User>{
 		myUserService.setInformation(myEditUser);
 		return SUCCESS;
 	}
+
 	public String userInfoView() throws Exception
 	{
 		setMyUser(myUserService.getInformation(session.getAttribute("NorthPeopleJob_username").toString()));
-		
-		/*Field[] fds = Class.forName("com.hyd.northpj.entity.User")
-				.getDeclaredFields();
-		int i=1;
-		for (Field field : fds) {
-			String attributeName=field.getName();
-			if(attributeName.contains("relation"))
-			{
-				if(attributeName.equals("relation"+i++))
-				{
-					if(attributeName.equals(""))
-						break;
-					else{
-						newRelation=new Relations();
-					}
-					newRelation.
-				}
-			}
-		}*/
 		if(myUser.getRelation1()!=null)
 			getMyRelationList().add(new Relations(myUser.getRelation1(), myUser.getRelationName1(), myUser.getRelationIDCard1(), myUser.getRelationdegree1()));
 		if(myUser.getRelation2()!=null)

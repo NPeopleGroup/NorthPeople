@@ -5,37 +5,49 @@
 
 <struts>
 	<package name="adminUserAction" extends="struts-default,json-default"
-		namespace="/">
+		namespace="/admin">
 
-		<!--所有adminuser用户的显示  -->
+		<!--返回所有管理员用户列表jsp页面-->
 		<action name="adminUserList">
-			<result name="success">/WEB-INF/admin/adminuser_list.jsp
-			</result>
-		</action>
-		<action name="allAdminUserList" class="com.hyd.northpj.action.AdminUserListAction">
-			<result name="success">/WEB-INF/admin/adminuser_list.jsp
-			</result>
-		</action>
-		<action name="adminUserAdd">
-			<result name="success">/WEB-INF/admin/adminuser_add.jsp
-			</result>
-		</action>
-		<action name="addAdminUser" class="com.hyd.northpj.action.AdminUserAddAction">
-			<result name="success">/WEB-INF/admin/adminuser_add.jsp
-			</result>
-		</action>
-		<action name="deleteAdminUser" class="com.hyd.northpj.action.AdminUserDeleteAction" >
-			<result name="success">/WEB-INF/admin/adminuser_add.jsp
-			</result>
-		</action>
-		<action name="updateAdminUser" class="com.hyd.northpj.action.AdminUserUpdateAction" >
-			<result name="success">/WEB-INF/admin/adminuser_add.jsp
-			</result>
+			<result name="success">/WEB-INF/admin/admin_admin_user_list.jsp</result>
 		</action>
 
-		<!--显示单个用户信息  -->	
-		<action name="showAdminUserInfo" class="com.hyd.northpj.action.AdminUserInfoAction">
-			<result name="success">/WEB-INF/admin/admin_edit_users.jsp</result>
+		<!--返回增加管理员用户信息jsp页面-->
+		<action name="adminUserAdd">
+			<result name="success">/WEB-INF/admin/admin_admin_user_add.jsp</result>
 		</action>
+
+		<!--返回管理员主功能菜单jsp页面-->
+		<action name="adminManager">
+			<result name="success">/WEB-INF/admin/admin_index.jsp</result>
+		</action>
+
+
+		<!--返回所有管理员用户列表Json数据Action-->
+		<action name="allAdminUserList" class="com.hyd.northpj.action.AdminUserListAction">
+			<result name="success">/WEB-INF/admin/admin_admin_user_list.jsp</result>
+		</action>
+
+		
+		<!--增加管理员用户Action-->
+		<action name="addAdminUser" class="com.hyd.northpj.action.AdminUserAddAction">
+			<result name="success">/WEB-INF/admin/admin_admin_user_list.jsp</result>
+		</action>
+
+		<!--删除管理员用户Action-->
+		<action name="deleteAdminUser" class="com.hyd.northpj.action.AdminUserDeleteAction" >
+			<result name="success">/WEB-INF/admin/admin_admin_user_list.jsp</result>
+		</action>
+
+		<!--修改管理员用户Action-->
+		<action name="updateAdminUser" class="com.hyd.northpj.action.AdminUserUpdateAction" >
+			<result name="success">/WEB-INF/admin/admin_admin_user_add.jsp</result>
+		</action>
+
+		<!--显示单个管理员用户信息Action  -->
+		<action name="showAdminUserInfo" class="com.hyd.northpj.action.AdminUserInfoAction">
+			<result name="success">/WEB-INF/admin/admin_admin_user_edit.jsp</result>
+		</action>
+
 	</package>
 </struts>

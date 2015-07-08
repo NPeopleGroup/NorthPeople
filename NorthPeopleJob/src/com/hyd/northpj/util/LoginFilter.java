@@ -24,20 +24,18 @@ public class LoginFilter extends HttpServlet implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain filterChain) throws IOException, ServletException {
 		// TODO Auto-generated method stub
-		HttpServletRequest myRequest=(HttpServletRequest) request;
-		HttpServletResponse myResponse=(HttpServletResponse) response;
-		HttpSession mySession=myRequest.getSession();
+		HttpServletRequest myRequest = (HttpServletRequest) request;
+		HttpServletResponse myResponse = (HttpServletResponse) response;
+		HttpSession mySession = myRequest.getSession();
+		String contextPath = myRequest.getContextPath();
+		String user = (String) mySession
+				.getAttribute("NorthPeopleJob_adminusername");
 		String url=myRequest.getServletPath();
-		String contextPath=myRequest.getContextPath();
-		if(url.contains("admin")&&!url.equals("/admin"))
-		{
-			String user=(String) mySession.getAttribute("NorthPeopleJob_adminusername");
-			if(user==null)
-			{
-				myResponse.sendRedirect(contextPath+"/admin");
-			}
-		}	
-		filterChain.doFilter(request, response);
+		if (user == null&&!url.equals("/admin")) {
+			myResponse.sendRedirect(contextPath + "/admin");
+		}else{
+			filterChain.doFilter(request, response);
+		}
 	}
 
 	@Override

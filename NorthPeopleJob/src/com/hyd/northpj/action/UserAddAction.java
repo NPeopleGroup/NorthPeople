@@ -12,11 +12,11 @@ public class UserAddAction extends ModelAction<User>{
 	private static final long serialVersionUID = 1L;
 	
 	private User myUser=new User();
-	private UserService myUserService=new UserService();
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println(myUser.toString());
+		UserService myUserService=new UserService();
 		int result=myUserService.register(myUser);
 		if (result==0) {
 			CommonUtil.toBeJsonResult("success");

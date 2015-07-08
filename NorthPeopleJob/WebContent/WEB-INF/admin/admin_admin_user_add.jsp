@@ -1,19 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>增加业务员</title>
+  <base href="<%=basePath%>">
    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-   <link href="./assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
-  <link href="./assets/css/bui-min.css" rel="stylesheet" type="text/css" />
-   <link href="./assets/css/main-min.css" rel="stylesheet" type="text/css" />
+   <link href="assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
+  <link href="assets/css/bui-min.css" rel="stylesheet" type="text/css" />
+   <link href="assets/css/main-min.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 	<div class="container">
 		<div class="row">
-			<form id="myFrom" class="form-horizontal span24" action="addAdminUser">
+			<form id="myFrom" class="form-horizontal span24" action="admin/addAdminUser">
 				<legend>增加业务员信息</legend>
 				<div class="row">
 					<div class="control-group span8">

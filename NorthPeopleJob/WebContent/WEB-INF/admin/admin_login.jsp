@@ -103,7 +103,7 @@
 							},
 							success : function(msg) {
 								if (msg == "success") {
-									location.href = "adminManager";
+									location.href = "admin/adminManager";
 								}
 								if (msg == "input") {
 									var a = $("input[name='login_password']")

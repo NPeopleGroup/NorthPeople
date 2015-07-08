@@ -5,35 +5,39 @@
 
 <struts>
 	<package name="materialAction" extends="struts-default,json-default"
-		namespace="/">
+		namespace="/admin">
 
-		<!--所有material用户的显示 -->
+		<!--返回材料列表jsp页面 -->
 		<action name="materialList">
-			<result name="success">
-				/WEB-INF/admin/admin_material_list.jsp
-			</result>
-		</action>
-		<action name="allMaterialList" class="com.hyd.northpj.action.MaterialListAction">
-			<result name="success">
-				/WEB-INF/admin/admin_material_list.jsp
-			</result>
-		</action>
-		<action name="materialAdd">
-			<result name="success">
-				/WEB-INF/admin/admin_material_add.jsp
-			</result>
-		</action>
-		<action name="addMaterial" class="com.hyd.northpj.action.MaterialAddAction">
-			<result name="success">
-				/result.jsp
-			</result>	
-					</action>
-		<action name="materialDelete" class="com.hyd.northpj.action.MaterialDeleteAction">
-		</action>
-		<!--显示单个用户信息 -->
-		<action name="showMaterialInfo" class="com.hyd.northpj.action.ViewMaterialInfoAction">
-			<result name="success">/WEB-INF/admin/material_info.jsp</result>
+			<result name="success">/WEB-INF/admin/admin_material_list.jsp</result>
 		</action>
 
-		</package>
+		<!--返回增加材料列表jsp页面 -->
+		<action name="materialAdd">
+			<result name="success">/WEB-INF/admin/admin_material_add.jsp</result>
+		</action>
+
+
+
+		<!--返回增加材料列表Json数据Action -->
+		<action name="allMaterialList" class="com.hyd.northpj.action.MaterialListAction">
+			<result name="success">/WEB-INF/admin/admin_material_list.jsp</result>
+		</action>
+
+		<!--材料增加Action -->
+		<action name="addMaterial" class="com.hyd.northpj.action.MaterialAddAction">
+			<result name="success">/result.jsp</result>
+		</action>
+
+		<!--材料删除Action -->
+		<action name="materialDelete" class="com.hyd.northpj.action.MaterialDeleteAction">
+			<result name="success">/result.jsp</result>
+		</action>
+
+		<!--显示单个材料信息Action -->
+		<action name="showMaterialInfo" class="com.hyd.northpj.action.MaterialInfoViewAction">
+			<result name="success">/WEB-INF/admin/admin_material_info.jsp</result>
+		</action>
+
+	</package>
 </struts>

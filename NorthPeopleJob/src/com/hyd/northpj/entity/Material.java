@@ -15,6 +15,7 @@ public class Material {
      private String name;
      private String image;
      private String description;
+     private String department;
 
     // Property accessors
 
@@ -55,5 +56,13 @@ public class Material {
 	public String toString() {
 		return "Material [sn=" + sn + ", name=" + name + ", image=" + image
 				+ ", description=" + description + "]";
+	}
+
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
 	}
 }

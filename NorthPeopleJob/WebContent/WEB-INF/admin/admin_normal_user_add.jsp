@@ -1,15 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+	pageEncoding="utf-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>增加业务员</title>
-   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-   <link href="./assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
-  <link href="./assets/css/bui-min.css" rel="stylesheet" type="text/css" />
-   <link href="./assets/css/main-min.css" rel="stylesheet" type="text/css" />
-   <script type="text/javascript" src="./js/jquery-1.11.1.min.js"></script>
+<title>增加业务员</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
+<link href="assets/css/bui-min.css" rel="stylesheet" type="text/css" />
+<link href="assets/css/main-min.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -18,26 +23,26 @@
 				<legend>增加业务员信息</legend>
 				<div class="row">
 					<div class="control-group span8">
-						<label class="control-label">
-							<s>*</s>
-							用户名
+						<label class="control-label"> <s>*</s> 用户名
 						</label>
 						<div class="controls">
-							<input name="username" id="username" type="text" data-rules="{required:true}" class="input-normal control-text"></div>
+							<input name="username" id="username" type="text"
+								data-rules="{required:true}" class="input-normal control-text">
+						</div>
 					</div>
 					<div class="control-group span8">
-						<label class="control-label">
-							<s>*</s>
-							密码
+						<label class="control-label"> <s>*</s> 密码
 						</label>
 						<div class="controls">
-							<input name="password" id="password" type="password" class="input-normal control-text"/>
+							<input name="password" id="password" type="password"
+								class="input-normal control-text" />
 						</div>
 					</div>
 				</div>
 				<div>
 					<div class="span13 offset3 ">
-						<input type="button" class="button button-primary" id="mySubmitButton" value="提交"></input>
+						<input type="button" class="button button-primary"
+							id="mySubmitButton" value="提交"></input>
 					</div>
 				</div>
 			</form>
@@ -48,7 +53,7 @@
 			alert("click");
 			/* Act on the event */
 			$.ajax({
-				url: 'addUser',
+				url: 'admin/addUser',
 				dataType: 'json',
 				data: {
 					"username":$("#username").val(),

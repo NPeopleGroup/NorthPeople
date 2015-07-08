@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>人员信息浏览页面</title>
+    <title>管理员浏览页面</title>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -19,7 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 	 <link rel="stylesheet" href="js/jqwidgets/styles/jqx.base.css" type="text/css" />
-	 <link rel="stylesheet" type="text/css" href="<%=basePath%>css/bootstrap/bootstrap.min.css">
+	 <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.min.css">
     <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="js/jqwidgets/jqxcore.js"></script>
     <script type="text/javascript" src="js/jqwidgets/jqxdata.js"></script> 
@@ -36,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script type="text/javascript" src="js/demos.js"></script>
    <script type="text/javascript">
         $(document).ready(function () {
-            var url = "<%=basePath%>/allUserList";
+            var url = "admin/allAdminUserList";
 
             // prepare the data
             var source =
@@ -45,9 +45,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 dataFields: [
                     { name: 'sn', type: 'string' },
                     { name: 'username', type: 'string' },
-                    { name: 'name', type: 'string' },
-                    { name: 'sex', type: 'string' },
+                    { name: 'password', type: 'string' },
                     { name: 'type', type: 'string' },
+                    { name: 'name', type: 'string' },
                 ],
                 id: 'id',
                 pageable: true,
@@ -68,9 +68,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 columns: [
                   { text: 'Id', dataField: 'sn', width: 20 }, 
                   { text: 'UserName', dataField: 'username', width: 200 },
-                  { text: 'Name', dataField: 'name', width: 120 }   ,
-                  { text: 'Sex', dataField: 'sex', width: 200 },
+                  { text: 'User Password', dataField: 'password', width: 200 },
                   { text: 'Type', dataField: 'type', width: 180 },
+                  { text: 'Name', dataField: 'name', width: 120 }
               ]
             });
             $("#dataTable").jqxDataTable({pagerMode:"advanced"});
@@ -83,7 +83,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     alert("请先选择需要操作的行!");
                 }else{
                    console.log(selection[0]);
-                   window.location.href='showUserInfo?userName='+selection[0]['username'];
+                   window.location.href='showAdminUserInfo?userName='+selection[0]['username'];
                 }
             });
             $("#myDeleteButton").bind('click',function(){
@@ -97,7 +97,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                    {
                   /*   window.location.href='deleteAdminUser?userName='+selection[0]['username'];*/
                      $.ajax({
-                        url:"userDelete",
+                        url:"admin/deleteAdminUser",
                         data:{
                             userName:selection[0]['username']
                         },
@@ -105,7 +105,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         success:function(data){
                             if(data.result=="success"){
                                 alert("删除成功")
-                                window.location.href='userList';
+                                window.location.href='admin/adminUserList';
                             }
                             else{
                                 alert("删除失败"); 
@@ -126,11 +126,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      <div id="myMenu" style="margin-top:20px">
         <button id="myDeleteButton">删除</button>
         <button id="myEditButton">编辑</button>
-        <button id="statu1Button">变更状态1</button>
-        <button id="statu2Button">变更状态2</button>
-        <button id="statu3Button">变更状态3</button>
-        <button id="statu4Button">变更状态4</button>
-        <button id="statu5Button">变更状态5</button>
      </div>
 </body>
 </html>

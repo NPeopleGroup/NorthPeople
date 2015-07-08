@@ -2,15 +2,6 @@ package com.hyd.northpj.dao.impl;
 
 import java.util.List;
 
-
-
-
-
-
-
-
-
-
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -21,10 +12,10 @@ import com.hyd.northpj.util.HibernateSessionFactory;
 
 public class MaterialDao implements MaterialDaoInterface {
 
-	private Session mySession=HibernateSessionFactory.getSession();
-	private Transaction tx=mySession.beginTransaction();
-	Query myQuery=null;
-	
+	private Session mySession = HibernateSessionFactory.getSession();
+	private Transaction tx = mySession.beginTransaction();
+	Query myQuery = null;
+
 	@Override
 	public int addNewMaterial(Material materialInfo) throws Exception {
 		// TODO Auto-generated method stub
@@ -45,8 +36,8 @@ public class MaterialDao implements MaterialDaoInterface {
 	@Override
 	public int deleteMaterial(int materialId) throws Exception {
 		// TODO Auto-generated method stub
-		String deleteSql="delete from Material where sn=?";
-		myQuery=mySession.createQuery(deleteSql);
+		String deleteSql = "delete from Material where sn=?";
+		myQuery = mySession.createQuery(deleteSql);
 		myQuery.setInteger(0, materialId);
 		myQuery.executeUpdate();
 		mySession.beginTransaction().commit();
@@ -56,10 +47,17 @@ public class MaterialDao implements MaterialDaoInterface {
 	@Override
 	public List<Material> getMaterialList() {
 		// TODO Auto-generated method stub
-		String sqlStatement="from Material";
-		myQuery=mySession.createQuery(sqlStatement);
-		List<Material> myMaterialList=myQuery.list();
+		String sqlStatement = "from Material";
+		myQuery = mySession.createQuery(sqlStatement);
+		List<Material> myMaterialList = myQuery.list();
 		return myMaterialList;
+	}
+
+	@Override
+	public Material getMaterialInfo(int materialId) throws Exception {
+		// TODO Auto-generated method stub
+		String myQuery = "from Material where sn=" + materialId;
+		return (Material) mySession.createQuery(myQuery).uniqueResult();
 	}
 
 }

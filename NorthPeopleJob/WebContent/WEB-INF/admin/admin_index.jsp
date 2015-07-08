@@ -6,9 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>北方人才后台管理系统</title>
    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-   <link href="./assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
-  <link href="./assets/css/bui-min.css" rel="stylesheet" type="text/css" />
-   <link href="./assets/css/main-min.css" rel="stylesheet" type="text/css" />
+   <link href="../assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
+  <link href="../assets/css/bui-min.css" rel="stylesheet" type="text/css" />
+   <link href="../assets/css/main-min.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 	<!--页面头部 start -->
@@ -34,6 +34,7 @@
       <ul id="J_Nav"  class="nav-list ks-clear">
         <li class="nav-item dl-selected"><div class="nav-item-inner nav-home">业务员管理</div></li>
         <li class="nav-item"><div class="nav-item-inner nav-order">普通用户管理</div></li>
+        <li class="nav-item"><div class="nav-item-inner nav-order">材料管理</div></li>
         <li class="nav-item"><div class="nav-item-inner nav-marketing">其他页面</div></li>
       </ul>
     </div>
@@ -43,61 +44,40 @@
    </div>
 <!--mainbody end -->
 
-  <script type="text/javascript" src="./assets/js/jquery-1.8.1.min.js"></script>
-  <script type="text/javascript" src="./assets/js/bui.js"></script>
-  <script type="text/javascript" src="./assets/js/config.js"></script>
+  <script type="text/javascript" src="../assets/js/jquery-1.8.1.min.js"></script>
+  <script type="text/javascript" src="../assets/js/bui.js"></script>
+  <script type="text/javascript" src="../assets/js/config.js"></script>
 
   <script>
     BUI.use('common/main',function(){
       var config = [{
           id:'menu', 
-          homePage : 'code',
+          homePage : 'admin_user_list',
           menu:[{
               text:'业务员管理',
               items:[
-                {id:'code',text:'浏览用户',href:'adminUserList',closeable : false},
-                {id:'main-menu',text:'增加用户',href:'adminUserAdd'},
+                {id:'admin_user_list',text:'浏览用户',href:'admin/adminUserList',closeable : false},
+                {id:'admin_user_addmenu',text:'增加用户',href:'admin/adminUserAdd'},
               ]
             }]
           },{
-            id:'form',
+            id:'user',
+            homePage:'user_list',
             menu:[{
                 text:'用户管理页面',
                 items:[
-                  {id:'user',text:'用户浏览',href:'userList'},
-                  {id:'useradd',text:'增加用户',href:'userAdd'},
-                ]
-              },{
-                text:'成功失败页面',
-                items:[
-                  {id:'success',text:'成功页面',href:'form/success.html'},
-                  {id:'fail',text:'失败页面',href:'form/fail.html'}
-                
-                ]
-              },{
-                text:'可编辑表格',
-                items:[
-                  {id:'grid',text:'可编辑表格',href:'form/grid.html'},
-                  {id:'form-grid',text:'表单中的可编辑表格',href:'form/form-grid.html'},
-                  {id:'dialog-grid',text:'使用弹出框',href:'form/dialog-grid.html'},
-                  {id:'form-dialog-grid',text:'表单中使用弹出框',href:'form/form-dialog-grid.html'}
+                  {id:'user_list',text:'用户浏览',href:'admin/userList'},
+                  {id:'user_add',text:'增加用户',href:'admin/userAdd'},
                 ]
               }]
           },{
-            id:'search',
+            id:'material',
             menu:[{
-                text:'搜索页面',
+                text:'材料管理',
+                homePage:'material_list',
                 items:[
-                  {id:'code',text:'搜索页面代码',href:'search/code.html'},
-                  {id:'example',text:'搜索页面示例',href:'search/example.html'},
-                  {id:'example-dialog',text:'搜索页面编辑示例',href:'search/example-dialog.html'},
-                  {id:'introduce',text:'搜索页面简介',href:'search/introduce.html'}, 
-                  {id:'config',text:'搜索配置',href:'search/config.html'}
-                ]
-              },{
-                text : '更多示例',
-                items : [
-                  {id : 'tab',text : '使用tab过滤',href : 'search/tab.html'}
+                  {id:'material_list',text:'材料浏览',href:'admin/materialList'},
+                  {id:'material_add',text:'材料增加',href:'admin/materialAdd'},
                 ]
               }]
           },{

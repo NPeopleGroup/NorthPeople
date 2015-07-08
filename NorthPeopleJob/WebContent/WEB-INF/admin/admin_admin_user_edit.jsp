@@ -13,7 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	css/bootstrap/bootstrap.min.css">
 	<script type="text/javascript" src="<%=basePath%>js/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="<%=basePath%>js/bootstrap.min.js"></script>
-	<title>Insert title here</title>
+	<title>管理员用户信息修改页面</title>
 	<style type="text/css">
 		.container{
 			margin-top:100px;
@@ -22,7 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 	<div class="container myUserTable">
-		<form class="form-horizontal" action="updateAdminUser">
+		<form class="form-horizontal" action="admin/updateAdminUser">
 			<input type="hidden" value="${myEditUser.sn}" name="sn">
 			<div class="form-group">
 				<label for="inputEmail3" class="col-sm-2 control-label">用户名</label>

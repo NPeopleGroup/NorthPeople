@@ -7,9 +7,10 @@ import com.hyd.northpj.util.PrintDataToAjax;
 public class RegisterAction extends ModelAction<User> {
 
 	/**
-	 * 
+	 * ÓÃ»§×¢²á
 	 */
 	private static final long serialVersionUID = -8081117062425041492L;
+
 	private User user = new User();
 
 	public User getModel() {
@@ -17,7 +18,6 @@ public class RegisterAction extends ModelAction<User> {
 	}
 
 	public String execute() throws Exception {
-		System.out.println(user.toString());
 		PrintDataToAjax PrintDataToAjax = new PrintDataToAjax();
 		try {
 			UserService userService = new UserService();
