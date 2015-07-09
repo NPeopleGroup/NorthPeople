@@ -96,4 +96,10 @@ public class QuestionDao implements QuestionDaoInterface {
 
 		return 0;
 	}
+	// public static void main(String[] args) throws Exception{
+	// QuestionDao qd=new QuestionDao();
+	// Question q=new Question();
+	// qd.deleteQuestion("3");
+	// }
+
 }

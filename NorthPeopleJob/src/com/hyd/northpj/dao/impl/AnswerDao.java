@@ -7,7 +7,6 @@ import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.transform.Transformers;
 
 import com.hyd.northpj.dao.interfaces.AnswerDaoInterface;
 import com.hyd.northpj.entity.Answer;
