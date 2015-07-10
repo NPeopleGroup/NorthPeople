@@ -32,5 +32,34 @@
 			<result name="input">/WEB-INF/admin/admin_login.jsp</result>
 		</action>
 
+		<!-- 答题页面的一系列Action -->
+		<action name="answerQuestionPage" class="com.hyd.northpj.action.AnswerQuestionPageAction">
+			<result name="success">answerQuestionPage.jsp?id=001</result>
+		</action>
+		<action name="answerQuestionPageSubmit"
+			class="com.hyd.northpj.action.AnswerQuestionPageSubmitAction">
+			<result name="success" type="redirect">answerQuestionPage?id=${nextId}
+			</result>
+			<result name="end" type="redirect">checkScorePage
+			</result>
+			<result name="overtime" type="redirect">/
+			</result>
+		</action>
+		<action name="checkScorePage" class="com.hyd.northpj.action.CheckScorePageAction">
+			<result name="success">checkScorePage.jsp</result>
+			<result name="overtime" type="redirect">/
+			</result>
+		</action>
+		<action name="checkFilePage" class="com.hyd.northpj.action.CheckFilePageAction">
+			<result name="success">checkFilePage.jsp</result>
+			<result name="overtime" type="redirect">/
+			</result>
+		</action>
+		<action name="checkStatusPage" class="com.hyd.northpj.action.CheckStatusPageAction">
+			<result name="success">checkStatusPage.jsp</result>
+			<result name="overtime" type="redirect">/
+			</result>
+		</action>
+
 	</package>
 </struts>
