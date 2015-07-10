@@ -204,7 +204,7 @@
 				</select>
 			</div>
 			<div class="form_item">
-				<label class="normal_label">激活选项A:</label> <input type="checkbox"
+				<label class="normal_label">起始问题:</label> <input type="checkbox"
 					name="isFirst" class="normal_checkbox" />
 			</div>
 			<div class="form_item">
