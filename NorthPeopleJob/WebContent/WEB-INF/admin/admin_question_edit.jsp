@@ -57,6 +57,10 @@
 	$(document).ready(function() {
 		$("[name='type']").val("${question.type}");
 
+		if ("${question.isFirst}" == "on") {
+			$("[name='isFirst']").attr("checked", 'true');
+		}
+		
 		if ("${question.activationA}" == "on") {
 			$("[name='activationA']").attr("checked", 'true');
 		}
@@ -82,13 +86,13 @@
 		}
 		$("[name='objectiveD']").val("${question.objectiveD}");
 		$("[name='gotoD']").val("${question.gotoD}");
-		
+
 		if ("${question.activationE}" == "on") {
 			$("[name='activationE']").attr("checked", 'true');
 		}
 		$("[name='objectiveE']").val("${question.objectiveE}");
 		$("[name='gotoE']").val("${question.gotoE}");
-		
+
 		if ("${question.activationF}" == "on") {
 			$("[name='activationF']").attr("checked", 'true');
 		}
@@ -189,6 +193,10 @@
 				</select>
 			</div>
 			<div class="form_item">
+				<label class="normal_label">起始问题:</label> <input type="checkbox"
+					name="isFirst" class="normal_checkbox" />
+			</div>
+			<div class="form_item">
 				<label class="normal_label">问题图片:</label> <input type="file"
 					name="image" class="normal_input" onchange="previewImage(this)" />
 			</div>
@@ -207,7 +215,7 @@
 					<li>选项B</li>
 					<li>选项C</li>
 					<li>选项D</li>
-															<li>选项E</li>
+					<li>选项E</li>
 					<li>选项F</li>
 				</ul>
 				<div>
@@ -415,7 +423,7 @@
 							name="hintD" class="normal_input" value="${question.hintD}" />
 					</div>
 				</div>
-				
+
 				<div>
 					<div class="form_item">
 						<label class="normal_label">激活选项E:</label> <input type="checkbox"
@@ -467,7 +475,7 @@
 							name="hintE" class="normal_input" value="${question.hintE}" />
 					</div>
 				</div>
-				
+
 				<div>
 					<div class="form_item">
 						<label class="normal_label">激活选项F:</label> <input type="checkbox"

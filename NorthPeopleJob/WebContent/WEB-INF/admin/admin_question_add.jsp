@@ -204,6 +204,10 @@
 				</select>
 			</div>
 			<div class="form_item">
+				<label class="normal_label">激活选项A:</label> <input type="checkbox"
+					name="isFirst" class="normal_checkbox" />
+			</div>
+			<div class="form_item">
 				<label class="normal_label">问题图片:</label> <input type="file"
 					name="image" class="normal_input" onchange="previewImage(this)" />
 			</div>
@@ -224,7 +228,7 @@
 					<li>选项B</li>
 					<li>选项C</li>
 					<li>选项D</li>
-										<li>选项E</li>
+					<li>选项E</li>
 					<li>选项F</li>
 				</ul>
 				<div>
@@ -427,8 +431,8 @@
 							name="hintD" class="normal_input" />
 					</div>
 				</div>
-				
-								<div>
+
+				<div>
 					<div class="form_item">
 						<label class="normal_label">激活选项E:</label> <input type="checkbox"
 							name="activationE" class="normal_checkbox" />
@@ -478,8 +482,8 @@
 							name="hintE" class="normal_input" />
 					</div>
 				</div>
-				
-								<div>
+
+				<div>
 					<div class="form_item">
 						<label class="normal_label">激活选项F:</label> <input type="checkbox"
 							name="activationF" class="normal_checkbox" />
@@ -528,7 +532,7 @@
 						<label class="normal_label">选项F提示文字:</label> <input type="text"
 							name="hintF" class="normal_input" />
 					</div>
-				</div>				
+				</div>
 			</div>
 		</div>
 	</form>

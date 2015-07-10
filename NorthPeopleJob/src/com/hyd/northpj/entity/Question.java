@@ -5,7 +5,7 @@ public class Question {
 	private String id;
 	private String question;
 	private String type;
-
+	private String isFirst;
 	private String activationA;
 	private String choiceA;
 	private String gotoA;
@@ -474,6 +474,14 @@ public class Question {
 
 	public void setHintF(String hintF) {
 		this.hintF = hintF;
+	}
+
+	public String getIsFirst() {
+		return isFirst;
+	}
+
+	public void setIsFirst(String isFirst) {
+		this.isFirst = isFirst;
 	}
 
 }

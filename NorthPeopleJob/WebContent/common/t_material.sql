@@ -27,3 +27,9 @@ CREATE TABLE `t_material` (
   `department` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   PRIMARY KEY (`sn`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+
+/*
+徐伟 Date: 2015-07-10 16:23:00
+*/
+ALTER TABLE  `t_question` ADD  `isFirst` VARCHAR( 100 ) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT  '是本分类的第一个问题' AFTER  `type`
+

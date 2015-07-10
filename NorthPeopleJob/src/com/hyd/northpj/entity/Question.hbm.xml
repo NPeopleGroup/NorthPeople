@@ -10,6 +10,7 @@
 		<property name="id" column="id" />
 		<property name="question" column="question" />
 		<property name="type" column="type" />
+		<property name="isFirst" column="isFirst" />
 		<property name="activationA" column="activationA" />
 		<property name="choiceA" column="choiceA" />
 		<property name="gotoA" column="gotoA" />
