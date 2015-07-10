@@ -1,4 +1,4 @@
-<!--
+
 /*PCASClass (Class Of Province City Area Selector(JS)) Ver 3.0*\
 
 @ Code By : Yongxiang Cui(333) E-Mail:zhadan007@21cn.com
