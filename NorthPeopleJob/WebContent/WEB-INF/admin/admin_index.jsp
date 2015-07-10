@@ -36,6 +36,7 @@
         <li class="nav-item"><div class="nav-item-inner nav-order">普通用户管理</div></li>
         <li class="nav-item"><div class="nav-item-inner nav-order">材料管理</div></li>
         <li class="nav-item"><div class="nav-item-inner nav-marketing">其他页面</div></li>
+        <li class="nav-item"><div class="nav-item-inner nav-marketing">问题管理页面</div></li>
       </ul>
     </div>
     <ul id="J_NavContent" class="dl-tab-conten">
@@ -90,7 +91,27 @@
                   {id:'introduce',text:'详情页面简介',href:'detail/introduce.html'}
                 ]
               }]
-          }];
+          },{
+              id:'question',
+              menu:[{
+                  text:'问题管理页面',
+                  items:[
+                    {id:'user_list',text:'问题浏览-年龄',href:'admin/adminQuestionListPage?questionType=age'},
+                    {id:'user_list',text:'问题浏览-教育',href:'admin/adminQuestionListPage?questionType=education'},
+                    {id:'user_list',text:'问题浏览-技能(职称)',href:'admin/adminQuestionListPage?questionType=skills_title'},
+                    {id:'user_list',text:'问题浏览-技能(职业资格)',href:'admin/adminQuestionListPage?questionType=skills_qualifications'},
+                    {id:'user_list',text:'问题浏览-住房',href:'admin/adminQuestionListPage?questionType=housing'},
+                    {id:'user_list',text:'问题浏览-社保',href:'admin/adminQuestionListPage?questionType=security'},
+                    {id:'user_list',text:'问题浏览-落户地区',href:'admin/adminQuestionListPage?questionType=settled_area'},
+                    {id:'user_list',text:'问题浏览-职业',href:'admin/adminQuestionListPage?questionType=career'},
+                    {id:'user_list',text:'问题浏览-投资纳税',href:'admin/adminQuestionListPage?questionType=investment_tax'},
+                    {id:'user_list',text:'问题浏览-奖项荣誉',href:'admin/adminQuestionListPage?questionType=awards_honor'},
+                    {id:'user_list',text:'问题浏览-婚姻状况',href:'admin/adminQuestionListPage?questionType=marital_status'},
+                    {id:'user_list',text:'问题浏览-工作年限',href:'admin/adminQuestionListPage?questionType=working_years'},
+                    {id:'user_list',text:'问题浏览-守法诚信',href:'admin/adminQuestionListPage?questionType=law_integrity'}
+                  ]
+                }]
+            }];
       new PageUtil.MainPage({
         modulesConfig : config
       });

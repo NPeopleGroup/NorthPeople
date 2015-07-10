@@ -26,17 +26,17 @@
 			<result name="success">/WEB-INF/admin/admin_question_add.jsp</result>
 		</action>
 		<action name="adminQuestionAddAction" class="com.hyd.northpj.action.AdminQuestionAddAction">
-			<result name="success" type="redirect">adminQuestionListPage</result>
+			<result name="success" type="redirect">adminQuestionListPage?questionType=${questionType}</result>
 		</action>
 		<action name="adminQuestionEditPage"
 			class="com.hyd.northpj.action.AdminQuestionEditPageAction">
 			<result name="success">/WEB-INF/admin/admin_question_edit.jsp</result>
 		</action>
 		<action name="adminQuestionEditAction" class="com.hyd.northpj.action.AdminQuestionEditAction">
-			<result name="success" type="redirect">adminQuestionListPage</result>
+			<result name="success" type="redirect">adminQuestionListPage?questionType=${questionType}</result>
 		</action>
 		<action name="adminQuestionDeleteAction" class="com.hyd.northpj.action.AdminQuestionDeleteAction">
-			<result name="success" type="redirect">adminQuestionListPage</result>
+			<result name="success" type="redirect">adminQuestionListPage?questionType=${questionType}</result>
 		</action>
 
 		<!-- 答题页面的一系列Action -->

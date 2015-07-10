@@ -1,9 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+<base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="text/javascript" src="./js/jquery.js"></script>
 <link rel="stylesheet" href="./css/admin-question.css">
@@ -151,7 +158,7 @@
 </head>
 <body>
 	<form id="login" method="post" enctype="multipart/form-data"
-		action="adminQuestionEditAction">
+		action="admin/adminQuestionEditAction?questionType=${questionType}">
 		<input type="text" name="sn" value="${question.sn}"
 			style="display: none" />
 		<div style="float: left; width: 33%; height: 100%">

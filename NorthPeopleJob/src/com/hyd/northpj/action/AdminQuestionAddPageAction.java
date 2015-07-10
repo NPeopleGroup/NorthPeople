@@ -14,7 +14,7 @@ public class AdminQuestionAddPageAction extends ActionSupport {
 	 */
 	private static final long serialVersionUID = 4846975153597108907L;
 	private List<Question> gotoList;
-
+	private String questionType;
 	@Override
 	public String execute() throws Exception {
 
@@ -35,5 +35,13 @@ public class AdminQuestionAddPageAction extends ActionSupport {
 
 	public void setGotoList(List<Question> gotoList) {
 		this.gotoList = gotoList;
+	}
+
+	public String getQuestionType() {
+		return questionType;
+	}
+
+	public void setQuestionType(String questionType) {
+		this.questionType = questionType;
 	}
 }

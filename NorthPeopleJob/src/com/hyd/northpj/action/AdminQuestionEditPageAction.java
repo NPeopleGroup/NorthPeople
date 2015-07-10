@@ -15,10 +15,9 @@ public class AdminQuestionEditPageAction extends ActionSupport {
 	private String id;
 	private Question question;
 	private List<Question> gotoList;
-
+	private String questionType;
 	@Override
 	public String execute() throws Exception {
-
 		List<Question> gotoList = new ArrayList<Question>();
 		QuestionService myQuestionService = new QuestionService();
 		gotoList = myQuestionService.getQuestionList();
@@ -53,6 +52,14 @@ public class AdminQuestionEditPageAction extends ActionSupport {
 
 	public void setGotoList(List<Question> gotoList) {
 		this.gotoList = gotoList;
+	}
+
+	public String getQuestionType() {
+		return questionType;
+	}
+
+	public void setQuestionType(String questionType) {
+		this.questionType = questionType;
 	}
 
 }

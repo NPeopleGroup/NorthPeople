@@ -10,7 +10,7 @@
 <html>
 <head>
 <title>问题列表</title>
-
+<base href="<%=basePath%>">
 <link rel="stylesheet" href="js/jqwidgets/styles/jqx.base.css"
 	type="text/css" />
 
@@ -25,20 +25,21 @@
 
 
 <script type="text/javascript">
-
-function getUrlParam(name) {
-    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
-    var r = window.location.search.substr(1).match(reg);  //匹配目标参数
-    if (r != null) return unescape(r[2]); return null; //返回参数值
-}
-
+	function getUrlParam(name) {
+		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+		var r = window.location.search.substr(1).match(reg); //匹配目标参数
+		if (r != null)
+			return unescape(r[2]);
+		return null; //返回参数值
+	}
 
 	$(document)
 			.ready(
 
 					function() {
 
-						var url = "adminQuestionListAction?questionType="+getUrlParam('questionType');
+						var url = "admin/adminQuestionListAction?questionType="
+								+ getUrlParam('questionType');
 
 						// prepare the data
 						var source = {
@@ -110,38 +111,41 @@ function getUrlParam(name) {
 											if (selection.length == 0) {
 												alert("请先选择需要操作的行!");
 											} else {
-												window.location.href = 'adminQuestionEditPage?id='
+												window.location.href = 'admin/adminQuestionEditPage?id='
 														+ selection[0]['id']
 														+ '&sn='
-														+ selection[0]['sn'];
+														+ selection[0]['sn']
+														+ '&questionType='
+														+ getUrlParam('questionType');
 											}
 										});
 
-						$("#myAddButton").bind('click', function() {
+						$("#myAddButton")
+								.bind(
+										'click',
+										function() {
 
-							window.location.href = 'adminQuestionAddPage';
+											window.location.href = 'admin/adminQuestionAddPage'+ '?questionType='
+											+ getUrlParam('questionType');
 
-						});
+										});
 						$("#myDeleteButton")
 								.bind(
 										'click',
 										function() {
 											var selection = $("#dataTable")
-											.jqxDataTable(
-													'getSelection');
-									if (selection.length == 0) {
-										alert("请先选择需要操作的行!");
-									} else {
-										window.location.href = 'adminQuestionDeleteAction?id='
-												+ selection[0]['id'];
-									}
+													.jqxDataTable(
+															'getSelection');
+											if (selection.length == 0) {
+												alert("请先选择需要操作的行!");
+											} else {
+												window.location.href = 'admin/adminQuestionDeleteAction?id='
+														+ selection[0]['id']+ '&questionType='
+														+ getUrlParam('questionType');;
+											}
 
 										});
 					});
-	
-
-
-	
 </script>
 </head>
 <body class='default'>

@@ -1,9 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+<base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="text/javascript" src="./js/jquery.js"></script>
 <link rel="stylesheet" href="./css/admin-question.css">
@@ -55,6 +62,56 @@
 	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=image);
 }
 </style>
+<script type="text/javascript">
+	$(document).ready(function() {
+		switch ("${questionType}") {
+		case "age":
+			$("[name='type']").val("年龄");
+			break;
+		case "education":
+			$("[name='type']").val("教育");
+			break;
+		case "skills_title":
+			$("[name='type']").val("技能(职称)");
+			break;
+		case "skills_qualifications":
+			$("[name='type']").val("技能(职业资格)");
+			break;
+		case "housing":
+			$("[name='type']").val("住房");
+			break;
+		case "security":
+			$("[name='type']").val("社保");
+			break;
+		case "settled_area":
+			$("[name='type']").val("落户地区");
+			break;
+		case "career":
+			$("[name='type']").val("职业");
+			break;
+		case "investment_tax":
+			$("[name='type']").val("投资纳税");
+			break;
+		case "awards_honor":
+			$("[name='type']").val("奖项荣誉");
+			break;
+		case "marital_status":
+			$("[name='type']").val("婚姻状况");
+			break;
+		case "working_years":
+			$("[name='type']").val("工作年限");
+			break;
+		case "law_integrity":
+			$("[name='type']").val("守法诚信");
+			break;
+
+		default:
+			$("[name='type']").val("年龄");
+			break;
+		}
+	});
+</script>
+
 <script type="text/javascript">
 	function previewImage(file) {
 		var MAXWIDTH = 300;
@@ -118,7 +175,7 @@
 <body>
 
 	<form id="login" method="post" enctype="multipart/form-data"
-		action="adminQuestionAddAction">
+		action="admin/adminQuestionAddAction?questionType=${questionType}">
 		<div style="float: left; width: 33%; height: 100%">
 			<div class="form_item">
 				<label class="normal_label">问题编号:</label> <input type="text"

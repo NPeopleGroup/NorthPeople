@@ -22,9 +22,8 @@ public class AdminQuestionEditAction extends ModelAction<Question> {
 
 	private File image; // 上传的文件
 	private String imageContentType; // 文件类型
-
+	private String questionType;
 	public String execute() throws Exception {
-
 		try {
 
 			if (image != null) {
@@ -67,5 +66,13 @@ public class AdminQuestionEditAction extends ModelAction<Question> {
 
 	public void setImageContentType(String imageContentType) {
 		this.imageContentType = imageContentType;
+	}
+
+	public String getQuestionType() {
+		return questionType;
+	}
+
+	public void setQuestionType(String questionType) {
+		this.questionType = questionType;
 	}
 }
