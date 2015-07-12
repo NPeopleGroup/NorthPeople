@@ -7,20 +7,20 @@
 	<package name="commonAction" extends="struts-default,json-default"
 		namespace="/">
 
-		<!--返回管理员用户登陆jsp页面-->
+		<!--返回管理员用户登陆jsp页面 -->
 		<action name="admin">
 			<result name="success">/WEB-INF/admin/admin_login.jsp</result>
 		</action>
 
 
 
-		<!--用户注册Action-->
+		<!--用户注册Action -->
 		<action name="RegisterAction" class="com.hyd.northpj.action.RegisterAction">
 			<result name="success">home.jsp</result>
 			<result name="input">home.jsp</result>
 		</action>
 
-		<!--用户登陆Action-->
+		<!--用户登陆Action -->
 		<action name="LoginAction" class="com.hyd.northpj.action.LoginAction">
 			<result name="success">home.jsp</result>
 			<result name="input">home.jsp</result>
@@ -34,11 +34,14 @@
 
 		<!-- 答题页面的一系列Action -->
 		<action name="answerQuestionPage" class="com.hyd.northpj.action.AnswerQuestionPageAction">
-			<result name="success">answerQuestionPage.jsp?id=001</result>
+			<result name="success">answerQuestionPage.jsp</result>
+			<result name="end" type="redirect">checkScorePage
+			</result>
 		</action>
 		<action name="answerQuestionPageSubmit"
 			class="com.hyd.northpj.action.AnswerQuestionPageSubmitAction">
-			<result name="success" type="redirect">answerQuestionPage?id=${nextId}
+			<result name="success" type="redirect">
+				answerQuestionPage?id=${nextId}&amp;type=${type}
 			</result>
 			<result name="end" type="redirect">checkScorePage
 			</result>

@@ -187,7 +187,7 @@ body {
 				<img alt="" src="./img/home/percent75.png">
 			</div>
 			<div id="process1">
-				<a href="answerQuestionPage?id=001"><img alt=""
+				<a href="answerQuestionPage"><img alt=""
 					src="./img/home/process1_unfinished.png"></a>
 			</div>
 			<div id="process2">

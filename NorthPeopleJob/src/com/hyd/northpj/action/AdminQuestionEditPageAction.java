@@ -20,10 +20,10 @@ public class AdminQuestionEditPageAction extends ActionSupport {
 	public String execute() throws Exception {
 		List<Question> gotoList = new ArrayList<Question>();
 		QuestionService myQuestionService = new QuestionService();
-		gotoList = myQuestionService.getQuestionList();
+		gotoList = myQuestionService.getQuestionList(myQuestionService.changeQuestionTypeToChinese(questionType));
 
 		Question finish = new Question();
-		finish.setId("´ðÌâ½áÊø");
+		finish.setId("end");
 		gotoList.add(finish);
 		setGotoList(gotoList);
 		setQuestion(myQuestionService.getQuestion(id));

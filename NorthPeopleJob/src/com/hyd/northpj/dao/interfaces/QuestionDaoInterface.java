@@ -51,4 +51,13 @@ public interface QuestionDaoInterface {
 	 */
 	public int deleteQuestion(String id) throws Exception;
 
+	/**
+	 * 返回一个类型的第一道问题
+	 * 
+	 * @param type
+	 * @return 一个类型的第一道问题
+	 * @throws Exception
+	 */
+	public Question selectFirstQuestionByType(String type) throws Exception;
+
 }

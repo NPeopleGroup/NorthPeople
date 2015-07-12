@@ -182,7 +182,7 @@ public class ValidateUtil {
 		}
 		return 0;
 	}
-	
+
 	public static int validateQuestionAllProperty(Question question)
 			throws SecurityException, ClassNotFoundException,
 			IllegalArgumentException, IllegalAccessException {
@@ -226,10 +226,12 @@ public class ValidateUtil {
 	 */
 	public static boolean isPassSqlFilter(String sourceSql) {
 
-		if (sqlPattern.matcher(sourceSql.trim()).find()) {
-			logger.error("未能通过过滤器：p=" + sourceSql);
+		if (sourceSql != null) {
+			if (sqlPattern.matcher(sourceSql.trim()).find()) {
+				logger.error("未能通过过滤器：p=" + sourceSql);
 
-			return false;
+				return false;
+			}
 		}
 		return true;
 	}

@@ -11,15 +11,30 @@ public class AnswerQuestionPageAction extends ActionSupport {
 	 */
 	private static final long serialVersionUID = -5561112297024954096L;
 	private String id;
+	private String type;
+
 	private Question question;
 
 	@Override
 	public String execute() throws Exception {
 
 		QuestionService myQuestionService = new QuestionService();
-		setQuestion(myQuestionService.getQuestion(id));
 
-		return SUCCESS;
+		question = myQuestionService.getQuestionByType(id, type);
+		if (question != null) {
+			setQuestion(question);
+			return SUCCESS;
+		} else {
+			return "end";
+		}
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	public String getId() {

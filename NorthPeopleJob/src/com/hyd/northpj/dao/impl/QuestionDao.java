@@ -28,11 +28,9 @@ public class QuestionDao implements QuestionDaoInterface {
 	public List<Question> selectQuestionList(String questionType)
 			throws Exception {
 		// TODO Auto-generated method stub
-		query = session
-				.createQuery("from Question Q  WHERE Q.type='"
-						+ questionType+"' order by Q.id");
-		
-		
+		query = session.createQuery("from Question Q  WHERE Q.type='"
+				+ questionType + "' order by Q.id");
+
 		@SuppressWarnings("unchecked")
 		List<Question> questionList = query.list();
 		return questionList;
@@ -51,7 +49,29 @@ public class QuestionDao implements QuestionDaoInterface {
 	@Override
 	public Question selectQuestion(String id) throws Exception {
 		// TODO Auto-generated method stub
+
+
 		query = session.createQuery("from Question where id='" + id + "'");
+		@SuppressWarnings("unchecked")
+		List<Question> Question = query.list();
+		for (Question tempQuestion : Question) {
+			return tempQuestion;
+		}
+		tx.commit();
+		session.close();
+		return null;
+	}
+
+	@Override
+	public Question selectFirstQuestionByType(String type) throws Exception {
+		// TODO Auto-generated method stub
+		if (!session.isOpen()) {
+			session = HibernateSessionFactory.getSession();
+			tx = session.beginTransaction();
+		}
+		
+		query = session.createQuery("from Question where type='" + type
+				+ "' and isFirst='on'");
 		@SuppressWarnings("unchecked")
 		List<Question> Question = query.list();
 		for (Question tempQuestion : Question) {

@@ -14,14 +14,26 @@ public class AnswerQuestionPageSubmitAction extends ActionSupport {
 	 */
 	private static final long serialVersionUID = 1344904021439220859L;
 	private String id;
+	private String type;
 	private String option;
 	private String nextId;
 	private Question question;
 
 	@Override
 	public String execute() throws Exception {
+
+
 		QuestionService questionService = new QuestionService();
 		question = questionService.getQuestion(id);
+		setType(questionService.changeQuestionTypeToEnglish(question.getType()));
+		setNextId(option.substring(2, option.length()));
+		System.out.println("AnswerQuestionPageSubmitAction:" + id + " " + type);
+
+
+		if (question == null) {
+			return "end";
+		}
+
 		Answer answer = new Answer();
 		answer.setQuestionId(id);
 		try {
@@ -95,12 +107,7 @@ public class AnswerQuestionPageSubmitAction extends ActionSupport {
 		AnswerService answerService = new AnswerService();
 		answerService.answerQuestion(answer);
 
-		setNextId(option.substring(2, option.length()));
 
-		if (nextId.equals("´ðÌâ½áÊø")) {
-			System.out.println(nextId);
-			return "end";
-		}
 		return SUCCESS;
 	}
 
@@ -126,6 +133,14 @@ public class AnswerQuestionPageSubmitAction extends ActionSupport {
 
 	public void setNextId(String nextId) {
 		this.nextId = nextId;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 }

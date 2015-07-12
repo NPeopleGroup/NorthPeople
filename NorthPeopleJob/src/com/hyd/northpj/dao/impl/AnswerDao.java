@@ -23,9 +23,9 @@ public class AnswerDao implements AnswerDaoInterface {
 	@Override
 	public int insertAnswer(Answer answer) throws Exception {
 
-		query = session.createQuery("from Answer where questionId="
-				+ answer.getQuestionId() + " and username="
-				+ answer.getUsername());
+		query = session.createQuery("from Answer where questionId='"
+				+ answer.getQuestionId() + "' and username='"
+				+ answer.getUsername()+ "'");
 		@SuppressWarnings("unchecked")
 		List<Answer> list = query.list();
 		for (Answer Answer : list) {
