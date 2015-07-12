@@ -21,7 +21,6 @@ public class AdminQuestionAddPageAction extends ActionSupport {
 		List<Question> gotoList = new ArrayList<Question>();
 		QuestionService myQuestionService = new QuestionService();
 		gotoList = myQuestionService.getQuestionList(myQuestionService.changeQuestionTypeToChinese(questionType));
-
 		Question finish = new Question();
 		finish.setId("end");
 		gotoList.add(finish);

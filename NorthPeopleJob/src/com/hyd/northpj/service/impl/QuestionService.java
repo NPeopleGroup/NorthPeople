@@ -86,8 +86,9 @@ public class QuestionService implements QuestionServiceInterface {
 
 			return question;
 
-		} else if (id.equals("end") || id == null
-				&& type != changeQuestionTypeToEnglish("守法诚信")) {
+		} else if ((id.equals("end") || id == null)
+				&& !type.equals(changeQuestionTypeToEnglish("守法诚信"))) {
+			System.out.println(changeQuestionTypeToEnglish("守法诚信"));
 			System.out.println(1);
 			System.out.println(type);
 			type = getNextQuestionType(changeQuestionTypeToChinese(type));
@@ -111,8 +112,8 @@ public class QuestionService implements QuestionServiceInterface {
 
 			return question;
 		} else if ((id.equals("end") || id == null)
-				&& type == changeQuestionTypeToEnglish("守法诚信")) {// 答题结束
-
+				&& type.equals(changeQuestionTypeToEnglish("守法诚信"))) {// 答题结束
+			System.out.println(4);
 			return null;
 
 		}

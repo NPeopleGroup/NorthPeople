@@ -200,7 +200,7 @@
 					<option value="奖项荣誉">奖项荣誉</option>
 					<option value="婚姻状况">婚姻状况</option>
 					<option value="工作年限">工作年限</option>
-					<option value="工作年限">守法诚信</option>
+					<option value="守法诚信">守法诚信</option>
 				</select>
 			</div>
 			<div class="form_item">

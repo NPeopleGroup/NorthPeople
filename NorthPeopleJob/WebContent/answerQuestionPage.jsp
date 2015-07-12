@@ -18,67 +18,237 @@
 					(winHeight - 70 - 150 - 452) / 3 * 2);
 		}
 	});
-	$(document).ready(function() {
+	$(document).ready(
+			function() {
 
-		switch ("${question.type}") {
-		case "年龄":
-			$(".question-box-line-fill").css("width", "60");
-			break;
-		case "教育":
-			$(".question-box-line-fill").css("width", "120");
-			break;
-		case "技能(职业资格)":
-			$(".question-box-line-fill").css("width", "180");
-			break;
-		case "技能(职称)":
-			$(".question-box-line-fill").css("width", "180");
-			break;
-		case "住房":
-			$(".question-box-line-fill").css("width", "240");
-			break;
-		case "社保":
-			$(".question-box-line-fill").css("width", "300");
-			break;
-		case "落户地区":
-			$(".question-box-line-fill").css("width", "360");
-			break;
-		case "职业":
-			$(".question-box-line-fill").css("width", "420");
-			break;
-		case "投资纳税":
-			$(".question-box-line-fill").css("width", "480");
-			break;
-		case "奖项荣誉":
-			$(".question-box-line-fill").css("width", "540");
-			break;
-		case "婚姻状况":
-			$(".question-box-line-fill").css("width", "600");
-			break;
-		case "工作年限":
-			$(".question-box-line-fill").css("width", "660");
-			break;
-		case "守法诚信":
-			$(".question-box-line-fill").css("width", "720");
-			break;
-		}
+				switch ("${question.type}") {
+				case "年龄":
+					$(".question-box-line-fill").css("width", "60");
+					break;
+				case "教育":
+					$("#age_finish").attr("src",
+					"./img/finished.png");
 
-		if ("${question.activationA}" != "on") {
-			$("#option_a_li").hide();
-		}
+					$("#age_finish").attr("src",
+							"./img/finished.png");
+					$(".question-box-line-fill").css("width", "120");
+					break;
+				case "技能(职业资格)":
+					$("#age_finish").attr("src",
+					"./img/finished.png");
+					$("#education_finish").attr("src",
+					"./img/finished.png");
 
-		if ("${question.activationB}" != "on") {
-			$("#option_b_li").hide();
-		}
+					$(".question-box-line-fill").css("width", "180");
+					break;
+				case "技能(职称)":
+					$("#age_finish").attr("src",
+					"./img/finished.png");
+					$("#education_finish").attr("src",
+					"./img/finished.png");
+					$("#skills_qualifications_finish").attr("src",
+					"./img/finished.png");
 
-		if ("${question.activationC}" != "on") {
-			$("#option_c_li").hide();
-		}
+					$(".question-box-line-fill").css("width", "180");
+					break;
+				case "住房":
+					$("#age_finish").attr("src",
+					"./img/finished.png");
+					$("#education_finish").attr("src",
+					"./img/finished.png");
+					$("#skills_title_finish").attr("src",
+					"./img/finished.png");
+					$("#skills_qualifications_finish").attr("src",
+					"./img/finished.png");
 
-		if ("${question.activationD}" != "on") {
-			$("#option_d_li").hide();
-		}
+					$(".question-box-line-fill").css("width", "240");
+					break;
+				case "社保":
+					$("#age_finish").attr("src",
+					"./img/finished.png");
+					$("#education_finish").attr("src",
+					"./img/finished.png");
+					$("#skills_title_finish").attr("src",
+					"./img/finished.png");
+					$("#skills_qualifications_finish").attr("src",
+					"./img/finished.png");
+					$("#housing_finish").attr("src",
+					"./img/finished.png");
 
-	});
+					$(".question-box-line-fill").css("width", "300");
+					break;
+				case "落户地区":
+					$("#age_finish").attr("src",
+					"./img/finished.png");
+					$("#education_finish").attr("src",
+					"./img/finished.png");
+					$("#skills_title_finish").attr("src",
+					"./img/finished.png");
+					$("#skills_qualifications_finish").attr("src",
+					"./img/finished.png");
+					$("#housing_finish").attr("src",
+					"./img/finished.png");
+					$("#security_finish").attr("src",
+					"./img/finished.png");
+
+					$(".question-box-line-fill").css("width", "360");
+					break;
+				case "职业":
+					$("#age_finish").attr("src",
+					"./img/finished.png");
+					$("#education_finish").attr("src",
+					"./img/finished.png");
+					$("#skills_title_finish").attr("src",
+					"./img/finished.png");
+					$("#skills_qualifications_finish").attr("src",
+					"./img/finished.png");
+					$("#housing_finish").attr("src",
+					"./img/finished.png");
+					$("#security_finish").attr("src",
+					"./img/finished.png");
+					$("#settled_area_finish").attr("src",
+					"./img/finished.png");
+
+					$(".question-box-line-fill").css("width", "420");
+					break;
+				case "投资纳税":
+					$("#age_finish").attr("src",
+					"./img/finished.png");
+					$("#education_finish").attr("src",
+					"./img/finished.png");
+					$("#skills_title_finish").attr("src",
+					"./img/finished.png");
+					$("#skills_qualifications_finish").attr("src",
+					"./img/finished.png");
+					$("#housing_finish").attr("src",
+					"./img/finished.png");
+					$("#security_finish").attr("src",
+					"./img/finished.png");
+					$("#settled_area_finish").attr("src",
+					"./img/finished.png");
+					$("#career_finish").attr("src",
+					"./img/finished.png");
+
+					$(".question-box-line-fill").css("width", "480");
+					break;
+				case "奖项荣誉":
+					$("#age_finish").attr("src",
+					"./img/finished.png");
+					$("#education_finish").attr("src",
+					"./img/finished.png");
+					$("#skills_title_finish").attr("src",
+					"./img/finished.png");
+					$("#skills_qualifications_finish").attr("src",
+					"./img/finished.png");
+					$("#housing_finish").attr("src",
+					"./img/finished.png");
+					$("#security_finish").attr("src",
+					"./img/finished.png");
+					$("#settled_area_finish").attr("src",
+					"./img/finished.png");
+					$("#career_finish").attr("src",
+					"./img/finished.png");
+					$("#investment_tax_finish").attr("src",
+					"./img/finished.png");
+
+					$(".question-box-line-fill").css("width", "540");
+					break;
+				case "婚姻状况":
+					$("#age_finish").attr("src",
+					"./img/finished.png");
+					$("#education_finish").attr("src",
+					"./img/finished.png");
+					$("#skills_title_finish").attr("src",
+					"./img/finished.png");
+					$("#skills_qualifications_finish").attr("src",
+					"./img/finished.png");
+					$("#housing_finish").attr("src",
+					"./img/finished.png");
+					$("#security_finish").attr("src",
+					"./img/finished.png");
+					$("#settled_area_finish").attr("src",
+					"./img/finished.png");
+					$("#career_finish").attr("src",
+					"./img/finished.png");
+					$("#investment_tax_finish").attr("src",
+					"./img/finished.png");
+					$("#awards_honor_finish").attr("src",
+					"./img/finished.png");
+
+					$(".question-box-line-fill").css("width", "600");
+					break;
+				case "工作年限":
+					$("#age_finish").attr("src",
+					"./img/finished.png");
+					$("#education_finish").attr("src",
+					"./img/finished.png");
+					$("#skills_title_finish").attr("src",
+					"./img/finished.png");
+					$("#skills_qualifications_finish").attr("src",
+					"./img/finished.png");
+					$("#housing_finish").attr("src",
+					"./img/finished.png");
+					$("#security_finish").attr("src",
+					"./img/finished.png");
+					$("#settled_area_finish").attr("src",
+					"./img/finished.png");
+					$("#career_finish").attr("src",
+					"./img/finished.png");
+					$("#investment_tax_finish").attr("src",
+					"./img/finished.png");
+					$("#awards_honor_finish").attr("src",
+					"./img/finished.png");
+					$("#marital_status_finish").attr("src",
+					"./img/finished.png");
+
+					$(".question-box-line-fill").css("width", "660");
+					break;
+				case "守法诚信":
+					$("#age_finish").attr("src",
+					"./img/finished.png");
+					$("#education_finish").attr("src",
+					"./img/finished.png");
+					$("#skills_title_finish").attr("src",
+					"./img/finished.png");
+					$("#skills_qualifications_finish").attr("src",
+					"./img/finished.png");
+					$("#housing_finish").attr("src",
+					"./img/finished.png");
+					$("#security_finish").attr("src",
+					"./img/finished.png");
+					$("#settled_area_finish").attr("src",
+					"./img/finished.png");
+					$("#career_finish").attr("src",
+					"./img/finished.png");
+					$("#investment_tax_finish").attr("src",
+					"./img/finished.png");
+					$("#awards_honor_finish").attr("src",
+					"./img/finished.png");
+					$("#marital_status_finish").attr("src",
+					"./img/finished.png");
+					$("#working_years_finish").attr("src",
+					"./img/finished.png");
+					$(".question-box-line-fill").css("width", "720");
+					break;
+				}
+
+				if ("${question.activationA}" != "on") {
+					$("#option_a_li").hide();
+				}
+
+				if ("${question.activationB}" != "on") {
+					$("#option_b_li").hide();
+				}
+
+				if ("${question.activationC}" != "on") {
+					$("#option_c_li").hide();
+				}
+
+				if ("${question.activationD}" != "on") {
+					$("#option_d_li").hide();
+				}
+
+			});
 </script>
 
 </head>
@@ -90,19 +260,71 @@
 			style="display: none" />
 		<div style="width: 990px; margin: 0 auto;">
 			<div style="width: 170px; float: left;">
-				<div class="type-box">年龄</div>
-				<div class="type-box">教育</div>
-				<div class="type-box">技能(职业资格)</div>
-				<div class="type-box">技能(职称)</div>
-				<div class="type-box">住房</div>
-				<div class="type-box">社保</div>
-				<div class="type-box">落户地区</div>
-				<div class="type-box">职业</div>
-				<div class="type-box">投资纳税</div>
-				<div class="type-box">奖项荣誉</div>
-				<div class="type-box">婚姻状况</div>
-				<div class="type-box">工作年限</div>
-				<div class="type-box">守法诚信</div>
+				<div class="type-box">
+					<img src="img/age.png" width="35px" height="35px"
+						style="float: left" /> <img src="img/unfinished.png" width="19px"
+						height="35px" style="float: left" id="age_finish" />年龄
+				</div>
+				<div class="type-box">
+					<img src="img/education.png" width="35px" height="35px"
+						style="float: left" /> <img src="img/unfinished.png" width="19px"
+						height="35px" style="float: left" id="education_finish" />教育
+				</div>
+				<div class="type-box">
+					<img src="img/skills_qualifications.png" width="35px" height="35px"
+						style="float: left" /> <img src="img/unfinished.png" width="19px"
+						height="35px" style="float: left" id="skills_qualifications_finish" />技能(职业资格)
+				</div>
+				<div class="type-box">
+					<img src="img/skills_title.png" width="35px" height="35px"
+						style="float: left" /> <img src="img/unfinished.png" width="19px"
+						height="35px" style="float: left" id="skills_title_finish" />技能(职称)
+				</div>
+				<div class="type-box">
+					<img src="img/housing.png" width="35px" height="35px"
+						style="float: left" /> <img src="img/unfinished.png" width="19px"
+						height="35px" style="float: left" id="housing_finish" />住房
+				</div>
+				<div class="type-box">
+					<img src="img/security.png" width="35px" height="35px"
+						style="float: left" /> <img src="img/unfinished.png" width="19px"
+						height="35px" style="float: left" id="security_finish" />社保
+				</div>
+				<div class="type-box">
+					<img src="img/settled_area.png" width="35px" height="35px"
+						style="float: left" /> <img src="img/unfinished.png" width="19px"
+						height="35px" style="float: left" id="settled_area_finish" />落户地区
+				</div>
+				<div class="type-box">
+					<img src="img/career.png" width="35px" height="35px"
+						style="float: left" /> <img src="img/unfinished.png" width="19px"
+						height="35px" style="float: left" id="career_finish" />职业
+				</div>
+				<div class="type-box">
+					<img src="img/investment_tax.png" width="35px" height="35px"
+						style="float: left" /> <img src="img/unfinished.png" width="19px"
+						height="35px" style="float: left" id="investment_tax_finish" />投资纳税
+				</div>
+				<div class="type-box">
+					<img src="img/awards_honor.png" width="35px" height="35px"
+						style="float: left" /> <img src="img/unfinished.png" width="19px"
+						height="35px" style="float: left" id="awards_honor_finish" />奖项荣誉
+				</div>
+				<div class="type-box">
+					<img src="img/marital_status.png" width="35px" height="35px"
+						style="float: left" /> <img src="img/unfinished.png" width="19px"
+						height="35px" style="float: left" id="marital_status_finish" />婚姻状况
+				</div>
+				<div class="type-box">
+					<img src="img/working_years.png" width="35px" height="35px"
+						style="float: left" /> <img src="img/unfinished.png" width="19px"
+						height="35px" style="float: left" id="working_years_finish" />工作年限
+				</div>
+				<div class="type-box">
+					<img src="img/law_integrity.png" width="35px" height="35px"
+						style="float: left" /> <img src="img/unfinished.png" width="19px"
+						height="35px" style="float: left" id="law_integrity_finish" />守法诚信
+				</div>
 			</div>
 			<div class="question-box">
 				<div class="question-box-title">天津市积分落户自助测评</div>
