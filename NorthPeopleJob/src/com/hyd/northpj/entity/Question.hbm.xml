@@ -17,6 +17,7 @@
 		<property name="scoreA" column="scoreA" />
 		<property name="objectiveA" column="objectiveA" />
 		<property name="fileA" column="fileA" />
+		<property name="fileA2" column="fileA2" />
 		<property name="departmentA" column="departmentA" />
 		<property name="hintA" column="hintA" />
 		<property name="activationB" column="activationB" />
@@ -25,6 +26,7 @@
 		<property name="scoreB" column="scoreB" />
 		<property name="objectiveB" column="objectiveB" />
 		<property name="fileB" column="fileB" />
+		<property name="fileB2" column="fileB2" />
 		<property name="departmentB" column="departmentB" />
 		<property name="hintB" column="hintB" />
 		<property name="activationC" column="activationC" />
@@ -33,6 +35,7 @@
 		<property name="scoreC" column="scoreC" />
 		<property name="objectiveC" column="objectiveC" />
 		<property name="fileC" column="fileC" />
+		<property name="fileC2" column="fileC2" />
 		<property name="departmentC" column="departmentC" />
 		<property name="hintC" column="hintC" />
 		<property name="activationD" column="activationD" />
@@ -41,6 +44,7 @@
 		<property name="scoreD" column="scoreD" />
 		<property name="objectiveD" column="objectiveD" />
 		<property name="fileD" column="fileD" />
+		<property name="fileD2" column="fileD2" />
 		<property name="departmentD" column="departmentD" />
 		<property name="hintD" column="hintD" />
 		<property name="activationE" column="activationE" />
@@ -49,6 +53,7 @@
 		<property name="scoreE" column="scoreE" />
 		<property name="objectiveE" column="objectiveE" />
 		<property name="fileE" column="fileE" />
+		<property name="fileE2" column="fileE2" />
 		<property name="departmentE" column="departmentE" />
 		<property name="hintE" column="hintE" />
 		<property name="activationF" column="activationF" />
@@ -58,6 +63,7 @@
 		<property name="departmentF" column="departmentF" />
 		<property name="objectiveF" column="objectiveF" />
 		<property name="fileF" column="fileF" />
+		<property name="fileF2" column="fileF2" />
 		<property name="hintF" column="hintF" />
 	</class>
 </hibernate-mapping>

@@ -12,6 +12,7 @@ public class Question {
 	private String scoreA;
 	private String objectiveA;
 	private String fileA;
+	private String fileA2;
 	private String departmentA;
 	private String hintA;
 
@@ -21,6 +22,7 @@ public class Question {
 	private String scoreB;
 	private String objectiveB;
 	private String fileB;
+	private String fileB2;
 	private String departmentB;
 	private String hintB;
 
@@ -30,6 +32,7 @@ public class Question {
 	private String scoreC;
 	private String objectiveC;
 	private String fileC;
+	private String fileC2;
 	private String departmentC;
 	private String hintC;
 
@@ -39,6 +42,7 @@ public class Question {
 	private String scoreD;
 	private String objectiveD;
 	private String fileD;
+	private String fileD2;
 	private String departmentD;
 	private String hintD;
 
@@ -48,6 +52,7 @@ public class Question {
 	private String scoreE;
 	private String objectiveE;
 	private String fileE;
+	private String fileE2;
 	private String departmentE;
 	private String hintE;
 
@@ -57,6 +62,55 @@ public class Question {
 	private String scoreF;
 	private String objectiveF;
 	private String fileF;
+	private String fileF2;
+	public String getFileA2() {
+		return fileA2;
+	}
+
+	public void setFileA2(String fileA2) {
+		this.fileA2 = fileA2;
+	}
+
+	public String getFileB2() {
+		return fileB2;
+	}
+
+	public void setFileB2(String fileB2) {
+		this.fileB2 = fileB2;
+	}
+
+	public String getFileC2() {
+		return fileC2;
+	}
+
+	public void setFileC2(String fileC2) {
+		this.fileC2 = fileC2;
+	}
+
+	public String getFileD2() {
+		return fileD2;
+	}
+
+	public void setFileD2(String fileD2) {
+		this.fileD2 = fileD2;
+	}
+
+	public String getFileE2() {
+		return fileE2;
+	}
+
+	public void setFileE2(String fileE2) {
+		this.fileE2 = fileE2;
+	}
+
+	public String getFileF2() {
+		return fileF2;
+	}
+
+	public void setFileF2(String fileF2) {
+		this.fileF2 = fileF2;
+	}
+
 	private String departmentF;
 	private String hintF;
 
