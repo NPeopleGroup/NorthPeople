@@ -67,37 +67,45 @@
 
 		$("[name='objectiveA']").val("${question.objectiveA}");
 		$("[name='gotoA']").val("${question.gotoA}");
-
+		$("[name='fileA']").val("${question.fileA}");
+		$("[name='fileA2']").val("${question.fileA2}");
+		
 		if ("${question.activationB}" == "on") {
 			$("[name='activationB']").attr("checked", 'true');
 		}
 
 		$("[name='objectiveB']").val("${question.objectiveB}");
 		$("[name='gotoB']").val("${question.gotoB}");
-
+		$("[name='fileB']").val("${question.fileB}");
+		$("[name='fileB2']").val("${question.fileB2}");
 		if ("${question.activationC}" == "on") {
 			$("[name='activationC']").attr("checked", 'true');
 		}
 		$("[name='objectiveC']").val("${question.objectiveC}");
 		$("[name='gotoC']").val("${question.gotoC}");
-
+		$("[name='fileC']").val("${question.fileC}");
+		$("[name='fileC2']").val("${question.fileC2}");
 		if ("${question.activationD}" == "on") {
 			$("[name='activationD']").attr("checked", 'true');
 		}
 		$("[name='objectiveD']").val("${question.objectiveD}");
 		$("[name='gotoD']").val("${question.gotoD}");
-
+		$("[name='fileD']").val("${question.fileD}");
+		$("[name='fileD2']").val("${question.fileD2}");
 		if ("${question.activationE}" == "on") {
 			$("[name='activationE']").attr("checked", 'true');
 		}
 		$("[name='objectiveE']").val("${question.objectiveE}");
 		$("[name='gotoE']").val("${question.gotoE}");
-
+		$("[name='fileE']").val("${question.fileE}");
+		$("[name='fileE2']").val("${question.fileE2}");
 		if ("${question.activationF}" == "on") {
 			$("[name='activationF']").attr("checked", 'true');
 		}
 		$("[name='objectiveF']").val("${question.objectiveF}");
 		$("[name='gotoF']").val("${question.gotoF}");
+		$("[name='fileF']").val("${question.fileF}");
+		$("[name='fileF2']").val("${question.fileF2}");
 	});
 </script>
 <script type="text/javascript">
@@ -189,7 +197,7 @@
 					<option value="奖项荣誉">奖项荣誉</option>
 					<option value="婚姻状况">婚姻状况</option>
 					<option value="工作年限">工作年限</option>
-					<option value="工作年限">守法诚信</option>
+					<option value="守法诚信">守法诚信</option>
 				</select>
 			</div>
 			<div class="form_item">
@@ -252,14 +260,20 @@
 							<option value="奖项荣誉">奖项荣誉</option>
 							<option value="婚姻状况">婚姻状况</option>
 							<option value="工作年限">工作年限</option>
-							<option value="工作年限">守法诚信</option>
+							<option value="守法诚信">守法诚信</option>
 						</select>
 					</div>
 					<div class="form_item">
-						<label class="normal_label">选项A所需文件:</label> <input type="text"
-							name="fileA" class="normal_input" value="${question.fileA}" />
+						<label class="normal_label">选项A所需文件1:</label>
+						<s:select name="fileA" cssClass="normal_select" list="materialList"
+							listKey="sn" listValue="name+'('+description+')'"  headerKey="" headerValue="--请选择--"></s:select>
 					</div>
 					<div class="form_item">
+						<label class="normal_label">选项A所需文件2:</label>
+						<s:select name="fileA2" cssClass="normal_select" list="materialList"
+							listKey="sn" listValue="name+'('+description+')'"  headerKey="" headerValue="--请选择--"></s:select>
+					</div>
+					<div class="form_item" style="display: none">
 						<label class="normal_label">选项A所属部门:</label> <input type="text"
 							name="departmentA" class="normal_input"
 							value="${question.departmentA}" />
@@ -304,14 +318,20 @@
 							<option value="奖项荣誉">奖项荣誉</option>
 							<option value="婚姻状况">婚姻状况</option>
 							<option value="工作年限">工作年限</option>
-							<option value="工作年限">守法诚信</option>
+							<option value="守法诚信">守法诚信</option>
 						</select>
 					</div>
 					<div class="form_item">
-						<label class="normal_label">选项B所需文件:</label> <input type="text"
-							name="fileB" class="normal_input" value="${question.fileB}" />
+						<label class="normal_label">选项B所需文件1:</label>
+						<s:select name="fileB" cssClass="normal_select" list="materialList"
+							listKey="sn" listValue="name+'('+description+')'" headerKey="" headerValue="--请选择--"></s:select>
 					</div>
 					<div class="form_item">
+						<label class="normal_label">选项B所需文件2:</label>
+						<s:select name="fileB2" cssClass="normal_select" list="materialList"
+							listKey="sn" listValue="name+'('+description+')'" headerKey="" headerValue="--请选择--"></s:select>
+					</div>
+					<div class="form_item" style="display: none">
 						<label class="normal_label">选项B所属部门:</label> <input type="text"
 							name="departmentB" class="normal_input"
 							value="${question.departmentB}" />
@@ -355,14 +375,20 @@
 							<option value="奖项荣誉">奖项荣誉</option>
 							<option value="婚姻状况">婚姻状况</option>
 							<option value="工作年限">工作年限</option>
-							<option value="工作年限">守法诚信</option>
+							<option value="守法诚信">守法诚信</option>
 						</select>
 					</div>
 					<div class="form_item">
-						<label class="normal_label">选项C所需文件:</label> <input type="text"
-							name="fileC" class="normal_input" value="${question.fileC}" />
+						<label class="normal_label">选项C所需文件1:</label>
+						<s:select name="fileC" cssClass="normal_select" list="materialList"
+							listKey="sn" listValue="name+'('+description+')'" headerKey="" headerValue="--请选择--"></s:select>
 					</div>
 					<div class="form_item">
+						<label class="normal_label">选项C所需文件2:</label>
+						<s:select name="fileC2" cssClass="normal_select" list="materialList"
+							listKey="sn" listValue="name+'('+description+')'" headerKey="" headerValue="--请选择--"></s:select>
+					</div>
+					<div class="form_item" style="display: none">
 						<label class="normal_label">选项C所属部门:</label> <input type="text"
 							name="departmentC" class="normal_input"
 							value="${question.departmentC}" />
@@ -406,14 +432,20 @@
 							<option value="奖项荣誉">奖项荣誉</option>
 							<option value="婚姻状况">婚姻状况</option>
 							<option value="工作年限">工作年限</option>
-							<option value="工作年限">守法诚信</option>
+							<option value="守法诚信">守法诚信</option>
 						</select>
 					</div>
 					<div class="form_item">
-						<label class="normal_label">选项D所需文件:</label> <input type="text"
-							name="fileD" class="normal_input" value="${question.fileD}" />
+						<label class="normal_label">选项D所需文件1:</label>
+						<s:select name="fileD" cssClass="normal_select" list="materialList"
+							listKey="sn" listValue="name+'('+description+')'" headerKey="" headerValue="--请选择--"></s:select>
 					</div>
 					<div class="form_item">
+						<label class="normal_label">选项D所需文件2:</label>
+						<s:select name="fileD2" cssClass="normal_select" list="materialList"
+							listKey="sn" listValue="name+'('+description+')'" headerKey="" headerValue="--请选择--"></s:select>
+					</div>
+					<div class="form_item" style="display: none">
 						<label class="normal_label">选项D所属部门:</label> <input type="text"
 							name="departmentD" class="normal_input"
 							value="${question.departmentD}" />
@@ -458,14 +490,20 @@
 							<option value="奖项荣誉">奖项荣誉</option>
 							<option value="婚姻状况">婚姻状况</option>
 							<option value="工作年限">工作年限</option>
-							<option value="工作年限">守法诚信</option>
+							<option value="守法诚信">守法诚信</option>
 						</select>
 					</div>
 					<div class="form_item">
-						<label class="normal_label">选项E所需文件:</label> <input type="text"
-							name="fileE" class="normal_input" value="${question.fileE}" />
+						<label class="normal_label">选项E所需文件1:</label>
+						<s:select name="fileE" cssClass="normal_select" list="materialList"
+							listKey="sn" listValue="name+'('+description+')'" headerKey="" headerValue="--请选择--"></s:select>
 					</div>
 					<div class="form_item">
+						<label class="normal_label">选项E所需文件2:</label>
+						<s:select name="fileE2" cssClass="normal_select" list="materialList"
+							listKey="sn" listValue="name+'('+description+')'" headerKey="" headerValue="--请选择--"></s:select>
+					</div>
+					<div class="form_item" style="display: none">
 						<label class="normal_label">选项E所属部门:</label> <input type="text"
 							name="departmentE" class="normal_input"
 							value="${question.departmentE}" />
@@ -510,14 +548,20 @@
 							<option value="奖项荣誉">奖项荣誉</option>
 							<option value="婚姻状况">婚姻状况</option>
 							<option value="工作年限">工作年限</option>
-							<option value="工作年限">守法诚信</option>
+							<option value="守法诚信">守法诚信</option>
 						</select>
 					</div>
 					<div class="form_item">
-						<label class="normal_label">选项F所需文件:</label> <input type="text"
-							name="fileF" class="normal_input" value="${question.fileF}" />
+						<label class="normal_label">选项F所需文件1:</label>
+						<s:select name="fileF" cssClass="normal_select" list="materialList"
+							listKey="sn" listValue="name+'('+description+')'" headerKey="" headerValue="--请选择--"></s:select>
 					</div>
 					<div class="form_item">
+						<label class="normal_label">选项F所需文件2:</label>
+						<s:select name="fileF2" cssClass="normal_select" list="materialList"
+							listKey="sn" listValue="name+'('+description+')'" headerKey="" headerValue="--请选择--"></s:select>
+					</div>
+					<div class="form_item" style="display: none">
 						<label class="normal_label">选项F所属部门:</label> <input type="text"
 							name="departmentF" class="normal_input"
 							value="${question.departmentF}" />

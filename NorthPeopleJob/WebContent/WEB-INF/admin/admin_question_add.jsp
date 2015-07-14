@@ -265,14 +265,20 @@
 							<option value="奖项荣誉">奖项荣誉</option>
 							<option value="婚姻状况">婚姻状况</option>
 							<option value="工作年限">工作年限</option>
-							<option value="工作年限">守法诚信</option>
+							<option value="守法诚信">守法诚信</option>
 						</select>
 					</div>
 					<div class="form_item">
-						<label class="normal_label">选项A所需文件:</label> <input type="text"
-							name="fileA" class="normal_input" />
+						<label class="normal_label">选项A所需文件1:</label>
+						<s:select name="fileA" cssClass="normal_select" list="materialList"
+							listKey="sn" listValue="name+'('+description+')'" headerKey="" headerValue="--请选择--"></s:select>
 					</div>
 					<div class="form_item">
+						<label class="normal_label">选项A所需文件2:</label>
+						<s:select name="fileA2" cssClass="normal_select" list="materialList"
+							listKey="sn" listValue="name+'('+description+')'" headerKey="" headerValue="--请选择--"></s:select>
+					</div>
+					<div class="form_item" style="display: none">
 						<label class="normal_label">选项A所属部门:</label> <input type="text"
 							name="departmentA" class="normal_input" />
 					</div>
@@ -315,14 +321,20 @@
 							<option value="奖项荣誉">奖项荣誉</option>
 							<option value="婚姻状况">婚姻状况</option>
 							<option value="工作年限">工作年限</option>
-							<option value="工作年限">守法诚信</option>
+							<option value="守法诚信">守法诚信</option>
 						</select>
 					</div>
 					<div class="form_item">
-						<label class="normal_label">选项B所需文件:</label> <input type="text"
-							name="fileB" class="normal_input" />
+						<label class="normal_label">选项B所需文件1:</label>
+						<s:select name="fileB" cssClass="normal_select" list="materialList"
+							listKey="sn" listValue="name+'('+description+')'" headerKey="" headerValue="--请选择--"></s:select>
 					</div>
 					<div class="form_item">
+						<label class="normal_label">选项B所需文件2:</label>
+						<s:select name="fileB2" cssClass="normal_select" list="materialList"
+							listKey="sn" listValue="name+'('+description+')'" headerKey="" headerValue="--请选择--"></s:select>
+					</div>
+					<div class="form_item" style="display: none">
 						<label class="normal_label">选项B所属部门:</label> <input type="text"
 							name="departmentB" class="normal_input" />
 					</div>
@@ -365,14 +377,20 @@
 							<option value="奖项荣誉">奖项荣誉</option>
 							<option value="婚姻状况">婚姻状况</option>
 							<option value="工作年限">工作年限</option>
-							<option value="工作年限">守法诚信</option>
+							<option value="守法诚信">守法诚信</option>
 						</select>
 					</div>
 					<div class="form_item">
-						<label class="normal_label">选项C所需文件:</label> <input type="text"
-							name="fileC" class="normal_input" />
+						<label class="normal_label">选项C所需文件1:</label>
+						<s:select name="fileC" cssClass="normal_select" list="materialList"
+							listKey="sn" listValue="name+'('+description+')'" headerKey="" headerValue="--请选择--"></s:select>
 					</div>
 					<div class="form_item">
+						<label class="normal_label">选项C所需文件2:</label>
+						<s:select name="fileC2" cssClass="normal_select" list="materialList"
+							listKey="sn" listValue="name+'('+description+')'" headerKey="" headerValue="--请选择--"></s:select>
+					</div>
+					<div class="form_item" style="display: none">
 						<label class="normal_label">选项C所属部门:</label> <input type="text"
 							name="departmentC" class="normal_input" />
 					</div>
@@ -415,14 +433,20 @@
 							<option value="奖项荣誉">奖项荣誉</option>
 							<option value="婚姻状况">婚姻状况</option>
 							<option value="工作年限">工作年限</option>
-							<option value="工作年限">守法诚信</option>
+							<option value="守法诚信">守法诚信</option>
 						</select>
 					</div>
 					<div class="form_item">
-						<label class="normal_label">选项D所需文件:</label> <input type="text"
-							name="fileD" class="normal_input" />
+						<label class="normal_label">选项D所需文件1:</label>
+						<s:select name="fileD" cssClass="normal_select" list="materialList"
+							listKey="sn" listValue="name+'('+description+')'" headerKey="" headerValue="--请选择--"></s:select>
 					</div>
 					<div class="form_item">
+						<label class="normal_label">选项D所需文件2:</label>
+						<s:select name="fileD2" cssClass="normal_select" list="materialList"
+							listKey="sn" listValue="name+'('+description+')'" headerKey="" headerValue="--请选择--"></s:select>
+					</div>
+					<div class="form_item" style="display: none">
 						<label class="normal_label">选项D所属部门:</label> <input type="text"
 							name="departmentD" class="normal_input" />
 					</div>
@@ -466,14 +490,20 @@
 							<option value="奖项荣誉">奖项荣誉</option>
 							<option value="婚姻状况">婚姻状况</option>
 							<option value="工作年限">工作年限</option>
-							<option value="工作年限">守法诚信</option>
+							<option value="守法诚信">守法诚信</option>
 						</select>
 					</div>
 					<div class="form_item">
-						<label class="normal_label">选项E所需文件:</label> <input type="text"
-							name="fileE" class="normal_input" />
+						<label class="normal_label">选项E所需文件1:</label>
+						<s:select name="fileE" cssClass="normal_select" list="materialList"
+							listKey="sn" listValue="name+'('+description+')'" headerKey="" headerValue="--请选择--"></s:select>
 					</div>
 					<div class="form_item">
+						<label class="normal_label">选项E所需文件2:</label>
+						<s:select name="fileE2" cssClass="normal_select" list="materialList"
+							listKey="sn" listValue="name+'('+description+')'" headerKey="" headerValue="--请选择--"></s:select>
+					</div>
+					<div class="form_item" style="display: none">
 						<label class="normal_label">选项E所属部门:</label> <input type="text"
 							name="departmentE" class="normal_input" />
 					</div>
@@ -517,14 +547,20 @@
 							<option value="奖项荣誉">奖项荣誉</option>
 							<option value="婚姻状况">婚姻状况</option>
 							<option value="工作年限">工作年限</option>
-							<option value="工作年限">守法诚信</option>
+							<option value="守法诚信">守法诚信</option>
 						</select>
 					</div>
 					<div class="form_item">
-						<label class="normal_label">选项F所需文件:</label> <input type="text"
-							name="fileF" class="normal_input" />
+						<label class="normal_label">选项F所需文件1:</label>
+						<s:select name="fileF" cssClass="normal_select" list="materialList"
+							listKey="sn" listValue="name+'('+description+')'" headerKey="" headerValue="--请选择--"></s:select>
 					</div>
 					<div class="form_item">
+						<label class="normal_label">选项F所需文件2:</label>
+						<s:select name="fileF2" cssClass="normal_select" list="materialList"
+							listKey="sn" listValue="name+'('+description+')'" headerKey="" headerValue="--请选择--"></s:select>
+					</div>
+					<div class="form_item" style="display: none">
 						<label class="normal_label">选项F所属部门:</label> <input type="text"
 							name="departmentF" class="normal_input" />
 					</div>
