@@ -39,3 +39,4 @@ ALTER TABLE  `t_question` ADD  `fileC2` VARCHAR( 100 ) CHARACTER SET utf8 COLLAT
 ALTER TABLE  `t_question` ADD  `fileD2` VARCHAR( 100 ) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT  '文件D2' AFTER  `fileD`
 ALTER TABLE  `t_question` ADD  `fileE2` VARCHAR( 100 ) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT  '文件E2' AFTER  `fileE`
 ALTER TABLE  `t_question` ADD  `fileF2` VARCHAR( 100 ) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT  '文件F2' AFTER  `fileF`
+ALTER TABLE  `t_answer` ADD  `questionFrom` VARCHAR( 100 ) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT  '上一个题目' AFTER  `questionChoice`

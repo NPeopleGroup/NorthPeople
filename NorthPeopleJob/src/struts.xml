@@ -5,6 +5,7 @@
 
 <struts>
 	<include file="struts_common.xml"></include>
+	<include file="struts_answer.xml"></include>
 	<include file="struts_adminuser.xml"></include>
 	<include file="struts_user.xml"></include>
 	<include file="struts_material.xml"></include>

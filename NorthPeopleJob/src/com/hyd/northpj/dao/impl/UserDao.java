@@ -18,6 +18,11 @@ public class UserDao implements UserDaoInterface {
 
 	@Override
 	public int insertUser(User user) throws Exception {
+		if (!session.isOpen()) {
+			session = HibernateSessionFactory.getSession();
+			tx = session.beginTransaction();
+		}
+		session.clear();
 		session.save(user);
 		tx.commit();
 		session.close();
@@ -26,6 +31,11 @@ public class UserDao implements UserDaoInterface {
 
 	@Override
 	public String selectUserPassword(String username) throws Exception {
+		if (!session.isOpen()) {
+			session = HibernateSessionFactory.getSession();
+			tx = session.beginTransaction();
+		}
+		session.clear();
 		String password=null;
 		query = session.createQuery("from User where username="
 				+ username);
@@ -40,7 +50,12 @@ public class UserDao implements UserDaoInterface {
 	}
 
 	@Override
-	public int updateUserPassword(User user) throws Exception {   
+	public int updateUserPassword(User user) throws Exception {  
+		if (!session.isOpen()) {
+			session = HibernateSessionFactory.getSession();
+			tx = session.beginTransaction();
+		}
+		session.clear();
 		// TODO Auto-generated method stub
 		String password=user.getPassword();
 		user=(User)session.get(User.class,user.getSn());
@@ -54,6 +69,11 @@ public class UserDao implements UserDaoInterface {
 	@Override
 	public int updateUserInformation(User user) throws Exception {
 		// TODO Auto-generated method stub
+		if (!session.isOpen()) {
+			session = HibernateSessionFactory.getSession();
+			tx = session.beginTransaction();
+		}
+		session.clear();
 		//获取userName所对应的sn
 		String myQuery="select sn from User where username='"+user.getUsername()+"'";
 		int sn=(int) session.createQuery(myQuery).uniqueResult();
@@ -70,6 +90,11 @@ public class UserDao implements UserDaoInterface {
 	@Override
 	public User selectUserInformation(String username) throws Exception {
 		// TODO Auto-generated method stub
+		if (!session.isOpen()) {
+			session = HibernateSessionFactory.getSession();
+			tx = session.beginTransaction();
+		}
+		session.clear();
 		query = session.createQuery("from User where username="
 				+ username);
 		@SuppressWarnings("unchecked")
@@ -77,6 +102,7 @@ public class UserDao implements UserDaoInterface {
 		for (User tempUser : Users) {
 			return tempUser;
 		}
+		session.close();
 		return null;
 	}
 	
@@ -84,6 +110,11 @@ public class UserDao implements UserDaoInterface {
 	@Override
 	public int updateUserApplicationTime(User user) throws Exception {
 		// TODO Auto-generated method stub
+		if (!session.isOpen()) {
+			session = HibernateSessionFactory.getSession();
+			tx = session.beginTransaction();
+		}
+		session.clear();
 		user=(User)session.get(User.class,user.getSn());
 		user.setApplicationTime(user.getApplicationTime());
 		session.save(user);
@@ -95,6 +126,11 @@ public class UserDao implements UserDaoInterface {
 	@Override
 	public int updateUserAcceptionProgress(User user) throws Exception {
 		// TODO Auto-generated method stub
+		if (!session.isOpen()) {
+			session = HibernateSessionFactory.getSession();
+			tx = session.beginTransaction();
+		}
+		session.clear();
 		user=(User)session.get(User.class,user.getSn());
 		user.setAcceptionProgress(user.getAcceptionProgress());
 		session.save(user);
@@ -106,6 +142,11 @@ public class UserDao implements UserDaoInterface {
 	@Override
 	public int updateUserAppointmentTime(User user) throws Exception {
 		// TODO Auto-generated method stub
+		if (!session.isOpen()) {
+			session = HibernateSessionFactory.getSession();
+			tx = session.beginTransaction();
+		}
+		session.clear();
 		user=(User)session.get(User.class,user.getSn());
 		user.setAppointmentTime(user.getAppointmentTime());
 		session.save(user);
@@ -118,9 +159,15 @@ public class UserDao implements UserDaoInterface {
 	@Override
 	public List<User> selectAllUser() throws Exception {
 		// TODO Auto-generated method stub
+		if (!session.isOpen()) {
+			session = HibernateSessionFactory.getSession();
+			tx = session.beginTransaction();
+		}
+		session.clear();
 		String sqlStatement="from User";
 		query=session.createQuery(sqlStatement);
 		List<User> myUserList=query.list();
+		session.close();
 		return myUserList;
 	}
 

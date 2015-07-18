@@ -124,6 +124,23 @@ public class QuestionService implements QuestionServiceInterface {
 	}
 
 	@Override
+	public Question getFirstQuestionByType(String type) throws Exception {
+
+		Question question = new Question();
+
+		if (!ValidateUtil.isPassSqlFilter(type)) {
+			myLogger.error("要查询的实例,questionType通过验证！--->questionType:" + type);
+			return null;
+		}
+
+		question = myQuestionDao
+				.selectFirstQuestionByType(changeQuestionTypeToChinese(type));// 正常跳转下一部分
+
+		return question;
+
+	}
+
+	@Override
 	public int setQuestion(Question question) throws Exception {
 		// TODO Auto-generated method stub
 		// TODO 这里有private 属性的问题 暂时先注释掉

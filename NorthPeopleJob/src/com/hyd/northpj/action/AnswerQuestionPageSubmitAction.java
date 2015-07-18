@@ -13,25 +13,133 @@ public class AnswerQuestionPageSubmitAction extends ActionSupport {
 	 * 
 	 */
 	private static final long serialVersionUID = 1344904021439220859L;
+	private String from;
 	private String id;
 	private String type;
+
 	private String option;
-	private String nextId;
 	private Question question;
 
 	@Override
 	public String execute() throws Exception {
 
-
 		QuestionService questionService = new QuestionService();
+
+		if (from == null && id == null && type == null && option == null) {
+
+			question = questionService.getFirstQuestionByType("age");
+			setFrom("begin");
+			setId(question.getId());
+			setType("age");
+			return SUCCESS;
+
+		} else if (from != null && id != null && type != null
+				&& option.substring(2, option.length()).equals("end")) {
+
+			String answerQuestionResult = answerThisQuestion(questionService);
+			if (answerQuestionResult != null) {
+				return answerQuestionResult;
+			}
+
+			type = questionService.changeQuestionTypeToChinese(type);
+			if (type.equals("守法诚信")) {
+				AnswerService answerService = new AnswerService();
+				if (answerService.getUnFinishedType().equals("")) {
+					return "end";
+				}else{
+					return "begin";
+				}
+			} else {
+				type = questionService.getNextQuestionType(type);
+				type = questionService.changeQuestionTypeToEnglish(type);
+
+				question = questionService.getFirstQuestionByType(type);
+
+				while (question == null) {
+
+					type = questionService.changeQuestionTypeToChinese(type);
+
+					if (!type.equals("守法诚信")) {
+						type = questionService.getNextQuestionType(type);
+						type = questionService
+								.changeQuestionTypeToEnglish(type);
+						question = questionService.getFirstQuestionByType(type);
+					}
+
+					if (type.equals("守法诚信") && question == null) {
+						AnswerService answerService = new AnswerService();
+						if (answerService.getUnFinishedType().equals("")) {
+							return "end";
+						}else{
+							return "begin";
+						}
+					}
+				}
+			}
+			setFrom(getId());
+			id = question.getId();
+			setType(questionService.changeQuestionTypeToEnglish(questionService
+					.getQuestion(getId()).getType()));
+			return SUCCESS;
+		} else if (from == null && id == null && type != null && option == null) {
+
+			question = questionService.getFirstQuestionByType(type);
+
+			while (question == null) {
+
+				if (!type.equals("守法诚信")) {
+					type = questionService.getNextQuestionType(type);
+					question = questionService.getFirstQuestionByType(type);
+				}
+
+				if (type.equals("守法诚信") && question == null) {
+					AnswerService answerService = new AnswerService();
+					if (answerService.getUnFinishedType().equals("")) {
+						return "end";
+					}else{
+						return "begin";
+					}
+				}
+			}
+			setFrom(getId());
+			id = question.getId();
+			setType(questionService.changeQuestionTypeToEnglish(questionService
+					.getQuestion(getId()).getType()));
+			return SUCCESS;
+		}
+
+		else {
+
+			String answerQuestionResult = answerThisQuestion(questionService);
+			if (answerQuestionResult != null) {
+				return answerQuestionResult;
+			}
+
+			prepareNextQuestion(questionService);
+			return SUCCESS;
+		}
+
+	}
+
+	private String answerThisQuestion(QuestionService questionService)
+			throws Exception {
+		AnswerService answerService = new AnswerService();
+
 		question = questionService.getQuestion(id);
-		setType(questionService.changeQuestionTypeToEnglish(question.getType()));
-		setNextId(option.substring(2, option.length()));
-		System.out.println("AnswerQuestionPageSubmitAction:" + id + " " + type);
-
-
 		if (question == null) {
-			return "end";
+			return "input";
+		}
+		if (question.getIsFirst() != null) {
+			if (question.getIsFirst().equals("on")) {
+				try {
+					answerService.deleteQuestionByPeopleAndType(
+							ActionContext.getContext().getSession()
+									.get("NorthPeopleJob_username").toString(),
+							question.getType());
+				} catch (Exception e) {
+					return "overtime";
+				}
+			}
 		}
 
 		Answer answer = new Answer();
@@ -48,7 +156,7 @@ public class AnswerQuestionPageSubmitAction extends ActionSupport {
 		answer.setQuestionSn(question.getSn());
 		answer.setQuestionType(question.getType());
 		answer.setQuestionQuestion(question.getQuestion());
-
+		answer.setQuestionFrom(from);
 		if (option.substring(0, 1).equals("A")) {
 			answer.setQuestionChoice(question.getChoiceA());
 			answer.setQuestionGoto(question.getGotoA());
@@ -104,11 +212,16 @@ public class AnswerQuestionPageSubmitAction extends ActionSupport {
 			answer.setQuestionHint(question.getHintF());
 		}
 
-		AnswerService answerService = new AnswerService();
 		answerService.answerQuestion(answer);
+		return null;
+	}
 
-
-		return SUCCESS;
+	private void prepareNextQuestion(QuestionService questionService)
+			throws Exception {
+		setFrom(getId());
+		setId(option.substring(2, option.length()));
+		setType(questionService.changeQuestionTypeToEnglish(questionService
+				.getQuestion(getId()).getType()));
 	}
 
 	public String getId() {
@@ -127,20 +240,20 @@ public class AnswerQuestionPageSubmitAction extends ActionSupport {
 		this.option = option;
 	}
 
-	public String getNextId() {
-		return nextId;
-	}
-
-	public void setNextId(String nextId) {
-		this.nextId = nextId;
-	}
-
 	public String getType() {
 		return type;
 	}
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public String getFrom() {
+		return from;
+	}
+
+	public void setFrom(String from) {
+		this.from = from;
 	}
 
 }

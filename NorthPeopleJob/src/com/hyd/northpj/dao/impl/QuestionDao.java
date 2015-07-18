@@ -19,26 +19,46 @@ public class QuestionDao implements QuestionDaoInterface {
 	@Override
 	public List<Question> selectQuestionList() throws Exception {
 		// TODO Auto-generated method stub
+		if (!session.isOpen()) {
+			session = HibernateSessionFactory.getSession();
+			tx = session.beginTransaction();
+		}
+		session.clear();
+		
 		query = session.createQuery("from Question Q order by Q.id");
 		@SuppressWarnings("unchecked")
 		List<Question> questionList = query.list();
+		
+		session.close();
 		return questionList;
 	}
 
 	public List<Question> selectQuestionList(String questionType)
 			throws Exception {
 		// TODO Auto-generated method stub
+		if (!session.isOpen()) {
+			session = HibernateSessionFactory.getSession();
+			tx = session.beginTransaction();
+		}
+		session.clear();
+		
 		query = session.createQuery("from Question Q  WHERE Q.type='"
 				+ questionType + "' order by Q.id");
 
 		@SuppressWarnings("unchecked")
 		List<Question> questionList = query.list();
+		
+		session.close();
 		return questionList;
 	}
 
 	@Override
 	public int insertQuestion(Question question) throws Exception {
 		// TODO Auto-generated method stub
+		if (!session.isOpen()) {
+			session = HibernateSessionFactory.getSession();
+			tx = session.beginTransaction();
+		}
 		session.clear();
 		session.save(question);
 		tx.commit();
@@ -49,7 +69,11 @@ public class QuestionDao implements QuestionDaoInterface {
 	@Override
 	public Question selectQuestion(String id) throws Exception {
 		// TODO Auto-generated method stub
-
+		if (!session.isOpen()) {
+			session = HibernateSessionFactory.getSession();
+			tx = session.beginTransaction();
+		}
+		session.clear();
 
 		query = session.createQuery("from Question where id='" + id + "'");
 		@SuppressWarnings("unchecked")
@@ -89,6 +113,10 @@ public class QuestionDao implements QuestionDaoInterface {
 		// System.out.println("updateQuestion:"+question.getSn()+question.getId());
 		//
 		// question = (Question) session.get(Question.class, question.getSn());
+		if (!session.isOpen()) {
+			session = HibernateSessionFactory.getSession();
+			tx = session.beginTransaction();
+		}
 		session.clear();
 		session.update(question);
 		tx.commit();
@@ -107,13 +135,17 @@ public class QuestionDao implements QuestionDaoInterface {
 		// }
 		// tx.commit();
 		// session.close();
-
+		if (!session.isOpen()) {
+			session = HibernateSessionFactory.getSession();
+			tx = session.beginTransaction();
+		}
+		session.clear();
 		String hql = "delete Question as p where p.id=?";
 		Query query = session.createQuery(hql);
 		query.setString(0, id);
 		query.executeUpdate();
 		session.beginTransaction().commit();
-
+		session.close();
 		return 0;
 	}
 	// public static void main(String[] args) throws Exception{

@@ -22,10 +22,14 @@ public class AnswerDao implements AnswerDaoInterface {
 
 	@Override
 	public int insertAnswer(Answer answer) throws Exception {
-
+		if (!session.isOpen()) {
+			session = HibernateSessionFactory.getSession();
+			tx = session.beginTransaction();
+		}
+		session.clear();
 		query = session.createQuery("from Answer where questionId='"
 				+ answer.getQuestionId() + "' and username='"
-				+ answer.getUsername()+ "'");
+				+ answer.getUsername() + "'");
 		@SuppressWarnings("unchecked")
 		List<Answer> list = query.list();
 		for (Answer Answer : list) {
@@ -41,8 +45,35 @@ public class AnswerDao implements AnswerDaoInterface {
 	}
 
 	@Override
+	public Answer selectAnswer(String username, String questionId)
+			throws Exception {
+		// TODO Auto-generated method stub
+		if (!session.isOpen()) {
+			session = HibernateSessionFactory.getSession();
+			tx = session.beginTransaction();
+		}
+		session.clear();
+		query = session.createQuery("from Answer where username='" + username
+				+ "' and questionId='" + questionId + "'");
+		@SuppressWarnings("unchecked")
+		List<Answer> Answer = query.list();
+		for (Answer tempAnswer : Answer) {
+			return tempAnswer;
+		}
+		tx.commit();
+		session.close();
+		return null;
+	}
+
+	@Override
 	public ArrayList<EvaluationScore> selectEvaluationScore(String username)
 			throws Exception {
+		if (!session.isOpen()) {
+			session = HibernateSessionFactory.getSession();
+			tx = session.beginTransaction();
+		}
+		session.clear();
+
 		String sql = "select questionObjective,SUM(questionScore) as questionScore from t_answer where username = "
 				+ username + " group by questionObjective";
 		SQLQuery query = (SQLQuery) session.createSQLQuery(sql);
@@ -58,13 +89,18 @@ public class AnswerDao implements AnswerDaoInterface {
 			EvaluationScoreList.add(evaluationScore);
 
 		}
-
+		session.close();
 		return EvaluationScoreList;
 	}
 
 	@Override
 	public ArrayList<EvaluationFile> selectEvaluationFile(String username)
 			throws Exception {
+		if (!session.isOpen()) {
+			session = HibernateSessionFactory.getSession();
+			tx = session.beginTransaction();
+		}
+		session.clear();
 		String sql = "select questionFile,questionDepartment,questionHint as questionScore from t_answer where username = "
 				+ username;
 		SQLQuery query = (SQLQuery) session.createSQLQuery(sql);
@@ -81,8 +117,62 @@ public class AnswerDao implements AnswerDaoInterface {
 			evaluationFileList.add(evaluationFile);
 
 		}
-
+		session.close();
 		return evaluationFileList;
 	}
 
+	@Override
+	public int deleteAnswerByPeopleAndType(String username, String type) {
+		if (!session.isOpen()) {
+			session = HibernateSessionFactory.getSession();
+			tx = session.beginTransaction();
+		}
+		session.clear();
+		String sql = "delete from t_answer where username = '" + username
+				+ "' and questionType='" + type + "'";
+		SQLQuery query = (SQLQuery) session.createSQLQuery(sql);
+		query.executeUpdate();
+		tx.commit();
+		session.close();
+		return 0;
+	}
+
+	@Override
+	public int deleteQuestionByPeopleAndQuestionId(String username,
+			String questionId) {
+		if (!session.isOpen()) {
+			session = HibernateSessionFactory.getSession();
+			tx = session.beginTransaction();
+		}
+		session.clear();
+		String sql = "delete from t_answer where username = '" + username
+				+ "' and questionId='" + questionId + "'";
+		SQLQuery query = (SQLQuery) session.createSQLQuery(sql);
+		query.executeUpdate();
+		tx.commit();
+		session.close();
+		return 0;
+	}
+
+	@Override
+	public String selectUnFinishedType() {
+		if (!session.isOpen()) {
+			session = HibernateSessionFactory.getSession();
+			tx = session.beginTransaction();
+		}
+		session.clear();
+		String sql = "select type from t_question where type not in ( SELECT questionType FROM `t_answer` where questionGoto='end') group by type";
+		SQLQuery query = (SQLQuery) session.createSQLQuery(sql);
+
+		List<String> retList = query.list();
+
+		String unFinishedTypeList = "";
+
+		for (String obj : retList) {
+			unFinishedTypeList = unFinishedTypeList + "<" + obj + ">";
+
+		}
+		session.close();
+		return unFinishedTypeList;
+	}
 }

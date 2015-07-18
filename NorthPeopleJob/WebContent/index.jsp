@@ -62,12 +62,33 @@
 				<br></br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&diams;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;实时保存，可分数次答完
 				<br></br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&diams;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;每道选择题均配有指导图片
 				<br></br>
+
+				<%
+					HttpSession Session = request.getSession();
+					String sesStr = (String) Session
+							.getAttribute("NorthPeopleJob_username");
+					if (sesStr == null) {
+				%>
+
+
 				<button
 					style="margin: 0 auto; width: 100%; margin-left: 150px; color: #FFF; line-height: 20px; border-radius: 10px; font-size: 15px; margin-top: 10px;"
 					class="button button--winona button--border-thin button--text-thick button--inverted"
 					id="login_href" data-text="进 入 测 评 系 统">
 					<span>进 入 测 评 系 统</span>
 				</button>
+				<%
+					} else {
+				%>
+				<button
+					style="margin: 0 auto; width: 100%; margin-left: 150px; color: #FFF; line-height: 20px; border-radius: 10px; font-size: 15px; margin-top: 10px;"
+					class="button button--winona button--border-thin button--text-thick button--inverted"
+					id="login_href_logined" data-text="进 入 测 评 系 统" onclick="location.href='home.jsp'">
+					<span>进 入 测 评 系 统</span>
+				</button>
+				<%
+					}
+				%>
 			</p>
 
 		</div>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="answerAction" extends="struts-default,json-default"
+		namespace="/">
+		<!-- 答题页面的一系列Action -->
+
+
+		<action name="answerQuestionPage" class="com.hyd.northpj.action.AnswerQuestionPageAction">
+			<result name="success">answerQuestionPage.jsp</result>
+			<result name="input" type="redirect">answerQuestionPageNotExist.jsp
+			</result>
+			<result name="overtime" type="redirect">/
+			</result>
+		</action>
+		<action name="answerQuestionPageSubmit"
+			class="com.hyd.northpj.action.AnswerQuestionPageSubmitAction">
+			<result name="success" type="redirect">
+				answerQuestionPage?from=${from}&amp;id=${id}&amp;type=${type}
+			</result>
+			<result name="begin" type="redirect">answerQuestionPageSubmit
+			</result>
+			<result name="end" type="redirect">checkScorePage
+			</result>
+			<result name="input" type="redirect">answerQuestionPageNotExist.jsp
+			</result>
+			<result name="overtime" type="redirect">/
+			</result>
+		</action>
+
+		<action name="answerQuestionPageBack"
+			class="com.hyd.northpj.action.AnswerQuestionPageBackAction">
+			<result name="success" type="redirect">
+				answerQuestionPage?from=${from}&amp;id=${id}&amp;type=${type}
+			</result>
+			<result name="input" type="redirect">answerQuestionPageSubmit
+			</result>
+			<result name="overtime" type="redirect">/
+			</result>
+		</action>
+
+
+
+		<action name="checkScorePage" class="com.hyd.northpj.action.CheckScorePageAction">
+			<result name="success">checkScorePage.jsp</result>
+			<result name="overtime" type="redirect">/
+			</result>
+		</action>
+		<action name="checkFilePage" class="com.hyd.northpj.action.CheckFilePageAction">
+			<result name="success">checkFilePage.jsp</result>
+			<result name="overtime" type="redirect">/
+			</result>
+		</action>
+		<action name="checkStatusPage" class="com.hyd.northpj.action.CheckStatusPageAction">
+			<result name="success">checkStatusPage.jsp</result>
+			<result name="overtime" type="redirect">/
+			</result>
+		</action>
+
+	</package>
+</struts>

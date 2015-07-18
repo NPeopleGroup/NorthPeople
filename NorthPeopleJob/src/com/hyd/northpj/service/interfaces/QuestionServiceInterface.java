@@ -95,5 +95,14 @@ public interface QuestionServiceInterface {
 	 * @throws Exception
 	 */
 	List<Question> getQuestionList(String questionType) throws Exception;
+	
+	/**
+	 *  获取一个问题
+	 * 
+	 * @param type
+	 * @return 返回获取到的问题
+	 * @throws Exception
+	 */
+	Question getFirstQuestionByType(String type) throws Exception;
 
 }

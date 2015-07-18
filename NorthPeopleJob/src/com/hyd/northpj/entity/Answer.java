@@ -10,6 +10,7 @@ public class Answer {
 	private String questionQuestion;
 	private String questionType;
 	private String questionChoice;
+	private String questionFrom;
 	private String questionGoto;
 	private String questionScore;
 	private String questionObjective;
@@ -100,6 +101,12 @@ public class Answer {
 	}
 	public void setAnswer(String answer) {
 		this.answer = answer;
+	}
+	public String getQuestionFrom() {
+		return questionFrom;
+	}
+	public void setQuestionFrom(String questionFrom) {
+		this.questionFrom = questionFrom;
 	}
 
 
