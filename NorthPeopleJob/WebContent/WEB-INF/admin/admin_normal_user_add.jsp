@@ -67,7 +67,7 @@
 				messages:{
 					username:{
 						required:"用户名为空",
-						digits:"请您输入手机号码",
+						digits:"请您输入11位手机号码",
 						maxlength:"请检查手机号码长度",
 						minlength:"请检查手机号码长度"
 					}
