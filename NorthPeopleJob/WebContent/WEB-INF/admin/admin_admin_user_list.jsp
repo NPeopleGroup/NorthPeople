@@ -83,7 +83,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     alert("请先选择需要操作的行!");
                 }else{
                    console.log(selection[0]);
-                   window.location.href='showAdminUserInfo?userName='+selection[0]['username'];
+                   window.location.href='admin/showAdminUserInfo?userName='+selection[0]['username'];
                 }
             });
             $("#myDeleteButton").bind('click',function(){

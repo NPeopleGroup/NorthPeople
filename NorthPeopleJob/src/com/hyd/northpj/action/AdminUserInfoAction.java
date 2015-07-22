@@ -15,6 +15,9 @@ public class AdminUserInfoAction extends ModelAction<AdminUser>{
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
+		
+		String userName=new String(request.getParameter("userName").getBytes("ISO8859-1"),"UTF-8");
+		System.out.println(userName);
 		AdminUserService myEditUserService=new AdminUserService();
 
 		setMyEditUser(myEditUserService.getAdminUserInformation(request.getParameter("userName")));

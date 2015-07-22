@@ -39,9 +39,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<label for="inputPassword3" class="col-sm-2 control-label">用户类型</label>
 				<div class="col-sm-6">
 					<select class="form-control" name="type">
-						<option>1(管理员)</option>
-						<option>2(业务员)</option>
-						<option>3(普通用户)</option>
+						<option value="1">1(管理员)</option>
+						<option value="2">2(业务员)</option>
+						<option value="3">3(普通用户)</option>
 					</select>
 				</div>
 			</div>
@@ -58,5 +58,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</form>
 	</div>
+	<script type="text/javascript">
+		$(".form-group").eq(2).find("select").val("${myEditUser.type}");
+	</script>
 </body>
 </html>

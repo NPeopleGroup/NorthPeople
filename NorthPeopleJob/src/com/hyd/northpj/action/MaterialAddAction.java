@@ -34,7 +34,8 @@ public class MaterialAddAction extends ActionSupport{
 
 			if (image != null) {
 				String realpath = ServletActionContext.getServletContext()
-						.getRealPath("/img");
+						.getRealPath("/img/upload");
+				System.out.println(realpath);
 				newFileName=new Date().getTime()+imageFileName.substring(imageFileName.lastIndexOf("."));
 				File savefile = new File(new File(realpath), newFileName);
 				if (!savefile.getParentFile().exists())

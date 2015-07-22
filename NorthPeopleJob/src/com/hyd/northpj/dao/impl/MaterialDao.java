@@ -12,52 +12,106 @@ import com.hyd.northpj.util.HibernateSessionFactory;
 
 public class MaterialDao implements MaterialDaoInterface {
 
-	private Session mySession = HibernateSessionFactory.getSession();
-	private Transaction tx = mySession.beginTransaction();
-	Query myQuery = null;
 
 	@Override
 	public int addNewMaterial(Material materialInfo) throws Exception {
 		// TODO Auto-generated method stub
-		myQuery = mySession.createQuery("from Material as p where p.name=?");
-		myQuery.setString(0, materialInfo.getName());
-		@SuppressWarnings("unchecked")
-		List<Material> list = myQuery.list();
-		for (Material Answer : list) {
-			mySession.delete(Answer);
-		}
+		
+		Session mySession=null;
+		Transaction tx=null;
+		Query myQuery=null;
+		try{
+			mySession=HibernateSessionFactory.getSession();
+			tx=mySession.beginTransaction();
+			myQuery = mySession.createQuery("from Material as p where p.name=?");
+			myQuery.setString(0, materialInfo.getName());
+			@SuppressWarnings("unchecked")
+			List<Material> list = myQuery.list();
+			for (Material Answer : list) {
+				mySession.delete(Answer);
+			}
 
-		mySession.save(materialInfo);
-		tx.commit();
-		mySession.close();
+			mySession.save(materialInfo);
+			tx.commit();
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}finally{
+			if(mySession!=null)
+			{
+				mySession.close();
+			}
+		}	
 		return 0;
 	}
 
 	@Override
 	public int deleteMaterial(int materialId) throws Exception {
 		// TODO Auto-generated method stub
-		String deleteSql = "delete from Material where sn=?";
-		myQuery = mySession.createQuery(deleteSql);
-		myQuery.setInteger(0, materialId);
-		myQuery.executeUpdate();
-		mySession.beginTransaction().commit();
+		
+		Session mySession=null;
+		Transaction tx=null;
+		Query myQuery=null;
+		try{
+			mySession=HibernateSessionFactory.getSession();
+			tx=mySession.beginTransaction();
+			String deleteSql = "delete from Material where sn=?";
+			myQuery = mySession.createQuery(deleteSql);
+			myQuery.setInteger(0, materialId);
+			myQuery.executeUpdate();
+			tx.commit();
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			if(mySession!=null)
+			{
+				mySession.close();
+			}
+		}
 		return 0;
 	}
 
 	@Override
 	public List<Material> getMaterialList() {
 		// TODO Auto-generated method stub
+		Session mySession=null;
+		Query myQuery=null;
 		String sqlStatement = "from Material";
-		myQuery = mySession.createQuery(sqlStatement);
-		List<Material> myMaterialList = myQuery.list();
+		List<Material> myMaterialList=null;
+		try{
+			mySession=HibernateSessionFactory.getSession();
+			myQuery = mySession.createQuery(sqlStatement);
+			myMaterialList = myQuery.list();
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			if(mySession!=null)
+			{
+				mySession.close();
+			}
+		}
 		return myMaterialList;
 	}
 
 	@Override
 	public Material getMaterialInfo(int materialId) throws Exception {
 		// TODO Auto-generated method stub
-		String myQuery = "from Material where sn=" + materialId;
-		return (Material) mySession.createQuery(myQuery).uniqueResult();
+		
+		Session mySession=null;
+		String sqlStatement = "from Material where sn=" + materialId;
+		Material queryResult=null;
+		try{
+			mySession=HibernateSessionFactory.getSession();
+			queryResult = (Material) mySession.createQuery(sqlStatement).uniqueResult();
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			if(mySession!=null)
+			{
+				mySession.close();
+			}
+		}
+		return queryResult;
 	}
 
 }

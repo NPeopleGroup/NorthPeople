@@ -12,6 +12,10 @@
   	<filter-name>loginFilter</filter-name>
   	<url-pattern>/admin/*</url-pattern>
   </filter-mapping> -->
+
+
+  
+  
     <filter>
         <filter-name>struts2</filter-name>
         <filter-class>
@@ -23,6 +27,20 @@
         <filter-name>struts2</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+    
+    
+    	<filter>
+		<filter-name>characterEncodingFilter</filter-name>
+		<filter-class>com.hyd.northpj.util.EncodeFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>characterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
     
     
   <welcome-file-list>

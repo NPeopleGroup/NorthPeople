@@ -73,9 +73,9 @@
               }]
           },{
             id:'material',
+            homePage:'material_list',
             menu:[{
                 text:'材料管理',
-                homePage:'material_list',
                 items:[
                   {id:'material_list',text:'材料浏览',href:'admin/materialList'},
                   {id:'material_add',text:'材料增加',href:'admin/materialAdd'},

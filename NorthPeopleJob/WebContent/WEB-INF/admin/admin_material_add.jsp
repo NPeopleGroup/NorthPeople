@@ -1,81 +1,221 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-	<base href="<%=basePath%>">
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Insert title here</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link href="assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
-	<link href="assets/css/bui-min.css" rel="stylesheet" type="text/css" />
-	<link href="assets/css/main-min.css" rel="stylesheet" type="text/css" />
-	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<base href="<%=basePath%>">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="./js/jquery.js"></script>
+<link rel="stylesheet" href="./css/admin-question.css">
+<link rel="stylesheet" href="./js/jqwidgets/styles/jqx.base.css"
+	type="text/css" />
+<script type="text/javascript" src="./js/jqwidgets/jqxcore.js"></script>
+<script type="text/javascript" src="./js/jqwidgets/jqxtabs.js"></script>
+<script type="text/javascript" src="js/jqwidgets/jqxbuttons.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".normal_button").jqxButton({
+			height : 35,
+			width : 80
+		});
+		$('#jqxTabs').jqxTabs({
+			width : '90%',
+			height : 600,
+			position : 'top'
+		});
+		$('#settings div').css('margin-top', '10px');
+
+		$('#animation').on('change', function(event) {
+			var checked = event.args.checked;
+			$('#jqxTabs').jqxTabs({
+				selectionTracker : checked
+			});
+		});
+
+		$('#contentAnimation').on('change', function(event) {
+			var checked = event.args.checked;
+			if (checked) {
+				$('#jqxTabs').jqxTabs({
+					animationType : 'fade'
+				});
+			} else {
+				$('#jqxTabs').jqxTabs({
+					animationType : 'none'
+				});
+			}
+		});
+	});
+</script>
+<style type="text/css">
+#preview {
+	width: 300px; height: 210px; border: 1px solid #c7c7c7; overflow: hidden;
+}
+
+#imghead {
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=image);
+}
+</style>
+<script type="text/javascript">
+	$(document).ready(function() {
+		switch ("${questionType}") {
+		case "age":
+			$("[name='type']").val("年龄");
+			break;
+		case "education":
+			$("[name='type']").val("教育");
+			break;
+		case "skills_title":
+			$("[name='type']").val("技能(职称)");
+			break;
+		case "skills_qualifications":
+			$("[name='type']").val("技能(职业资格)");
+			break;
+		case "housing":
+			$("[name='type']").val("住房");
+			break;
+		case "security":
+			$("[name='type']").val("社保");
+			break;
+		case "settled_area":
+			$("[name='type']").val("落户地区");
+			break;
+		case "career":
+			$("[name='type']").val("职业");
+			break;
+		case "investment_tax":
+			$("[name='type']").val("投资纳税");
+			break;
+		case "awards_honor":
+			$("[name='type']").val("奖项荣誉");
+			break;
+		case "marital_status":
+			$("[name='type']").val("婚姻状况");
+			break;
+		case "working_years":
+			$("[name='type']").val("工作年限");
+			break;
+		case "law_integrity":
+			$("[name='type']").val("守法诚信");
+			break;
+
+		default:
+			$("[name='type']").val("年龄");
+			break;
+		}
+	});
+</script>
+
+<script type="text/javascript">
+	function previewImage(file) {
+		var MAXWIDTH = 300;
+		var MAXHEIGHT = 210;
+		var div = document.getElementById('preview');
+		if (file.files && file.files[0]) {
+			div.innerHTML = '<img id=imghead>';
+			var img = document.getElementById('imghead');
+			img.onload = function() {
+				var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, MAXWIDTH,
+						MAXHEIGHT);
+				img.width = rect.width;
+				img.height = rect.height;
+				img.style.marginTop = rect.top + 'px';
+			}
+			var reader = new FileReader();
+			reader.onload = function(evt) {
+				img.src = evt.target.result;
+			}
+			reader.readAsDataURL(file.files[0]);
+		} else {
+			var sFilter = 'filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
+			file.select();
+			var src = document.selection.createRange().text;
+			div.innerHTML = '<img id=imghead>';
+			var img = document.getElementById('imghead');
+			img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
+			var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth,
+					img.offsetHeight);
+			status = ('rect:' + rect.top + ',' + rect.left + ',' + rect.width
+					+ ',' + rect.height);
+			div.innerHTML = "<div id=divhead style='width:"+rect.width+"px;height:"+rect.height+"px;margin-top:"+rect.top+"px;"+sFilter+src+"\"'></div>";
+		}
+	}
+	function clacImgZoomParam(maxWidth, maxHeight, width, height) {
+		var param = {
+			top : 0,
+			left : 0,
+			width : width,
+			height : height
+		};
+		if (width > maxWidth || height > maxHeight) {
+			rateWidth = width / maxWidth;
+			rateHeight = height / maxHeight;
+
+			if (rateWidth > rateHeight) {
+				param.width = maxWidth;
+				param.height = Math.round(height / rateWidth);
+			} else {
+				param.width = Math.round(width / rateHeight);
+				param.height = maxHeight;
+			}
+		}
+
+		param.left = Math.round((maxWidth - param.width) / 2);
+		param.top = Math.round((maxHeight - param.height) / 2);
+		return param;
+	}
+</script>
 </head>
 <body>
-	<div class="container" style="margin-top:300px">
-		<div class="row">
-			<form id="myFrom" class="form-horizontal span24" enctype="multipart/form-data" method="post" action="admin/addMaterial">
-				<legend>增加材料</legend>
-				<div class="row">
-					<div class="control-group span12">
-						<label class="control-label">
-							<s>*</s>
-							材料名称
-						</label>
-						<div class="controls">
-							<input type="text" name="name"/>
-						</div>
-					</div>
-					<div class="control-group span12">
-						<label class="control-label">
-							<s>*</s>
-							材料图片
-						</label>
-						<div class="controls">
-							<input type="file" name="image"/>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="control-group span12">
-						<label class="control-label">
-							<s>*</s>
-							材料描述
-						</label>
-						<div class="controls">
-							<textarea class="input-large" type="text" name="description"></textarea>
-						</div>
-					</div>
-					<div class="control-group span12">
-						<label class="control-label">
-							<s>*</s>
-							所属部门
-						</label>
-						<div class="controls">
-							<select name="department">
-								<option>部门一</option>	
-								<option>部门二</option>	
-								<option>部门三</option>	
-								<option>部门四</option>	
-								<option>部门五</option>	
-								<option>部门六</option>	
-								<option>部门七</option>	
-							</select>	
-						</div>
-					</div>
-				</div>
-				<div class="row form-actions actions-bar">
-					<div class="span13 offset3 ">
-						<input type="submit" class="button button-primary" id="mySubmitButton"></input>
-					</div>
-				</div>
-			</form>
+
+	<form id="myFrom" class="form-horizontal span24" enctype="multipart/form-data" method="post" action="admin/addMaterial">
+		<div style="float: left; width: 33%; height: 100%">
+			<div class="form_item">
+				<label class="normal_label">材料名称:</label> <input type="text"
+					name="name" class="normal_input" />
+			</div>
+			<div class="form_item">
+				<label class="normal_label">材料描述:</label> <input type="text"
+					name="description" class="normal_input" />
+			</div>
+			<div class="form_item">
+				<label class="normal_label">所属部门:</label> <select name="department"
+					class="normal_select">
+					<option value="年龄">年龄</option>
+					<option value="教育">教育</option>
+					<option value="技能(职称)">技能(职称)</option>
+					<option value="技能(职业资格)">技能(职业资格)</option>
+					<option value="住房">住房</option>
+					<option value="社保">社保</option>
+					<option value="落户地区">落户地区</option>
+					<option value="职业">职业</option>
+					<option value="投资纳税">投资纳税</option>
+					<option value="奖项荣誉">奖项荣誉</option>
+					<option value="婚姻状况">婚姻状况</option>
+					<option value="工作年限">工作年限</option>
+					<option value="守法诚信">守法诚信</option>
+				</select>
+			</div>
+		
+			<div class="form_item">
+				<label class="normal_label">材料图片:</label> <input type="file"
+					name="image" class="normal_input" onchange="previewImage(this)" />
+			</div>
+			<div class="form_item" id="preview" style="height: 210px">
+				<img src="img/question-${question.id}.png" width="300" height="210"
+					id="imghead" />
+			</div>
+			<div class="form_item">
+				<button type="submit" class="normal_button">确认</button>
+			</div>
 		</div>
-	</div>
+	</form>
+
 </body>
 </html>
