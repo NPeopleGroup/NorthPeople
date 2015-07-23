@@ -19,7 +19,7 @@
 <script type="text/javascript" src="./js/jqwidgets/jqxtabs.js"></script>
 <script type="text/javascript" src="js/jqwidgets/jqxbuttons.js"></script>
 <script type="text/javascript">
-	$(document).ready(function() {
+	$(function() {
 		$(".normal_button").jqxButton({
 			height : 35,
 			width : 80
@@ -30,25 +30,14 @@
 			position : 'top'
 		});
 		$('#settings div').css('margin-top', '10px');
-
-			$(function(){
-	    $(".onlyNumber").keyup(function(){  //keyup事件处理 
-
-	            $(this).val($(this).val().replace(/\D|^0/g,''));  
-
-	        }).bind("paste",function(){  //CTR+V事件处理 
-
-	            $(this).val($(this).val().replace(/\D|^0/g,''));  
-
-	        }).css("ime-mode", "disabled");  //CSS设置输入法不可用
-		
-		});
-	</script>
 	});
 </script>
 <style type="text/css">
 #preview {
-	width: 300px; height: 210px; border: 1px solid #c7c7c7; overflow: hidden;
+	width: 300px;
+	height: 210px; border : 1px solid #c7c7c7;
+	overflow: hidden;
+	border: 1px solid #c7c7c7;
 }
 
 #imghead {
@@ -58,7 +47,8 @@
 </head>
 <body>
 
-<form id="myFrom" class="form-horizontal span24" action="admin/addAdminUser" method="post">
+	<form id="myFrom" class="form-horizontal span24"
+		action="admin/addAdminUser" method="post">
 		<div style="float: left; width: 33%; height: 100%">
 			<div class="form_item">
 				<label class="normal_label">用户名:</label> <input type="text"
@@ -69,20 +59,19 @@
 					name="password" class="normal_input" />
 			</div>
 			<div class="form_item">
-				<label class="normal_label">用户类型:</label> 
-				<select name="type"
+				<label class="normal_label">用户类型:</label> <select name="type"
 					class="normal_select">
 					<option value="超级管理员">超级管理员</option>
 					<option value="业务经理">业务经理</option>
 					<option value="业务员">业务员</option>
 				</select>
 			</div>
-		
+
 			<div class="form_item">
 				<label class="normal_label">用户姓名:</label> <input type="text"
 					name="name" class="normal_input" />
 			</div>
-			
+
 			<div class="form_item">
 				<button type="submit" class="normal_button">确认</button>
 			</div>
