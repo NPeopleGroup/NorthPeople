@@ -19,6 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     -->
     <link rel="stylesheet" href="js/jqwidgets/styles/jqx.base.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="css/MasterPage.css" type="text/css" />
     <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="js/jqwidgets/jqxcore.js"></script>
     <script type="text/javascript" src="js/jqwidgets/jqxdata.js"></script>
@@ -81,9 +82,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                },
               ]
             });
+            
+            
             $("#dataTable").jqxDataTable({pagerMode:"advanced"});
-            $("#myDeleteButton").jqxButton({ height: 25});
-            $("#myEditButton").jqxButton({ height: 25});
+			$("#myEditButton").jqxButton({
+				height : 35,
+				width : 80
+			});
+			$("#myDeleteButton").jqxButton({
+				height : 35,
+				width : 80
+			});
             $("#myEditButton").bind('click',function(){
                 var selection = $("#dataTable").jqxDataTable('getSelection');
                 if(selection.length==0)
@@ -130,10 +139,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </script>
 </head>
 <body class='default'>
-    <div id="dataTable"></div>
+
+
+    	<div id="pagetitle">问题管理页面</div>
+	<div id="workzone" style="width: 600px; margin: 30px auto;">
+		<div id="dataTable"></div>
+	</div>
+	<div id="button" style="width: 600px; margin: 30px auto;">
     <div id="myMenu" style="margin-top:20px">
         <button id="myDeleteButton">删除</button>
         <button id="myEditButton">编辑</button>
     </div>
+	</div>
+    
+    
 </body>
 </html>

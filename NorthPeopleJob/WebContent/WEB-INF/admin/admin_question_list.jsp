@@ -13,7 +13,7 @@
 <base href="<%=basePath%>">
 <link rel="stylesheet" href="js/jqwidgets/styles/jqx.base.css"
 	type="text/css" />
-
+<link rel="stylesheet" href="css/MasterPage.css" type="text/css" />
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="js/jqwidgets/jqxcore.js"></script>
 <script type="text/javascript" src="js/jqwidgets/jqxdatatable.js"></script>
@@ -125,8 +125,9 @@
 										'click',
 										function() {
 
-											window.location.href = 'admin/adminQuestionAddPage'+ '?questionType='
-											+ getUrlParam('questionType');
+											window.location.href = 'admin/adminQuestionAddPage'
+													+ '?questionType='
+													+ getUrlParam('questionType');
 
 										});
 						$("#myDeleteButton")
@@ -140,8 +141,10 @@
 												alert("请先选择需要操作的行!");
 											} else {
 												window.location.href = 'admin/adminQuestionDeleteAction?id='
-														+ selection[0]['id']+ '&questionType='
-														+ getUrlParam('questionType');;
+														+ selection[0]['id']
+														+ '&questionType='
+														+ getUrlParam('questionType');
+												;
 											}
 
 										});
@@ -149,11 +152,16 @@
 </script>
 </head>
 <body class='default'>
-	<div id="dataTable"></div>
-	<div id="myMenu" style="margin-top: 20px">
-		<button id="myAddButton">新增</button>
-		<button id="myEditButton">编辑</button>
-		<button id="myDeleteButton">删除</button>
+	<div id="pagetitle">问题管理页面</div>
+	<div id="workzone" style="width: 600px; margin: 30px auto;">
+		<div id="dataTable"></div>
+	</div>
+	<div id="button" style="width: 600px; margin: 30px auto;">
+		<div id="myMenu" style="margin-top: 20px">
+			<button id="myAddButton">新增</button>
+			<button id="myEditButton">编辑</button>
+			<button id="myDeleteButton">删除</button>
+		</div>
 	</div>
 </body>
 </html>

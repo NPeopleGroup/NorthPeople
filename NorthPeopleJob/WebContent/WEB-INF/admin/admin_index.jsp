@@ -35,7 +35,6 @@
         <li class="nav-item dl-selected"><div class="nav-item-inner nav-home">业务员管理</div></li>
         <li class="nav-item"><div class="nav-item-inner nav-order">普通用户管理</div></li>
         <li class="nav-item"><div class="nav-item-inner nav-order">材料管理</div></li>
-        <li class="nav-item"><div class="nav-item-inner nav-marketing">其他页面</div></li>
         <li class="nav-item"><div class="nav-item-inner nav-marketing">问题管理页面</div></li>
       </ul>
     </div>
@@ -79,16 +78,6 @@
                 items:[
                   {id:'material_list',text:'材料浏览',href:'admin/materialList'},
                   {id:'material_add',text:'材料增加',href:'admin/materialAdd'},
-                ]
-              }]
-          },{
-            id:'detail',
-            menu:[{
-                text:'详情页面',
-                items:[
-                  {id:'code',text:'详情页面代码',href:'detail/code.html'},
-                  {id:'example',text:'详情页面示例',href:'detail/example.html'},
-                  {id:'introduce',text:'详情页面简介',href:'detail/introduce.html'}
                 ]
               }]
           },{
