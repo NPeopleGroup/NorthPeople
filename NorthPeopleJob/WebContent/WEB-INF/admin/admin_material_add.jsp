@@ -25,12 +25,6 @@
 			height : 35,
 			width : 80
 		});
-		$('#jqxTabs').jqxTabs({
-			width : '90%',
-			height : 600,
-			position : 'top'
-		});
-		$('#settings div').css('margin-top', '10px');
 
 		$('#animation').on('change', function(event) {
 			var checked = event.args.checked;
@@ -62,55 +56,6 @@
 	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=image);
 }
 </style>
-<script type="text/javascript">
-	$(document).ready(function() {
-		switch ("${questionType}") {
-		case "age":
-			$("[name='type']").val("年龄");
-			break;
-		case "education":
-			$("[name='type']").val("教育");
-			break;
-		case "skills_title":
-			$("[name='type']").val("技能(职称)");
-			break;
-		case "skills_qualifications":
-			$("[name='type']").val("技能(职业资格)");
-			break;
-		case "housing":
-			$("[name='type']").val("住房");
-			break;
-		case "security":
-			$("[name='type']").val("社保");
-			break;
-		case "settled_area":
-			$("[name='type']").val("落户地区");
-			break;
-		case "career":
-			$("[name='type']").val("职业");
-			break;
-		case "investment_tax":
-			$("[name='type']").val("投资纳税");
-			break;
-		case "awards_honor":
-			$("[name='type']").val("奖项荣誉");
-			break;
-		case "marital_status":
-			$("[name='type']").val("婚姻状况");
-			break;
-		case "working_years":
-			$("[name='type']").val("工作年限");
-			break;
-		case "law_integrity":
-			$("[name='type']").val("守法诚信");
-			break;
-
-		default:
-			$("[name='type']").val("年龄");
-			break;
-		}
-	});
-</script>
 
 <script type="text/javascript">
 	function previewImage(file) {
@@ -208,6 +153,7 @@
 					name="image" class="normal_input" onchange="previewImage(this)" />
 			</div>
 			<div class="form_item" id="preview" style="height: 210px">
+			
 				<img src="img/question-${question.id}.png" width="300" height="210"
 					id="imghead" />
 			</div>
