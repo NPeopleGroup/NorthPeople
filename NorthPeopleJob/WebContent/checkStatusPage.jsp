@@ -2,10 +2,11 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<link rel="icon" href="./img/website.ico" type="image/x-icon" />
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>Insert title here</title>
+<title>查看受理状态</title>
 </head>
 <body>
 	<label class="normal_label">${user.acceptionProgress}</label>

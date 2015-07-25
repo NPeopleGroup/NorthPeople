@@ -11,6 +11,8 @@
 	content="天津积分落户自助测，我们根据《2015年天津积分落户细则》，将复杂的积分落户算法提炼成约40个左右的简单的选择题，您只需几分钟的时间就能完成答题，了解自己的落户积分情况和需要准备的申请材料。最终的结果，不仅将包含您积分情况的总分预估，还会详细的根据您的大体情况，分类计算出基本分、导向分、附加分和负积分，并提供相关政策的指导，在政策允许范围内，帮助您合理增分。除了得分情况之外，系统还会根据您的答题情况，提示您需要准备的材料，避免您因为忘记携带某份材料而反复奔波。">
 <link href="./css/public.css" rel="stylesheet">
 <script src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/zDrag.js"></script>
+<script type="text/javascript" src="./js/zDialog.js"></script>
 <link rel="icon" href="./img/website.ico" type="image/x-icon" />
 
 <link href="./css/login.css" rel="stylesheet">
@@ -151,6 +153,15 @@ body {
 							"./img/home/process5_unfinished.png");
 				});
 	});
+	function open2()
+	{
+		var diag = new Dialog();
+		diag.Width = 500;
+		diag.Height = 200;
+		diag.Title = "修改密码";
+		diag.URL = "test.html";
+		diag.show();
+	}
 </script>
 <body>
 	<div class="linear">
@@ -160,9 +171,9 @@ body {
 		<div id="subheader">
 			<span>精心设计的测评问题+一目了然的分数结果+详细罗列的所需材料</span>
 
-			<div id="tag">
-				<a href="www.baidu.com"><img alt="" src="./img/tag1.png" title="修改密码"></a><a
-					href="www.baidu.com"><img alt="" src="./img/tag2.png" title="联系我们"></a>
+		<div id="tag">
+				<a href="javascrip:void(0);" onclick="open2()"><img alt="" src="./img/tag1.png" title="修改密码"></a>
+				<a href="www.baidu.com"><img alt="" src="./img/tag2.png" title="联系我们"></a>
 			</div>
 			<span class="entry"> <%
  	String NorthPeopleJob_username = (String) session
