@@ -146,9 +146,12 @@
 		action="answerQuestionPageSubmit?from=${from}&id=${id}&type=${type}">
 		<input type="text" name="id" value="${question.id}"
 			style="display: none" />
-		<div style="width: 990px; margin: 0 auto;">
-			<div style="width: 170px; float: left;">
-				<div class="type-box">
+			<img src="images/section2.jpg" alt="">
+	<div style="width:1030px;height:475px;background-color:#ffffff;border:1px solid #dedede;position:absolute;top:15%;left:15%;">
+	
+		<div style="width: 990px;margin:0px auto;margin-top:10px;border:1px solid #eeeeee;">
+			<div style="width: 170px; float: left;style="border:1px solid #eeeeee;">
+				<div class="type-box" ">
 					<img src="img/age.png" width="35px" height="35px"
 						style="float: left" /> <img src="img/unfinished.png" width="19px"
 						height="35px" style="float: left" id="age_finish" /><a href="#"
@@ -228,7 +231,7 @@
 						href="#" onclick="jumpConfirm('law_integrity','守法诚信');">守法诚信</a>
 				</div>
 			</div>
-			<div class="question-box">
+			<div class="question-box" style="border:1px solid #eeeeee;">
 				<div class="question-box-title">天津市积分落户自助测评</div>
 				<div class="question-box-line">
 					<div class="question-box-line-fill"></div>
@@ -269,6 +272,7 @@
 				<input class="question-box-submit" value="下一题" type="submit"></input>
 				<div class="question-box-progress"></div>
 			</div>
+		</div>
 		</div>
 	</form>
 </body>

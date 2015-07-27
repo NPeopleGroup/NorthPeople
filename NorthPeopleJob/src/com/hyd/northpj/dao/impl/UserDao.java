@@ -51,18 +51,35 @@ public class UserDao implements UserDaoInterface {
 
 	@Override
 	public int updateUserPassword(User user) throws Exception {  
-		if (!session.isOpen()) {
+/*		if (!session.isOpen()) {
 			session = HibernateSessionFactory.getSession();
 			tx = session.beginTransaction();
 		}
 		session.clear();
 		// TODO Auto-generated method stub
 		String password=user.getPassword();
-		user=(User)session.get(User.class,user.getSn());
-		user.setPassword(password);
-		session.save(user);
-		tx.commit();
-		session.close();
+		//user=(User)session.get(User.class,user.getSn());
+		//user.setPassword(password);
+		//session.save(user);
+		//tx.commit();
+		query = session.createQuery("update User s set password="+password+"where s.username="
+				+ user.getUsername());
+		session.close();*/
+		Session mySession=null;
+		Transaction myTx=null;
+		String updateQuery="update User set password='"+user.getPassword()+"' where username ='"+user.getUsername()+"'";
+		System.out.println(updateQuery);
+		try{
+			mySession=HibernateSessionFactory.getSession();
+			myTx=mySession.beginTransaction();
+			mySession.createQuery(updateQuery).executeUpdate();
+			myTx.commit();
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			if(mySession!=null)
+				mySession.close();
+		}
 		return 0;
 	}
 
