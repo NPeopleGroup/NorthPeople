@@ -140,6 +140,20 @@
 </script>
 
 </head>
+<style type="text/css">
+.test{width:1030px;height:475px;background-color:#ffffff;border:1px solid #dedede;position:absolute;top:15%;left:15%;
+-webkit-transition-duration: 0.7s;
+-webkit-border-radius: 10px;}
+.test:hover{
+width:1080px;
+height:495px;
+background-color:#dedede;
+-webkit-transition-duration: 0.7s;
+-webkit-border-radius: 10px;
+}
+
+
+</style>
 <body>
 
 	<form id="answerQuestion" method="post" enctype="multipart/form-data"
@@ -147,8 +161,7 @@
 		<input type="text" name="id" value="${question.id}"
 			style="display: none" />
 			<img src="images/section2.jpg" alt="">
-	<div style="width:1030px;height:475px;background-color:#ffffff;border:1px solid #dedede;position:absolute;top:15%;left:15%;">
-	
+	<div class="test">
 		<div style="width: 990px;margin:0px auto;margin-top:10px;border:1px solid #eeeeee;">
 			<div style="width: 170px; float: left;style="border:1px solid #eeeeee;">
 				<div class="type-box" ">
