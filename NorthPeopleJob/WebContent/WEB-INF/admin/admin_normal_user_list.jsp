@@ -1,4 +1,18 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+
+<!-- 判断是否查询所有信息
+	1.代表未受理用户
+	2.代表已受理用户
+	3.代表已完结用户
+ -->
+<%
+	String status = request.getParameter("status");
+	String url = "admin/allUserList";
+	if (status != null) {
+		url += "?type=" + status;
+	}
+%>
+
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -11,7 +25,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>人员信息浏览页面</title>
+<title></title>
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
@@ -42,13 +56,7 @@
 	height: 30px;
 }
 </style>
-<%
-	String status = request.getParameter("status");
-	String url = "admin/allUserList";
-	if (status != null) {
-		url += "?type=" + status;
-	}
-%>
+
 <script type="text/javascript">
 	$(document)
 			.ready(
@@ -113,21 +121,6 @@
 		$("#dataTable").jqxDataTable({
 			pagerMode : "advanced"
 		});
-		/*		$("#myEditButton")
-						.bind(
-								'click',
-								function() {
-									var selection = $("#dataTable")
-											.jqxDataTable(
-													'getSelection');
-									if (selection.length == 0) {
-										alert("请先选择需要操作的行!");
-									} else {
-										console.log(selection[0]);
-										window.location.href = 'admin/showUserInfo?userName='
-												+ selection[0]['username'];
-									}
-								});*/
 		$("#myDeleteButton").bind('click', function() {
 			var selection = $("#dataTable").jqxDataTable('getSelection');
 			if (selection.length == 0) {
@@ -161,7 +154,21 @@
 </script>
 </head>
 <body class='default'>
-	<div id="pagetitle">用户管理页面</div>
+	<div id="pagetitle">
+		<%
+			if (status != null) {
+				if (status.equals("1"))
+					out.println("未受理用户列表");
+				else if (status.equals("2")) {
+					out.println("已受理用户列表");
+				} else {
+					out.println("已完结用户列表");
+				}
+			} else {
+				out.println("所有用户列表");
+			}
+		%>
+	</div>
 	<div></div>
 	<div id="workzone" style="width: 725px; margin: 30px auto;">
 		<div id="dataTable"></div>
@@ -170,10 +177,10 @@
 		<div id="myMenu" style="margin-top: 20px">
 			<button id="myDeleteButton" class="myOperationButton">删除</button>
 			<%
-				if (status != null && status.equals("1")) {
+				if (status != null &&( status.equals("1")||status.equals("2"))) {
 			%>
 			<button id="myEditButton" class="myOperationButton"
-				onclick="myEditHandler()">编辑</button>
+				onclick="myEditHandler()">查看</button>
 			<%
 				}
 			%>

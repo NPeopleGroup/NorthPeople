@@ -4,7 +4,7 @@ public class Relations {
 	private String relation;
 	private String relationName;
 	private String relationIDCard;
-	private String getRelationdegree;
+	private String relationDegree;
 	public String getRelation() {
 		return relation;
 	}
@@ -23,19 +23,20 @@ public class Relations {
 	public void setRelationIDCard(String relationIDCard) {
 		this.relationIDCard = relationIDCard;
 	}
-	public String getGetRelationdegree() {
-		return getRelationdegree;
+	public String getRelationDegree() {
+		return relationDegree;
 	}
-	public void setGetRelationdegree(String getRelationdegree) {
-		this.getRelationdegree = getRelationdegree;
+	public void setRelationDegree(String relationDegree) {
+		this.relationDegree = relationDegree;
 	}
 	public Relations(String relation, String relationName,
-			String relationIDCard, String getRelationdegree) {
+			String relationIDCard, String relationDegree) {
 		super();
 		this.relation = relation;
 		this.relationName = relationName;
 		this.relationIDCard = relationIDCard;
-		this.getRelationdegree = getRelationdegree;
+		this.relationDegree = relationDegree;
 	}
+	
 	
 }

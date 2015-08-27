@@ -37,12 +37,17 @@
 		
 
 		<action name="userInfoUpdate" class="com.hyd.northpj.action.UserInfoUpdateAction">
-			<result name="success">/WEB-INF/admin/admin_normal.jsp</result>
+			<result name="success">/WEB-INF/admin/admin_normal_user_list.jsp</result>
 		</action>
 
 		<!--显示单个用户信息Action-->
 		<action name="showUserInfo" class="com.hyd.northpj.action.UserInfoViewAction">
 			<result name="success">/WEB-INF/admin/admin_normal_user_info.jsp</result>
+		</action>
+
+			<!--显示单个用户信息Action-->
+		<action name="editUserInfo" class="com.hyd.northpj.action.UserInfoViewAction">
+			<result name="success">/WEB-INF/admin/admin_normal_user_edit.jsp</result>
 		</action>
 		
 	</package>

@@ -9,19 +9,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<base href="<%=basePath%>">
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>用户信息查看界面</title>
-<meta name="description" content="">
-<meta name="keywords" content="">
-<link href="css/register.css" rel="stylesheet">
-<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="js/register.js"></script>
-<script type="text/javascript" src="js/util.js"></script>
-<script type="text/javascript" src="js/PCASClass.js"></script>
-<script type="text/javascript" src="js/jquery.cityselect.js"></script>
-<script type="text/javascript" src="js/My97DatePicker/WdatePicker.js"></script>
+	<base href="<%=basePath%>
+	">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>用户信息查看界面</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<link href="css/register.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="assets/css/dpl-min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/bui-min.css">
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="assets/js/bui.js"></script>
+	<script type="text/javascript" src="assets/js/config.js"></script>
+	<script type="text/javascript" src="js/util.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -31,141 +32,64 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<tbody>
 						<tr>
 							<td width="758">
-								<form name="submitForm" method="post" action="userInfoUpdate">
-									<input type="hidden" value="4508439" name="regId" id="regId">
-									<input type="hidden" value="20151022470" name="regNo">
-									<input type="hidden" name="pnumroles" id="pnumroles"> <input
-										type="hidden" name="opt" id="opt" value="create"> <input
-										type="hidden" name="oid" id="oid" value="null"> <input
-										type="hidden" name="sldd" id="sldd" value="G10"> <input
-										type="hidden" name="checkdata" id="checkdata" value="">
-									<table width="758" border="0" cellspacing="0" cellpadding="0">
+								<table width="758" border="0" cellspacing="0" cellpadding="0">
 
-										<tbody>
-											<tr>
-												<td height="25" colspan="6" align="center" valign="middle"
-													bgcolor="#E4EDF2" class="jzzzl_box_main_font_01">基本信息
-													<font color="#FF0000">（红色标注项为必填项）</font>
-													<span style="float:right">档案号:${fileNumber}<span></span></span>
-												</td>
-											</tr>
-											<tr>
-												<td height="1" colspan="6" bgcolor="#F5F9FC"></td>
-											</tr>
-											<tr>
-												<td height="1" colspan="6" bgcolor="#C3D0D9"></td>
-											</tr>
-											<tr>
-												<td width="118" height="30" align="right" valign="middle"
-													class="jzzzl_box_main_font_04">申请人类型&nbsp;</td>
-												<td height="30" colspan="5" align="left" valign="middle"
-													class="jzzzl_box_main_font_02"><input name="type"
-													id="personType1" type="radio" value="1"
-													onkeyup="enterNext('idcard');">
-													企业员工&nbsp;&nbsp;&nbsp;&nbsp; <input name="type"
-													id="personType2" type="radio" value="2"
-													onkeyup="enterNext('idcard');">
-													投资者&nbsp;&nbsp;&nbsp;&nbsp; <input name="type"
-													id="personType3" type="radio" value="3"
-													onkeyup="enterNext('idcard');">个体工商户</td>
-											</tr>
-											<tr>
-												<td height="1" colspan="6" background="./img/JZZZL_line.jpg"></td>
-											</tr>
-											<tr>
-												<td height="30" align="right" valign="middle"
+									<tbody>
+										<tr>
+											<td height="25" colspan="6" align="center" valign="middle"
+													bgcolor="#E4EDF2" class="jzzzl_box_main_font_01">
+												基本信息 <font color="#FF0000">（红色标注项为必填项）</font>
+												<span style="float:right">
+													档案号:${fileNumber}
+													<span></span>
+												</span>
+											</td>
+										</tr>
+										<tr>
+											<td height="1" colspan="6" bgcolor="#F5F9FC"></td>
+										</tr>
+										<tr>
+											<td height="1" colspan="6" bgcolor="#C3D0D9"></td>
+										</tr>
+										<tr>
+											<td width="118" height="30" align="right" valign="middle" class="jzzzl_box_main_font_04">申请人类型&nbsp;</td>
+											<td height="30" colspan="5" align="left" valign="middle" class="jzzzl_box_main_font_02">
+												<label>
+													<c:choose>
+														<c:when test="${myUser.type=='1'}">企业员工</c:when>
+														<c:when test="${myUser.type=='2'}">投资者</c:when>
+														<c:otherwise>个体工商户</c:otherwise>
+													</c:choose>
+												</label>
+											</td>
+										</tr>
+										<tr>
+											<td height="1" colspan="6" background="./img/JZZZL_line.jpg"></td>
+										</tr>
+										<tr>
+											<td height="30" align="right" valign="middle"
 													class="jzzzl_box_main_font_04">居住证/身份证号&nbsp;</td>
-												<td height="30" colspan="5" align="left" valign="middle"
-													class="jzzzl_box_main_font_02"><input type="text"
-													style="font-size: 18px; font-weight: bold;"
-													value="${myUser.cardID}" size="61" name="cardID"
-													id="idcard" maxlength="18" onkeyup="enterNext('name');"></td>
-											</tr>
-											<tr>
-												<td height="1" colspan="6" background="./img/JZZZL_line.jpg"></td>
-											</tr>
-											<tr>
-												<td height="30" align="right" valign="middle"
-													class="jzzzl_box_main_font_04">姓&nbsp;&nbsp;&nbsp;&nbsp;名&nbsp;</td>
-												<td width="150" height="30" align="left" valign="middle"
-													class="jzzzl_box_main_font_02"><input type="text"
-													style="font-size: 12px;" name="name"
-													onfocus="this.select();" onkeyup="enterNext('sex');"
-													tabindex="10" maxlength="10" id="name" size="20"
-													value="${myUser.name}"></td>
-												<td width="100" height="30" align="right" valign="middle"
-													class="jzzzl_box_main_font_04">性&nbsp;&nbsp;&nbsp;&nbsp;别&nbsp;</td>
-												<td width="150" height="30" align="left" valign="middle"
-													class="jzzzl_box_main_font_02"><input name="sex"
-													type="radio" value="男" onkeyup="enterNext('mz');"
-													style="font-color: red;" tabindex="10" id="sex"> 男
-													<input name="sex" type="radio" value="女"
-													onkeyup="enterNext('mz');" style="font-color: red;"
-													tabindex="10" id="xb2">女</td>
+											<td height="30" colspan="5" align="left" valign="middle" class="jzzzl_box_main_font_02">
+												<label style="font-size: 18px; font-weight: bold;">${myUser.cardID}</label>
+											</td>
+										</tr>
+										<tr>
+											<td height="1" colspan="6" background="./img/JZZZL_line.jpg"></td>
+										</tr>
+										<tr>
+											<td height="30" align="right" valign="middle" class="jzzzl_box_main_font_04">姓&nbsp;&nbsp;&nbsp;&nbsp;名&nbsp;</td>
+											<td width="150" height="30" align="left" valign="middle" class="jzzzl_box_main_font_02">
+												<label  style="font-size: 12px;" id="name" >${myUser.name}</label>
+											</td>
+											<td width="100" height="30" align="right" valign="middle" class="jzzzl_box_main_font_04">性&nbsp;&nbsp;&nbsp;&nbsp;别&nbsp;</td>
+											<td width="150" height="30" align="left" valign="middle" class="jzzzl_box_main_font_02">
+												<label  style="font-color: red;">${myUser.sex}</label>
+
 												<td width="100" height="30" align="right" valign="middle"
 													class="jzzzl_box_main_font_04">民&nbsp;&nbsp;&nbsp;&nbsp;族&nbsp;</td>
-												<td width="150" height="30" align="left" valign="middle"
-													class="jzzzl_box_main_font_02"><select id="mz"
-													name="nationality" style="width: 130px;"
-													onkeyup="enterNext('birth');" tabindex="10">
-														<option value="1" selected="selected"></option>
-														<option value="汉族">汉族</option>
-														<option value="蒙古族">蒙古族</option>
-														<option value="回族">回族</option>
-														<option value="藏族">藏族</option>
-														<option value="维吾尔族">维吾尔族</option>
-														<option value="苗族">苗族</option>
-														<option value="彝族">彝族</option>
-														<option value="壮族">壮族</option>
-														<option value="布依族">布依族</option>
-														<option value="朝鲜族">朝鲜族</option>
-														<option value="满族">满族</option>
-														<option value="侗族">侗族</option>
-														<option value="瑶族">瑶族</option>
-														<option value="白族">白族</option>
-														<option value="土家族">土家族</option>
-														<option value="哈尼族">哈尼族</option>
-														<option value="哈萨克族">哈萨克族</option>
-														<option value="傣族">傣族</option>
-														<option value="黎族">黎族</option>
-														<option value="傈僳族">傈僳族</option>
-														<option value="佤族">佤族</option>
-														<option value="畲族">畲族</option>
-														<option value="高山族">高山族</option>
-														<option value="拉祜族">拉祜族</option>
-														<option value="水族">水族</option>
-														<option value="东乡族">东乡族</option>
-														<option value="纳西族">纳西族</option>
-														<option value="景颇族">景颇族</option>
-														<option value="柯尔克孜族">柯尔克孜族</option>
-														<option value="土族">土族</option>
-														<option value="达斡尔族">达斡尔族</option>
-														<option value="仫佬族">仫佬族</option>
-														<option value="羌族">羌族</option>
-														<option value="布朗族">布朗族</option>
-														<option value="撒拉族">撒拉族</option>
-														<option value="毛南族">毛南族</option>
-														<option value="仡佬族">仡佬族</option>
-														<option value="锡伯族">锡伯族</option>
-														<option value="阿昌族">阿昌族</option>
-														<option value="普米族">普米族</option>
-														<option value="塔吉克族">塔吉克族</option>
-														<option value="怒族">怒族</option>
-														<option value="乌孜别克族">乌孜别克族</option>
-														<option value="俄罗斯族">俄罗斯族</option>
-														<option value="鄂温克族">鄂温克族</option>
-														<option value="德昂族">德昂族</option>
-														<option value="保安族">保安族</option>
-														<option value="裕固族">裕固族</option>
-														<option value="京族">京族</option>
-														<option value="塔塔尔族">塔塔尔族</option>
-														<option value="独龙族">独龙族</option>
-														<option value="鄂伦春族">鄂伦春族</option>
-														<option value="赫哲族">赫哲族</option>
-														<option value="门巴族">门巴族</option>
-														<option value="珞巴族">珞巴族</option>
-														<option value="基诺族">基诺族</option>
-												</select></td>
+												<td width="150" height="30" align="left" valign="middle" class="jzzzl_box_main_font_02">
+													<label>${myUser.nationality}</label>
+												</td>
 											</tr>
 											<tr>
 												<td height="1" colspan="6" background="./img/JZZZL_line.jpg"></td>
@@ -174,46 +98,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												<td height="30" align="right" valign="middle"
 													class="jzzzl_box_main_font_04">出生日期&nbsp;</td>
 												<td height="30" width="180px" align="left" valign="middle"
-													class="jzzzl_box_main_font_02"><input type="text"
-													style="font-size: 12px;" name="birth" tabindex="10"
-													onFocus="WdatePicker({isShowClear:false,readOnly:true})"
-													id="birth" size="20" value="${myUser.birth}"> <img
-													onclick="WdatePicker({el:'birth'})"
-													src="js/My97DatePicker/skin/datePicker.gif" width="16"
-													height="22" align="absmiddle"></td>
+													class="jzzzl_box_main_font_02">
+													<label style="font-size: 12px">${myUser.birth}</label>
+												</td>
 												<td height="30" align="right" valign="middle"
 													class="jzzzl_box_main_font_04">政治面貌&nbsp;</td>
-												<td height="30" align="left" valign="middle"
-													class="jzzzl_box_main_font_02"><select id="political"
-													name="political" style="width: 127px;"
-													onkeyup="enterNext('marriage');" tabindex="10">
-														<option value="1" selected="selected"></option>
-														<option value="中共党员">中共党员</option>
-														<option value="中共预备党员">中共预备党员</option>
-														<option value="共青团员">共青团员</option>
-														<option value="民革会员">民革会员</option>
-														<option value="民盟盟员">民盟盟员</option>
-														<option value="民建会员">民建会员</option>
-														<option value="民进会员">民进会员</option>
-														<option value="农工党党员">农工党党员</option>
-														<option value="致公党党员">致公党党员</option>
-														<option value="九三学社社员">九三学社社员</option>
-														<option value="台盟盟员">台盟盟员</option>
-														<option value="无党派民主人士">无党派民主人士</option>
-														<option value="群众">群众</option>
-												</select></td>
+												<td height="30" align="left" valign="middle" class="jzzzl_box_main_font_02">
+													<label>${myUser.political}</label>
+												</td>
 												<td height="30" align="right" valign="middle"
 													class="jzzzl_box_main_font_04">婚姻状况&nbsp;</td>
 												<td height="30" align="left" valign="middle"
-													class="jzzzl_box_main_font_02"><select id="marriage"
-													name="marriage" style="width: 130px;"
-													onkeyup="enterNext('education');" tabindex="10">
-														<option value="1" selected="selected"></option>
-														<option value="已婚">已婚</option>
-														<option value="未婚">未婚</option>
-														<option value="丧偶">丧偶</option>
-														<option value="离婚">离婚</option>
-												</select></td>
+													class="jzzzl_box_main_font_02">
+													<label style="width:130px;">${myUser.marriage }</label>
+												</td>
 											</tr>
 											<tr>
 												<td height="1" colspan="6" background="./img/JZZZL_line.jpg"></td>
@@ -221,43 +119,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											<tr>
 												<td height="30" align="right" valign="middle"
 													class="jzzzl_box_main_font_04">文化程度&nbsp;</td>
-												<td height="30" align="left" valign="middle"
-													class="jzzzl_box_main_font_02"><select id="education"
-													name="education" style="width: 130px;"
-													onkeyup="enterNext('degree');" tabindex="10">
-														<option value="研究生">研究生</option>
-														<option value="大学本科">大学本科</option>
-														<option value="大专和专科学校">大专和专科学校</option>
-														<option value="中专和中技">中专和中技</option>
-														<option value="技工学校">技工学校</option>
-														<option value="高中">高中</option>
-														<option value="初中">初中</option>
-														<option value="小学">小学</option>
-														<option value="文盲或半文盲">文盲或半文盲</option>
-												</select></td>
+												<td height="30" align="left" valign="middle" class="jzzzl_box_main_font_02">
+													<label style="width: 130px;">${myUser.education}</label>
+												</td>
 												<td height="30" align="right" valign="middle"
 													class="jzzzl_box_main_font_04">学&nbsp;&nbsp;&nbsp;&nbsp;位&nbsp;</td>
 												<td height="30" align="left" valign="middle"
-													class="jzzzl_box_main_font_02"><select id="degree"
-													name="degree" style="width: 130px;"
-													onkeyup="enterNext('major');" tabindex="10">
-														<option value="博士后">博士后</option>
-														<option value="名誉博士">名誉博士</option>
-														<option value="博士">博士</option>
-														<option value="硕士">硕士</option>
-														<option value="学士">学士</option>
-														<option value="双学士">双学士</option>
-														<option value="无">无</option>
-												</select></td>
+													class="jzzzl_box_main_font_02">
+													<label id="degree" style="width: 130px;">${myUser.degree}</label>
+												</td>
 												<td height="30" align="right" valign="middle"
 													class="jzzzl_box_main_font_04">专&nbsp;&nbsp;&nbsp;&nbsp;业&nbsp;</td>
-												<td height="30" align="left" valign="middle"
-													class="jzzzl_box_main_font_02"><input
-													style="font-size: 12px;" name="major" type="text"
-													onfocus="this.select();"
-													onkeyup="enterNext('qualification');" tabindex="10"
-													maxlength="50" class="textarea" id="major"
-													value="${myUser.major}"></td>
+												<td height="30" align="left" valign="middle" class="jzzzl_box_main_font_02">
+													<label style="font-size: 12px;" maxlength="50">${myUser.major}</label>
+												</td>
 											</tr>
 											<tr>
 												<td height="1" colspan="6" background="./img/JZZZL_line.jpg"></td>
@@ -266,20 +141,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												<td height="30" align="right" valign="middle"
 													class="jzzzl_box_main_font_04">职业资格&nbsp;</td>
 												<td height="30" colspan="3" align="left" valign="middle"
-													class="jzzzl_box_main_font_02"><input
-													style="font-size: 12px;" name="qualification" type="text"
-													onfocus="this.select();" onkeyup="enterNext('workTypes');"
-													tabindex="10" maxlength="100" class="textarea"
-													id="qualification" size="61"
-													value="${myUser.qualification}"></td>
+													class="jzzzl_box_main_font_02">
+													<label style="font-size: 12px;">${myUser.qualification}</label>
+												</td>
 												<td height="30" align="right" valign="middle"
 													class="jzzzl_box_main_font_04">工&nbsp;&nbsp;&nbsp;&nbsp;种&nbsp;</td>
 												<td height="30" align="left" valign="middle"
-													class="jzzzl_box_main_font_02"><input
-													style="font-size: 12px;" name="workTypes" type="text"
-													onfocus="this.select();" onkeyup="enterNext('qcd_sj');"
-													tabindex="10" maxlength="15" class="textarea"
-													id="workTypes" size="20" value="${myUser.workTypes}"></td>
+													class="jzzzl_box_main_font_02">
+													<label style="font-size: 12px;">${myUser.workTypes}</label>
+												</td>
 											</tr>
 											<tr>
 												<td height="1" colspan="6" background="./img/JZZZL_line.jpg"></td>
@@ -288,11 +158,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												<td height="30" align="right" valign="middle"
 													class="jzzzl_box_main_font_04">迁出地省市县（区）&nbsp;</td>
 												<td height="30" colspan="5" align="left" valign="middle"
-													class="jzzzl_box_main_font_02">&nbsp;省（市自治区） <select
-													id="qcd_sj" name="fromProvincial" style="width: 200px;"
-													tabindex="10">
-												</select> &nbsp;&nbsp;&nbsp;市 <select id="qcd_sj_sj" name="fromCity"
-													style="width: 285px;" tabindex="10"></select>
+													class="jzzzl_box_main_font_02">
+													&nbsp;省（市自治区）
+													<label style="width: 200px;">${myUser.fromProvincial }</label>
+													&nbsp;&nbsp;&nbsp;市
+													<label id="qcd_sj_sj" style="width: 285px;" tabindex="10">${myUser.fromCity }</label>
 												</td>
 											</tr>
 											<tr>
@@ -300,9 +170,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 													class="jzzzl_box_main_font_04">&nbsp;</td>
 												<td height="30" colspan="5" align="left" valign="middle"
 													class="jzzzl_box_main_font_02">
-													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;区（县） <select id="qcd"
-													name="fromDistrict" style="width: 200px;"
-													onkeyup="enterNext('fromAddress');" tabindex="10"></select>
+													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;区（县）
+													<label style="width: 200px;" >${myUser.fromDistrict }</label>
 												</td>
 											</tr>
 											<tr>
@@ -312,30 +181,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												<td height="30" align="right" valign="middle"
 													class="jzzzl_box_main_font_04">迁出地详细地址&nbsp;</td>
 												<td height="30" colspan="3" align="left" valign="middle"
-													class="jzzzl_box_main_font_02"><input
-													style="font-size: 12px;" name="fromAddress" type="text"
-													onfocus="this.select();"
-													onkeyup="enterNext('fromProperty');" tabindex="10"
-													maxlength="100" class="textarea" id="fromAddress" size="61"
-													value="${myUser.fromAddress}"></td>
+													class="jzzzl_box_main_font_02">
+													<label style="font-size: 12px;" class="textarea">${myUser.fromAddress}</label>
+												</td>
 												<td height="30" align="right" valign="middle"
 													class="jzzzl_box_main_font_04">现户口性质&nbsp;</td>
-												<td height="30" align="left" valign="middle"
-													class="jzzzl_box_main_font_02"><select
-													id="fromProperty" name="fromProperty" style="width: 130px;"
-													onkeyup="enterNext('fromOrgan');" tabindex="10">
-														<option value="1" selected="selected"></option>
-														<option value="未落常住户口">未落常住户口</option>
-														<option value="非农业家庭户口">非农业家庭户口</option>
-														<option value="农业家庭户口">农业家庭户口</option>
-														<option value="非农业集体户口">非农业</option>
-														<option value="农业集体户口">农业集体户口</option>
-														<option value="自理口粮户口">自理口粮户口</option>
-														<option value="寄住户口">寄住户口</option>
-														<option value="暂住户口">暂住户口</option>
-														<option value="地方城镇居民户口">地方城镇居民户口</option>
-														<option value="其他户口">其他户口</option>
-												</select></td>
+												<td height="30" align="left" valign="middle" class="jzzzl_box_main_font_02">
+													<label style="width: 130px;">${myUser.fromProperty}</label>
+												</td>
 											</tr>
 											<tr>
 												<td height="1" colspan="6" background="./img/JZZZL_line.jpg"></td>
@@ -344,12 +197,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												<td height="30" align="right" valign="middle"
 													class="jzzzl_box_main_font_04">现户籍登记机关&nbsp;</td>
 												<td height="30" colspan="5" align="left" valign="middle"
-													class="jzzzl_box_main_font_02"><input
-													style="font-size: 12px;" name="fromOrgan" type="text"
-													onfocus="this.select();" onkeyup="enterNext('toOrgan');"
-													tabindex="10" maxlength="100" class="textarea"
-													id="fromOrgan" size="61" value="${myUser.fromOrgan}"></td>
-
+													class="jzzzl_box_main_font_02">
+													<label style="font-size: 12px;"  class="textarea">${myUser.fromOrgan}</label>
+												</td>
 											</tr>
 											<tr>
 												<td height="1" colspan="6" background="./img/JZZZL_line.jpg"></td>
@@ -360,62 +210,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												<td height="30" colspan="5" align="left" valign="middle"
 													class="jzzzl_box_main_font_02">
 													<div id="city_5">
-														<select id="toOrgan" name="toOrgan" style="width: 240px;"
-															onchange="myPoliceChangeHandler(this)" tabindex="10">
-															<option value="0"></option>
-
-															<option value="01">天津市公安局和平分局</option>
-															<option value="02">天津市公安局河东分局</option>
-															<option value="03">天津市公安局河西分局</option>
-															<option value="04">天津市公安局南开分局</option>
-															<option value="05">天津市公安局河北分局</option>
-															<option value="06">天津市公安局红桥分局</option>
-															<option value="08">天津市滨海新区公安局开发分局</option>
-															<option value="09">天津市滨海新区公安局汉沽分局</option>
-															<option value="0A">天津市滨海新区公安局大港分局</option>
-															<option value="0B">天津市公安局东丽分局</option>
-															<option value="0C">天津市公安局西青分局</option>
-															<option value="0D">天津市公安局津南分局</option>
-															<option value="0E">天津市公安局北辰分局</option>
-															<option value="12">天津市公安局武清分局</option>
-															<option value="0M">天津市公安局铁城分局</option>
-															<option value="15">天津市公安局宝坻分局</option>
-															<option value="11">天津市公安局宁河分局</option>
-															<option value="14">天津市公安局静海分局</option>
-															<option value="16">天津市公安局蓟县分局</option>
-															<option value="0F">天津市公安局天津港公安局</option>
-															<option value="0I">天津市公安局钢城治安分局</option>
-															<option value="0J">天津市滨海新区公安局保税分局</option>
-															<option value="0L">天津市公安局海河教育园区分局</option>
-															<option value="0N">天津市公安局高新分局</option>
-															<option value="0Z">天津市滨海新区公安局</option>
-															<option value="0S">天津市滨海新区公安局生态城分局</option>
-															<option value="0T">天津市滨海新区公安局高新分局</option>
-															<option value="07">天津市滨海新区公安局塘沽分局</option>
-
-														</select> <select id="toPolicestation" name="toPolicestation"
-															style="width: 240px;" onkeyup="enterNext('toAddress');"
-															tabindex="10">
-
-															<!-- <option value="1201010001">和平分局院校</option>
-													<option value="1201010002">和平分局南市派出所</option>
-													<option value="1201010003">和平分局兴安路派出所</option>
-													<option value="1201010004">和平分局甘肃路派出所</option>
-													<option value="1201010005">和平分局东兴市场派出所</option>
-													<option value="1201010006">和平分局南营门派出所</option>
-													<option value="1201010007">和平分局劝业场派出所</option>
-													<option value="1201010008">和平分局体育馆派出所</option>
-													<option value="1201010009">和平分局新兴派出所</option>
-													<option value="1201010010">和平分局民园派出所</option>
-													<option value="1201010011">和平分局解放桥派出所</option>
-													<option value="1201010012">和平分局劝业场派出所（治安所）</option>
-													<option value="1201010013">和平分局小白楼派出所</option>
-													<option value="1201010014">和平分局和平区看守所</option>
-													<option value="1201010015">和平分局食品街治安派出所</option>
-													<option value="1201010501">和平分局金街治安派出所</option>
-													<option value="1201010502">和平分局解放路治安派出所</option>
-													-->
-														</select>
+														<label id="toOrgan" style="width: 240px;" >${myUser.toOrgan}</label>
+														<label id="toPolicestation" style="width: 240px;" >${myUser.toPolicestation}</label>
 													</div>
 												</td>
 											</tr>
@@ -426,42 +222,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												<td height="30" align="right" valign="middle"
 													class="jzzzl_box_main_font_04">迁入地详细地址&nbsp;</td>
 												<td height="30" colspan="3" align="left" valign="middle"
-													class="jzzzl_box_main_font_02"><input
-													style="font-size: 12px;" name="toAddress" type="text"
-													onfocus="this.select();" onkeyup="enterNext('toDistrict');"
-													tabindex="10" maxlength="100" class="textarea"
-													id="toAddress" size="61" value="${myUser.toAddress}"></td>
+													class="jzzzl_box_main_font_02">
+													<label
+													style="font-size: 12px;">${myUser.toAddress}</label>
+												</td>
 												<td height="30" align="right" valign="middle"
 													class="jzzzl_box_main_font_04">拟落户地区&nbsp;</td>
 												<td height="30" align="left" valign="middle"
-													class="jzzzl_box_main_font_02"><select
-													name="toDistrict" style="width: 130px;" id="toDistrict"
-													onkeyup="enterNext('companyName');" tabindex="10"
-													class="textarea">
-														<option value="1" selected="selected"></option>
-														<option value="11">和平区</option>
-														<option value="12">河东区</option>
-														<option value="13">河西区</option>
-														<option value="14">河北区</option>
-														<option value="15">南开区</option>
-														<option value="16">红桥区</option>
-														<option value="17">东丽区</option>
-														<option value="18">西青区</option>
-														<option value="19">津南区</option>
-														<option value="20">北辰区</option>
-														<option value="24">武清区</option>
-														<option value="25">宝坻区</option>
-														<option value="26">蓟县</option>
-														<option value="27">静海县</option>
-														<option value="28">宁河县</option>
-														<option value="29">滨海新区</option>
-														<option value="21">塘沽</option>
-														<option value="22">汉沽</option>
-														<option value="23">大港</option>
-														<option value="30">开发区</option>
-														<option value="31">保税区</option>
-														<option value="32">高新区</option>
-												</select></td>
+													class="jzzzl_box_main_font_02">
+													<label style="width: 130px;" id="toDistrict" class="textarea">${myUser.toDistrict }</label>
+												</td>
 											</tr>
 											<tr>
 												<td height="1" colspan="6" background="./img/JZZZL_line.jpg"></td>
@@ -470,21 +240,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												<td height="30" align="right" valign="middle"
 													class="jzzzl_box_main_font_04">现单位名称&nbsp;</td>
 												<td height="30" colspan="3" align="left" valign="middle"
-													class="jzzzl_box_main_font_02"><input
-													style="font-size: 12px;" name="companyName" type="text"
-													onfocus="this.select();"
-													onkeyup="enterNext('companyTelephone');" maxlength="100"
-													tabindex="10" class="textarea" id="companyName" size="61"
-													value="天津富强伟业精密五金有限公司"></td>
+													class="jzzzl_box_main_font_02">
+													<label style="font-size: 12px;">天津富强伟业精密五金有限公司</label>
+												</td>
 												<td height="30" align="right" valign="middle"
 													class="jzzzl_box_main_font_04">单位电话&nbsp;</td>
 												<td height="30" align="left" valign="middle"
-													class="jzzzl_box_main_font_02"><input
-													style="font-size: 12px;" name="companyTelephone"
-													type="text" onfocus="this.select();"
-													onkeyup="enterNext('companyAddress');" tabindex="10"
-													maxlength="100" class="textarea" id="companyTelephone"
-													size="20" value="15022781050"></td>
+													class="jzzzl_box_main_font_02">
+													<label style="font-size: 12px;" >15022781050</label>
+												</td>
 											</tr>
 											<tr>
 												<td height="1" colspan="6" background="./img/JZZZL_line.jpg"></td>
@@ -493,20 +257,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												<td height="30" align="right" valign="middle"
 													class="jzzzl_box_main_font_04">单位地址&nbsp;</td>
 												<td height="30" colspan="3" align="left" valign="middle"
-													class="jzzzl_box_main_font_02"><input
-													style="font-size: 12px;" name="companyAddress" type="text"
-													onfocus="this.select();" onkeyup="enterNext('phone');"
-													tabindex="10" class="textarea" maxlength="100"
-													id="companyAddress" size="61" value="天津市东丽区大毕庄工业区"></td>
+													class="jzzzl_box_main_font_02">
+													<label style="font-size: 12px;">天津市东丽区大毕庄工业区</label>
+												</td>
 												<td height="30" align="right" valign="middle"
 													class="jzzzl_box_main_font_04">本人电话&nbsp;</td>
 												<td height="30" align="left" valign="middle"
-													class="jzzzl_box_main_font_02"><input
-													style="font-size: 12px;" name="phone" type="text"
-													onfocus="this.select();"
-													onkeyup="enterNext('hasSocialsecurity');" tabindex="10"
-													class="textarea" id="phone" maxlength="11" size="20"
-													value="${myUser.phone}"></td>
+													class="jzzzl_box_main_font_02">
+													<label style="font-size: 12px;">${myUser.phone}</label>
+												</td>
 											</tr>
 											<tr>
 												<td height="1" colspan="6" background="./img/JZZZL_line.jpg"></td>
@@ -515,27 +274,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												<td height="30" align="right" valign="middle"
 													class="jzzzl_box_main_font_04">社保缴纳&nbsp;</td>
 												<td height="30" align="left" valign="middle"
-													class="jzzzl_box_main_font_02"><input
-													name="hasSocialsecurity"
-													onkeyup="enterNext('hasDetention');" type="radio" value="是"
-													style="font-color: red;" tabindex="10"
-													id="hasSocialsecurity"> 是 <input
-													name="hasSocialsecurity"
-													onkeyup="enterNext('hasDetention');" type="radio" value="否"
-													style="font-color: red;" tabindex="10" id="cjbx2">否</td>
+													class="jzzzl_box_main_font_02">
+													<label style="font-color: red;">${myUser.hasSocialsecurity }</label>
+												</td>
 												<td height="30" align="left" valign="middle"
 													class="jzzzl_box_main_font_04"></td>
 												<td height="30" align="right" valign="middle"
 													class="jzzzl_box_main_font_04" colspan="2">积分期间有无行政拘留记录&nbsp;</td>
 												<td height="30" align="left" valign="middle"
-													class="jzzzl_box_main_font_02"><input
-													name="hasDetention"
-													onkeyup="enterNext('residencePermitDate');" type="radio"
-													value="有" style="font-color: red;" tabindex="10"
-													id="hasDetention"> 有 <input name="hasDetention"
-													onkeyup="enterNext('residencePermitDate');" type="radio"
-													value="无" style="font-color: red;" tabindex="10"
-													id="hasJL2">无&nbsp;&nbsp;</td>
+													class="jzzzl_box_main_font_02">
+													<label style="font-color: red;">${myUser.hasDetention }</label>
+												</td>
 											</tr>
 											<tr>
 												<td height="1" colspan="6" background="./img/JZZZL_line.jpg"></td>
@@ -544,29 +293,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												<td height="30" align="right" valign="middle"
 													class="jzzzl_box_main_font_04">居住证申领日期&nbsp;</td>
 												<td height="30" width="180px" align="left" valign="middle"
-													class="jzzzl_box_main_font_02"><input
-													style="font-size: 12px;" name="residencePermitDate"
-													id="residencePermitDate" abindex="10"
-													onFocus="WdatePicker({isShowClear:false,readOnly:true})"
-													class="textarea" size="20"
-													value="${myUser.residencePermitDate}"> <img
-													onclick="WdatePicker({el:'residencePermitDate'})"
-													src="js/My97DatePicker/skin/datePicker.gif" width="16"
-													height="22" align="absmiddle"></td>
+													class="jzzzl_box_main_font_02">
+													<label style="font-size: 12px;">${myUser.residencePermitDate}</label>
+												</td>
 
 												<td height="30" align="left" valign="middle"
 													class="jzzzl_box_main_font_04"></td>
 												<td height="30" align="right" valign="middle"
 													class="jzzzl_box_main_font_04" colspan="2">积分期间有无犯罪获刑记录&nbsp;</td>
 												<td height="30" align="left" valign="middle"
-													class="jzzzl_box_main_font_02"><input
-													name="hasCriminal" onkeyup="enterNext('checkcode');"
-													type="radio" value="有" onfocus="this.select();"
-													style="font-color: red;" tabindex="10" id="hasCriminal">
-													有 <input name="hasCriminal"
-													onkeyup="enterNext('checkcode');" type="radio" value="无"
-													onfocus="this.select();" style="font-color: red;"
-													tabindex="10" id="hasFZ2">无&nbsp;&nbsp;</td>
+													class="jzzzl_box_main_font_02">
+													<label style="font-color: red;">${myUser.hasCriminal}&nbsp;&nbsp;</label>
+												</td>
 											</tr>
 											<tr>
 												<td height="1" colspan="6" background="./img/JZZZL_line.jpg"></td>
@@ -597,12 +335,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 												<td height="30" align="center" width="125px;"
 													valign="middle" class="jzzzl_box_main_font_02">文化程度</td>
-
-												<td height="30" align="center" valign="middle"><img
-													src="./img/14.jpg" width="100" height="26"
-													style="cursor: hand;" id="addButton"
-													onclick="enterPrise3();" onkeyup="enterPrise4();"></td>
-
 											</tr>
 											<tr>
 												<td height="1" colspan="5" background="./img/JZZZL_line.jpg"></td>
@@ -611,28 +343,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										<tbody id="roles">
 											<c:forEach var="myRelations" items="${myRelationList}">
 												<tr>
-													<input type="hidden" id="irolesoid0" name="rolesoid0"
-														value="">
-													<input type="hidden" id="irolespersonid0"
-														name="rolespersonid0" value="">
-													<td align="center" height="30px"><input type="TEXT"
-														id="irelation1" name="relation1" maxlength="50"
-														style="text-align: left; width: 102px;"
-														value="${myRelations.relation}"></td>
-													<td align="center" height="30px"><input type="TEXT"
-														id="irelationName1" name="relationName1" maxlength="10"
-														style="text-align: left; width: 102px;"
-														value="${myRelations.relationName}"></td>
-													<td align="center" height="30px"><input type="TEXT"
-														id="irelationIDCard1" name="relationIDCard1"
-														maxlength="18" style="text-align: center; width: 275px;"
-														value="${myRelations.relationIDCard}"></td>
-													<td align="center" height="30px"><input type="TEXT"
-														id="irelationdegree1" name="relationdegree1"
-														maxlength="20" style="text-align: center; width: 102px;"
-														value="${myRelations.relationDegree}"></td>
-													<td align="center"><img src="img/close.jpg"
-														alt="点击删除该亲属信息"></td>
+													<td align="center" height="30px">
+														<label style="text-align: left; width: 102px;">${myRelations.relation}</label>
+													</td>
+													<td align="center" height="30px">
+														<label style="text-align: left; width: 102px;">${myRelations.relationName}</label>
+													</td>
+													<td align="center" height="30px">
+														<label style="text-align: left; width: 102px;">${myRelations.relationIDCard}</label>
+													</td>
+													<td align="center" height="30px">
+														<label style="text-align: left; width: 102px;">${myRelations.relationDegree}</label>
+													</td>
 												</tr>
 											</c:forEach>
 										</tbody>
@@ -644,66 +366,98 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											<!--循环结束-->
 											<tr>
 												<td height="60" colspan="5" align="center" valign="middle">
-
-													<img src="./img/15+.jpg" width="100" height="26"
-													onclick="next()" style="cursor: hand;"> &nbsp;&nbsp;
-													<img src="./img/16.jpg" width="100" height="26"
-													onclick="doConfirm1()" style="cursor: hand;">
-													&nbsp;&nbsp; <img src="./img/17-.jpg"
-													onclick="backProject('4508439')" width="100" height="26"
-													style="cursor: hand;">
-												</td>
+													<!-- <img src="./img/16.jpg" width="100" height="26"
+													onclick="doConfirm1()" style="cursor: hand;">&nbsp;&nbsp; --></td>
 											</tr>
 											<tr>
 												<td height="1" colspan="5" background="./img/JZZZL_line.jpg"></td>
 											</tr>
 										</tbody>
 									</table>
-								</form>
-							</td>
-						</tr>
-					</tbody>
-				</table>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
-		</div>
-		<div style="float:right">
-			<a href="checkFilePage">
-				<button style='width:120px;height:30px;margin:50px 0'>
-						查看申请材料
-					</button>
-			</a>
-			<br>
-			<button style='width:120px;height:30px'>
-				打印合同
-			</button>
-		</div>
-	</div>
-	<script type="text/javascript">
-		new PCAS("fromProvincial=吉林省,请选择省份", "fromCity=白城市,请选择城市",
-				"fromDistrict=大安市,请选择地区");
-		$("#education").val('${myUser.education}');
-		$("#degree").val('${myUser.degree}');
-		$("#political").val('${myUser.political}');
-		$("#fromProperty").val('${myUser.fromProperty}');
-		$("#toDistrict").val('${myUser.toDistrict}');
-		$("#mz").val('${myUser.nationality}');
-		$("#marriage").val('${myUser.marriage}');
-		$("#toOrgan").val('${myUser.toOrgan}');
-		/*	$("#qcd_sj").val('${myUser.fromProvincial}');
-			$("#qcd_sj_sj").val('${myUser.fromCity}');
-			$("#qcd").val('${myUser.fromDistrict}');*/
-		$('input:radio[name="type"][value="${myUser.type}"]').attr("checked",
-				true)
-		$('input:radio[name="sex"][value="${myUser.sex}"]').attr("checked",
-				true)
-		$('input:radio[name="hasDetention"][value="${myUser.hasDetention}"]')
-				.attr("checked", true)
-		$('input:radio[name="hasCriminal"][value="${myUser.hasCriminal}"]')
-				.attr("checked", true)
-		$(
-				'input:radio[name=s"hasSocialsecurity"][value="${myUser.hasSocialsecurity}"]')
-				.attr("checked", true)
-	</script>
+			<div style="float:right">
+				<button style='width:120px;height:30px;margin-top:50px' onclick="checkPage()">查看申请材料</button>
+				<br>
+				<button style='width:120px;height:30px;margin-top:50px' onclick="printContract()">打印合同</button>
+				<br>
+				<c:if test="${myUser.acceptionProgress=='1' }">
+					<button style="width:120px;height:30px;margin-top:50px" onclick="editUserInfo()">编辑</button>
+					<br>
+					<button style="width:120px;height:30px;margin-top:50px" onclick="slUserInfo()">受理</button>
 
+				</c:if>
+				<c:if test="${myUser.acceptionProgress=='2' }">
+
+					<button style="width:120px;height:30px;margin-top:50px" id="registerButton">登记</button>
+					<br>
+					<button style="width:120px;height:30px;margin-top:50px" onclick="UserInfo()">办结</button>
+
+				</c:if>
+
+				<!-- 此节点内部的内容会在弹出框内显示,默认隐藏此节点-->
+				<div id="content" style="display:none">
+					<form id="form" class="form-horizontal">
+						<div class="row">
+							<div class="control-group span8">
+								<label class="control-label">预约时间：</label>
+								<div class="controls">
+									<input type="text" class="calendar"></div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="control-group span15">
+								<label class="control-label">备注：</label>
+								<div class="controls control-row4">
+									<textarea class="input-large" type="text"></textarea>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+
+				<script type="text/javascript">
+
+			//弹出模态对话框
+	        BUI.use('bui/overlay',function(Overlay){
+		          var dialog = new Overlay.Dialog({
+		            title:'模态窗口',
+		            width:500,
+		            height:250,
+		            contentId:'content',
+		            success:function () {
+		              alert('确认');
+		              this.close();
+		            }
+		          });
+		        $('#registerButton').on('click',function () {
+		          dialog.show();
+		        });
+		    });
+
+		    //设置日历控件
+			 BUI.use('bui/calendar',function(Calendar){
+         		 var datepicker = new Calendar.DatePicker({
+           		 trigger:'.calendar',
+           		 autoRender : true
+         		 });
+      		  });
+  			</script></div>
+		</div>
+		<script type="text/javascript">
+		function checkPage(){
+			window.location.href="checkFilePage";
+		}
+		function printContract(){
+			
+		}
+		function editUserInfo(){
+			window.location.href="admin/editUserInfo?userName=${myUser.username}";
+		}
+	</script>
 </body>
-</html>
+	</html>

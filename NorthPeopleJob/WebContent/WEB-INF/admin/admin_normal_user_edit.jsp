@@ -31,9 +31,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<tbody>
 						<tr>
 							<td width="758">
-								<form name="submitForm" method="post" action="userInfoUpdate">
+								<form name="submitForm" method="post" action="admin/userInfoUpdate">
 									<input type="hidden" value="4508439" name="regId" id="regId">
 									<input type="hidden" value="20151022470" name="regNo">
+									<input type="hidden" value="${myUser.username }" name="username">
 									<input type="hidden" name="pnumroles" id="pnumroles"> <input
 										type="hidden" name="opt" id="opt" value="create"> <input
 										type="hidden" name="oid" id="oid" value="null"> <input
@@ -639,26 +640,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											</tr>
 										</tbody>
 										<tbody id="roles">
-											<c:forEach var="myRelations" items="${myRelationList}">
+											<c:forEach var="myRelations" items="${myRelationList}" varStatus="status">
+											
 												<tr>
 													<input type="hidden" id="irolesoid0" name="rolesoid0"
 														value="">
 													<input type="hidden" id="irolespersonid0"
 														name="rolespersonid0" value="">
 													<td align="center" height="30px"><input type="TEXT"
-														id="irelation1" name="relation1" maxlength="50"
+														id="irelation1" name="relation${status.index+1 }" maxlength="50"
 														style="text-align: left; width: 102px;"
 														value="${myRelations.relation}"></td>
 													<td align="center" height="30px"><input type="TEXT"
-														id="irelationName1" name="relationName1" maxlength="10"
+														id="irelationName1" name="relationName${status.index+1 }" maxlength="10"
 														style="text-align: left; width: 102px;"
 														value="${myRelations.relationName}"></td>
 													<td align="center" height="30px"><input type="TEXT"
-														id="irelationIDCard1" name="relationIDCard1"
+														id="irelationIDCard1" name="relationIDCard${status.index+1 }"
 														maxlength="18" style="text-align: center; width: 275px;"
 														value="${myRelations.relationIDCard}"></td>
 													<td align="center" height="30px"><input type="TEXT"
-														id="irelationdegree1" name="relationdegree1"
+														id="irelationdegree1" name="relationdegree${status.index+1 }"
 														maxlength="20" style="text-align: center; width: 102px;"
 														value="${myRelations.relationDegree}"></td>
 													<td align="center"><img src="img/close.jpg"
@@ -675,13 +677,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											<tr>
 												<td height="60" colspan="5" align="center" valign="middle">
 
-													<img src="./img/15+.jpg" width="100" height="26"
-													onclick="next()" style="cursor: hand;"> &nbsp;&nbsp;
+													
 													<img src="./img/16.jpg" width="100" height="26"
 													onclick="doConfirm1()" style="cursor: hand;">
-													&nbsp;&nbsp; <img src="./img/17-.jpg"
-													onclick="backProject('4508439')" width="100" height="26"
-													style="cursor: hand;">
+													&nbsp;&nbsp; 
 												</td>
 											</tr>
 											<tr>
