@@ -210,7 +210,7 @@ body {
 					src="./img/home/process3_unfinished.png"></a>
 			</div>
 			<div id="process4">
-				<a href="userInfoView"><img alt=""
+				<a href="userInfoUpdate.jsp"><img alt=""
 					src="./img/home/process4_unfinished.png"></a>
 			</div>
 			<div id="process5">

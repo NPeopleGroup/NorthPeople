@@ -82,4 +82,10 @@ public interface AdminUserServiceInterface {
 	 */
 	public int deleteUser(String userName) throws Exception;
 	
+	/**
+	 * 根据办理进度筛选用户信息
+	 * @param type 所要筛选的用户状态
+	 * @return 符合所筛选进度的所有用户
+	 */
+	public List<User> getNormalUserListByProgressStatus(String type) throws Exception;
 }

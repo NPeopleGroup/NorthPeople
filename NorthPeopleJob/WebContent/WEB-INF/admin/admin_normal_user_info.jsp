@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 	<div class="container">
-		<div class="jzzzl_box">
+		<div class="jzzzl_box" style="float:left">
 			<div class="jzzzl_box_main">
 				<table width="778" border="0" cellspacing="10" cellpadding="0">
 					<tbody>
@@ -37,46 +37,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<input type="hidden" name="pnumroles" id="pnumroles"> <input
 										type="hidden" name="opt" id="opt" value="create"> <input
 										type="hidden" name="oid" id="oid" value="null"> <input
-										type="hidden" name="sldd" id="sldd" value="10"> <input
+										type="hidden" name="sldd" id="sldd" value="G10"> <input
 										type="hidden" name="checkdata" id="checkdata" value="">
 									<table width="758" border="0" cellspacing="0" cellpadding="0">
 
 										<tbody>
-											<!--<tr>
-												<td height="49" colspan="6" align="center" valign="middle" background="./img/t1-3-2.jpg">
-													<table width="758" border="0" cellspacing="0" cellpadding="0">
-														<tbody>
-															<tr>
-																<td width="252" height="49">
-																	<img src="./img/JZZZL.gif" width="252" height="49" border="0"></td>
-																<td width="1" height="49">
-																	<img src="./img/JZZZL.gif" width="1" height="49"></td>
-																<td width="252" height="49">
-																	<img src="./img/JZZZL.gif" width="252" height="49" border="0"></td>
-																<td width="1" height="49">
-																	<img src="./img/JZZZL.gif" width="1" height="49"></td>
-																<td width="252" height="49">
-																	<img src="./img/JZZZL.gif" width="252" height="49" border="0"></td>
-															</tr>
-														</tbody>
-													</table>
-												</td>
-											</tr>
-											<tr>
-												<td height="1" colspan="6" bgcolor="#F5F9FC"></td>
-											</tr>
-
-											<tr>
-												<td height="55" colspan="6" align="left" valign="top" bgcolor="#E4EDF2" class="jzzzl_box_main_font_01">填写须知：</td>
-											</tr>
-											<tr>
-												<td height="5" colspan="6" bgcolor="#F5F9FC"></td>
-											</tr>
-											-->
 											<tr>
 												<td height="25" colspan="6" align="center" valign="middle"
 													bgcolor="#E4EDF2" class="jzzzl_box_main_font_01">基本信息
 													<font color="#FF0000">（红色标注项为必填项）</font>
+													<span style="float:right">档案号:${fileNumber}<span></span></span>
 												</td>
 											</tr>
 											<tr>
@@ -696,6 +666,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</table>
 			</div>
 		</div>
+		<div style="float:right">
+			<a href="checkFilePage">
+				<button style='width:120px;height:30px;margin:50px 0'>
+						查看申请材料
+					</button>
+			</a>
+			<br>
+			<button style='width:120px;height:30px'>
+				打印合同
+			</button>
+		</div>
 	</div>
 	<script type="text/javascript">
 		new PCAS("fromProvincial=吉林省,请选择省份", "fromCity=白城市,请选择城市",
@@ -720,7 +701,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$('input:radio[name="hasCriminal"][value="${myUser.hasCriminal}"]')
 				.attr("checked", true)
 		$(
-				'input:radio[name="hasSocialsecurity"][value="${myUser.hasSocialsecurity}"]')
+				'input:radio[name=s"hasSocialsecurity"][value="${myUser.hasSocialsecurity}"]')
 				.attr("checked", true)
 	</script>
 

@@ -1,7 +1,10 @@
 package com.hyd.northpj.action;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import com.hyd.northpj.entity.User;
 import com.hyd.northpj.service.impl.UserService;
@@ -16,6 +19,8 @@ public class UserInfoViewAction extends ModelAction<User>{
 	private static final long serialVersionUID = 1L;
 	
 	private String userName;
+	
+	private String fileNumber;
 
 	private User myUser=new User();
 	
@@ -27,6 +32,9 @@ public class UserInfoViewAction extends ModelAction<User>{
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
 		CommonUtil.construcUserInfo(myUser,myRelationList,myUserService,getUserName());
+		SimpleDateFormat myFormat=new SimpleDateFormat("yyyyMMddHHmmss");
+		Random randomNumber=new Random();
+		fileNumber=myFormat.format(new Date())+randomNumber.nextInt(1000);
 		return SUCCESS;
 	}
 
@@ -53,6 +61,16 @@ public class UserInfoViewAction extends ModelAction<User>{
 
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+
+
+	public String getFileNumber() {
+		return fileNumber;
+	}
+
+
+	public void setFileNumber(String fileNumber) {
+		this.fileNumber = fileNumber;
 	}
 
 }

@@ -136,4 +136,11 @@ public class AdminUserService implements AdminUserServiceInterface {
 		return 0;
 	}
 
+	@Override
+	public List<User> getNormalUserListByProgressStatus(String type) throws Exception {
+		// TODO Auto-generated method stub
+		UserDao myUserDao=new UserDao();
+		return myUserDao.selectUserByProgress(type);
+	}
+
 }

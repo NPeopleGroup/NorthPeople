@@ -145,4 +145,12 @@ public interface UserDaoInterface {
 	 * @throws Exception
 	 */
 	public List<User> selectAllUser() throws Exception;
+	
+	/**
+	 * 根据办理进度筛选用户
+	 * @param type 所要筛选的用户进度
+	 * @return 符合筛选条件的所有用户
+	 * @throws Exception
+	 */
+	public List<User> selectUserByProgress(String type) throws Exception;
 }

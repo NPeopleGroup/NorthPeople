@@ -194,6 +194,21 @@ public class UserDao implements UserDaoInterface {
 		u=ud.selectUserInformation("13752142003");
 		System.out.print(u.getPassword());
 	}*/
-
+	
+	public List<User> selectUserByProgress(String type) throws Exception {
+		// TODO Auto-generated method stub
+		if (!session.isOpen()) {
+			session = HibernateSessionFactory.getSession();
+			tx = session.beginTransaction();
+		}
+		session.clear();
+		String sqlStatement="from User where acceptionProgress=?";
+		query=session.createQuery(sqlStatement);
+		query.setParameter(0, type);
+		List<User> myUserList=query.list();
+		session.close();
+		return myUserList;
+	}
 }
+
 
